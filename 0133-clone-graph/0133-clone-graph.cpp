@@ -21,7 +21,6 @@ public:
 
 class Solution
 {
-    vector<bool> Visited;
     vector<Node*> Graph;
 public:
     Node* cloneGraph(Node* node)
@@ -30,7 +29,6 @@ public:
         {
             return nullptr;
         }
-        Visited.resize(101);
         Graph.resize(101);
         return CloneGraph(node);
     }
