@@ -4,20 +4,21 @@ public:
     string removeStars(string s)
     {
         int N = static_cast<int>(s.size());
-        string Result;
+        int ToLeft = 0;
         
         for(int i = 0; i < N; i++)
         {
             if(s[i] == Erase)
             {
-                Result.pop_back();
+                ToLeft--;
             }
             else
             {
-                Result += s[i];
+                s[ToLeft] = s[i];
+                ToLeft++;
             }
         }
         
-        return Result;
+        return s.substr(0, ToLeft);
     }
 };
