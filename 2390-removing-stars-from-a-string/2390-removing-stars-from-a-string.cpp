@@ -5,28 +5,18 @@ public:
     {
         int N = static_cast<int>(s.size());
         string Result;
-        int Count = 0;
         
-        for(int i = N - 1; i >= 0; i--)
+        for(int i = 0; i < N; i++)
         {
             if(s[i] == Erase)
             {
-                Count++;
+                Result.pop_back();
             }
             else
             {
-                if(Count > 0)
-                {
-                    Count--;
-                }
-                else
-                {
-                    Result += s[i];
-                }
+                Result += s[i];
             }
         }
-        
-        reverse(Result.begin(), Result.end());
         
         return Result;
     }
