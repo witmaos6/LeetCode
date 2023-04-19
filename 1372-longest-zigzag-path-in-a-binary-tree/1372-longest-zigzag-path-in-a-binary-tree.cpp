@@ -30,31 +30,28 @@ public:
 private:
     void Search(TreeNode* root, char Prev, int Path)
     {
-        if(root)
+        if(root->right)
         {
-            if(root->right)
+            if(Prev == Left)
             {
-                if(Prev == Left)
-                {
-                    Search(root->right, Right, Path + 1);
-                }
-                else
-                {
-                    Search(root->right, Right, 1);
-                }
+                Search(root->right, Right, Path + 1);
             }
-            if(root->left)
+            else
             {
-                if(Prev == Right)
-                {
-                    Search(root->left, Left, Path + 1);
-                }
-                else
-                {
-                    Search(root->left, Left, 1);
-                }
+                Search(root->right, Right, 1);
             }
-            Result = max(Result, Path);
         }
+        if(root->left)
+        {
+            if(Prev == Right)
+            {
+                Search(root->left, Left, Path + 1);
+            }
+            else
+            {
+                Search(root->left, Left, 1);
+            }
+        }
+        Result = max(Result, Path);
     }
 };
