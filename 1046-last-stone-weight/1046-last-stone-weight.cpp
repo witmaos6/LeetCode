@@ -2,7 +2,7 @@ class Solution {
 public:
     int lastStoneWeight(vector<int>& stones)
     {
-        priority_queue<int> MaxHeap;
+        priority_queue<int, vector<int>> MaxHeap;
 
         for(int& stone : stones)
         {
