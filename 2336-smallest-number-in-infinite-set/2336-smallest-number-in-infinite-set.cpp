@@ -1,26 +1,48 @@
 class SmallestInfiniteSet {
-    set<int> SIS;
+    vector<int> SIS;
+    const int Erase = -1;
+    int PopValue = 0;
 public:
     SmallestInfiniteSet()
     {
+        SIS.resize(1001);
+        SIS[0] = -1;
+        
         for(int i = 1; i <= 1000; i++)
         {
-            SIS.insert(i);
+            SIS[i] = i;
         }
+        PopValue = 1;
     }
     
     int popSmallest()
     {
-        int Pop = *SIS.begin();
+        if(SIS[PopValue] == Erase)
+        {
+            for(int i = PopValue; i <= 1000; i++)
+            {
+                if(SIS[i] != Erase)
+                {
+                    PopValue = SIS[i];
+                    SIS[i] = Erase;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            SIS[PopValue] = Erase;
+        }
         
-        SIS.erase(SIS.begin());
+        PopValue++;
         
-        return Pop;
+        return PopValue - 1;
     }
     
     void addBack(int num)
     {
-        SIS.insert(num);
+        SIS[num] = num;
+        PopValue = min(PopValue, num);
     }
 };
 
