@@ -3,12 +3,7 @@ public:
     int pivotInteger(int n)
     {
         int OnePivot = 1;
-        int PivotN = 0;
-        
-        for(int i = 1; i <= n; i++)
-        {
-            PivotN += i;
-        }
+        int PivotN = (n * (n + 1)) / 2;
         
         int Pivot = 2;
         while(OnePivot < PivotN)
