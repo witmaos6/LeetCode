@@ -2,21 +2,21 @@ class Solution {
 public:
     int pivotInteger(int n)
     {
-        int OnePivot = 1;
-        int PivotN = (n * (n + 1)) / 2;
+        int OnePivot = (n * (n + 1)) / 2;
+        int PivotN = n;
         
-        int Pivot = 2;
-        while(OnePivot < PivotN)
+        while(OnePivot > PivotN)
         {
-            OnePivot += Pivot;
-            PivotN -= Pivot - 1;
-            Pivot++;
+            OnePivot -= n;
+            n--;
+            PivotN += n;
         }
         
         if(OnePivot == PivotN)
         {
-            return Pivot - 1;
+            return n;
         }
+        
         return -1;
     }
 };
