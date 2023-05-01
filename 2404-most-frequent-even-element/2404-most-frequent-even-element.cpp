@@ -2,32 +2,28 @@ class Solution {
 public:
     int mostFrequentEven(vector<int>& nums)
     {
-        map<int, int> Freq;
+        vector<int> Freq(50001);
         
         for(int& Num : nums)
         {
             if(!(Num & 1))
             {
-                Freq[Num]++;
+                Freq[Num >> 1]++;
             }
-        }
-        
-        if(Freq.empty())
-        {
-            return -1;
         }
         
         int MostFreq = 0;
-        int Result = 0;
-        for(pair<const int, int>& E : Freq)
+        int MostFreqElement = -1;
+        
+        for(int i = 0; i <= 50000; i++)
         {
-            if(E.second > MostFreq)
+            if(Freq[i] > MostFreq)
             {
-                Result = E.first;
-                MostFreq = E.second;
+                MostFreq = Freq[i];
+                MostFreqElement = i << 1;
             }
         }
         
-        return Result;
+        return MostFreqElement;
     }
 };
