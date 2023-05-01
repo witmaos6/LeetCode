@@ -10,47 +10,48 @@
  * };
  */
 class Solution {
-    int N = 0;
 public:
     TreeNode* constructMaximumBinaryTree(vector<int>& nums)
     {
-        N = static_cast<int>(nums.size());
+        int N = static_cast<int>(nums.size());
         
-        TreeNode* Root = constructMaximumBinaryTree(nums, 0, N, Root);
+        TreeNode* Root = constructMaximumBinaryTree(nums, 0, N - 1);
         
         return Root;
     }
     
 private:
-    TreeNode* constructMaximumBinaryTree(vector<int>& nums, int Begin, int End, TreeNode* Root)
+    TreeNode* constructMaximumBinaryTree(vector<int>& nums, int Begin, int End)
     {
-        if(Begin == End)
-        {
-            if(nums[Begin] == -1)
-            {
-                return nullptr;
-            }
-            return new TreeNode(nums[Begin]);
-        }
-        
-        int MaxElement = max_element(nums.begin() + Begin, nums.begin() + End) - nums.begin();
-        if(nums[MaxElement] == -1)
+        if(Begin > End)
         {
             return nullptr;
         }
-        
-        Root = new TreeNode(nums[MaxElement]);
-        nums[MaxElement] = -1;
-        
-        if(MaxElement > Begin)
+        if(Begin == End)
         {
-            Root->left = constructMaximumBinaryTree(nums, Begin, MaxElement, Root->left);
+            return new TreeNode(nums[Begin]);
         }
-        if(MaxElement < End - 1)
-        {
-            Root->right = constructMaximumBinaryTree(nums, MaxElement + 1, End, Root->right);
-        }
+        
+        int MaxElement = GetMaxElement(nums, Begin, End);
+        
+        TreeNode* Root = new TreeNode(nums[MaxElement]);
+        Root->left = constructMaximumBinaryTree(nums, Begin, MaxElement - 1);
+        Root->right = constructMaximumBinaryTree(nums, MaxElement + 1, End);
         
         return Root;
+    }
+    
+    int GetMaxElement(vector<int>& nums, int Begin, int End)
+    {
+        int MaxElement = Begin;
+        
+        for(int i = Begin + 1; i <= End; i++)
+        {
+            if(nums[MaxElement] < nums[i])
+            {
+                MaxElement = i;
+            }
+        }
+        return MaxElement;
     }
 };
