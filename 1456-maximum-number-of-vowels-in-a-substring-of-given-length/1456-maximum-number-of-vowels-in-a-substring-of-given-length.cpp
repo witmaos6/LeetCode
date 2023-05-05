@@ -4,38 +4,40 @@ public:
     int maxVowels(string s, int k)
     {
         const int N = static_cast<int>(s.size());
-        int Result = 0;
-        int NrOfVowel = 0;
-        int SubSize = 0;
+        int CurrCount = SubInit(s, N, k);
+        int Result = CurrCount;
         
-        for(int i = 0; i <= N; i++)
+        
+        for(int i = k; i < N; i++)
         {
-            if(SubSize < k)
+            if(bIsVowelLetter(s[i]))
             {
-                if(bIsVowelLetter(s[i]))
-                {
-                    NrOfVowel++;
-                }
-                SubSize++;
+                CurrCount++;
             }
-            else
+            if(bIsVowelLetter(s[i - k]))
             {
-                if(bIsVowelLetter(s[i]))
-                {
-                    NrOfVowel++;
-                }
-                if(bIsVowelLetter(s[i - k]))
-                {
-                    NrOfVowel--;
-                }
+                CurrCount--;
             }
-            Result = max(Result, NrOfVowel);
+            Result = max(Result, CurrCount);
         }
         
         return Result;
     }
     
 private:
+    int SubInit(string& s, int N, int k)
+    {
+        int Init = 0;
+        for(int i = 0; i < k; i++)
+        {
+            if(bIsVowelLetter(s[i]))
+            {
+                Init++;
+            }
+        }
+        return Init;
+    }
+    
     bool bIsVowelLetter(char c)
     {
         for(char Vowel : Vowels)
