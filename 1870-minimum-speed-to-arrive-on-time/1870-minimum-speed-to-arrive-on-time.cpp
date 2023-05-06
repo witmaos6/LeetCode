@@ -1,14 +1,18 @@
 class Solution {
-    const int MaxHour = 1e9;
+    const int MaxHour = 1e7;
 public:
     int minSpeedOnTime(vector<int>& dist, double hour)
     {
-        int Low = 0, High = MaxHour;
-        int MinSpeed = -1;
-        
-        while(Low <= High)
+        if(hour <= static_cast<double>(dist.size() - 1))
         {
-            int Speed = Low + (High - Low) / 2;
+            return -1;
+        }
+        
+        int Low = 1, High = MaxHour;
+        
+        while(Low < High)
+        {
+            int Speed = (High + Low) >> 1;
             
             double Result = GetResultPerSpeed(dist, Speed);
             
@@ -18,12 +22,11 @@ public:
             }
             else
             {
-                High = Speed - 1;
-                MinSpeed = Speed;
+                High = Speed;
             }
         }
         
-        return MinSpeed;
+        return High;
     }
     
 private:
