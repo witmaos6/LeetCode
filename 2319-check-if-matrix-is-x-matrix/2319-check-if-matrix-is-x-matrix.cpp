@@ -9,7 +9,7 @@ public:
         {
             for(int Col = 0; Col < N; Col++)
             {
-                if(Row == Col || Length - Row == Col)
+                if(Row == Col || Row + Col == Length)
                 {
                     if(grid[Row][Col] == 0)
                         return false;
