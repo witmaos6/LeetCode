@@ -3,22 +3,20 @@ public:
     int diagonalSum(vector<vector<int>>& mat)
     {
         const int N = static_cast<int>(mat.size());
+        const int Length = N - 1;
         
         int Sum = 0;
         
         for(int i = 0; i < N; i++)
         {
-            Sum += mat[i][i];
-            mat[i][i] = 0;
-        }
-        
-        int Row = N - 1, Col = 0;
-        
-        while(Col < N)
-        {
-            Sum += mat[Row][Col];
-            Row--;
-            Col++;
+            if(i == Length - i)
+            {
+                Sum += mat[i][i];
+            }
+            else
+            {
+                Sum += (mat[i][i] + mat[i][Length - i]);
+            }
         }
         
         return Sum;
