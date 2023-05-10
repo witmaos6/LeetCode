@@ -22,13 +22,30 @@ public:
         {
             for(int Col = ColBegin; Col <= ColEnd; Col++)
             {
-                Matrix[RowBegin][Col] = SetMatrixCell(head);
+                if(head)
+                {
+                    Matrix[RowBegin][Col] = head->val;
+                    head = head->next;
+                }
+                else
+                {
+                    Matrix[RowBegin][Col] = Empty;
+                }
             }
             RowBegin++;
             
             for(int Row = RowBegin; Row <= RowEnd; Row++)
             {
-                Matrix[Row][ColEnd] = SetMatrixCell(head);
+                if(head)
+                {
+                    Matrix[Row][ColEnd] = head->val;
+                    head = head->next;
+                }
+                else
+                {
+                    Matrix[Row][ColEnd] = Empty;
+                }
+                
             }
             ColEnd--;
             
@@ -37,37 +54,33 @@ public:
             
             for(int Col = ColEnd; Col >= ColBegin; Col--)
             {
-                Matrix[RowEnd][Col] = SetMatrixCell(head);
+                if(head)
+                {
+                    Matrix[RowEnd][Col] = head->val;
+                    head = head->next;
+                }
+                else
+                {
+                    Matrix[RowEnd][Col] = Empty;
+                }
             }
             RowEnd--;
             
             for(int Row = RowEnd; Row >= RowBegin; Row--)
             {
-                Matrix[Row][ColBegin] = SetMatrixCell(head);
+                if(head)
+                {
+                    Matrix[Row][ColBegin] = head->val;
+                    head = head->next;
+                }
+                else
+                {
+                    Matrix[Row][ColBegin] = Empty;
+                }
             }
             ColBegin++;
         }
         
         return Matrix;
-    }
-    
-private:
-    int SetMatrixCell(ListNode* head)
-    {
-        if(head)
-        {
-            int Cell = head->val;
-            
-            if(head->next)
-            {
-                *head = *head->next;
-            }
-            else
-            {
-                head->val = Empty;
-            }
-            return Cell;
-        }
-        return Empty;
     }
 };
