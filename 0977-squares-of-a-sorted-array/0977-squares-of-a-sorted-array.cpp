@@ -3,42 +3,20 @@ public:
     vector<int> sortedSquares(vector<int>& nums)
     {
         const int N = static_cast<int>(nums.size());
-        vector<int> Result;
-        Result.reserve(N);
+        vector<int> Result(N);
+        int L = 0, R = N - 1;
         
-        int FindMaxNegative = lower_bound(nums.begin(), nums.end(), 0) - nums.begin();
-        if(FindMaxNegative == N)
+        for(int i = N - 1; i >= 0; i--)
         {
-            FindMaxNegative--;
-        }
-        
-        int RDirect = FindMaxNegative;
-        int LDirect = RDirect - 1;
-        
-        while(LDirect >= 0 || RDirect < N)
-        {
-            if(LDirect < 0)
+            if(abs(nums[L]) > abs(nums[R]))
             {
-                Result.push_back(pow(nums[RDirect], 2));
-                RDirect++;
-                continue;
-            }
-            if(RDirect >= N)
-            {
-                Result.push_back(pow(nums[LDirect], 2));
-                LDirect--;
-                continue;
-            }
-            
-            if(-nums[LDirect] < nums[RDirect])
-            {
-                Result.push_back(pow(nums[LDirect], 2));
-                LDirect--;
+                Result[i] = nums[L] * nums[L];
+                L++;
             }
             else
             {
-                Result.push_back(pow(nums[RDirect], 2));
-                RDirect++;
+                Result[i] = nums[R] * nums[R];
+                R--;
             }
         }
         
