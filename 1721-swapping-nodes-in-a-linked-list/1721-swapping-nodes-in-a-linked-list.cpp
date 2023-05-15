@@ -9,42 +9,28 @@
  * };
  */
 class Solution {
-    int Size = 0;
-    ListNode* FromBeginPrev;
-    ListNode* FromEndPrev;
 public:
     ListNode* swapNodes(ListNode* head, int k)
     {
-        if(head->next == nullptr)
+        ListNode* FromBegin = head;
+        
+        while(k > 1)
         {
-            return head;
+            FromBegin = FromBegin->next;
+            k--;
         }
         
-        Traverse(head, 1, k);
+        ListNode* GoEnd = FromBegin;
+        ListNode* FromEnd = head;
         
-        swap(FromBeginPrev->val, FromEndPrev->val);
+        while(GoEnd->next)
+        {
+            FromEnd = FromEnd->next;
+            GoEnd = GoEnd->next;
+        }
+        
+        swap(FromBegin->val, FromEnd->val);
         
         return head;
-    }
-    
-private:
-    void Traverse(ListNode* Head, int Index, int K)
-    {
-        if(!Head)
-        {
-            Size = Index - 1;
-            return;
-        }
-        
-        if(Index == K)
-        {
-            FromBeginPrev = Head;
-        }
-        Traverse(Head->next, Index + 1, K);
-        
-        if(Size - K + 1 == Index)
-        {
-            FromEndPrev = Head;
-        }
     }
 };
