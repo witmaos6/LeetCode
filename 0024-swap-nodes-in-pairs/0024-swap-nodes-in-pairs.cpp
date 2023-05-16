@@ -17,29 +17,30 @@ public:
             return head;
         }
         
-        return SwapPairs(head, head->next);
-    }
-    
-private:
-    ListNode* SwapPairs(ListNode* First, ListNode* Second)
-    {
-        if(!Second)
-        {
-            return First;
-        }
+        ListNode* First = head;
+        ListNode* Second = head->next;
         
-        if(Second->next)
+        head = head->next;
+        int Max = 100;
+        
+        while(Max--)
         {
-            ListNode* Temp = SwapPairs(Second->next, Second->next->next);
+            ListNode* Temp = Second->next;
             Second->next = First;
             First->next = Temp;
-        }
-        else
-        {
-            Second->next = First;
-            First->next = nullptr;
+            
+            if(First->next && First->next->next)
+            {
+                First->next = Temp->next;
+                First = Temp;
+                Second = Temp->next;
+            }
+            else
+            {
+                break;
+            }
         }
         
-        return Second;
+        return head;
     }
 };
