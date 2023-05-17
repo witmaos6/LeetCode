@@ -13,26 +13,22 @@ public:
     int pairSum(ListNode* head) 
     {
         vector<int> Sum;
-        ListNode* Slow = head;
-        ListNode* Fast = head;
         
-        while(Fast && Fast->next)
+        while(head)
         {
-            Sum.push_back(Slow->val);
-            
-            Slow = Slow->next;
-            Fast = Fast->next->next;
+            Sum.push_back(head->val);
+            head = head->next;
         }
         
-        int Index = static_cast<int>(Sum.size()) - 1;
+        int Low = 0, High = Sum.size() - 1;
         int MaxSum = 0;
         
-        while(Slow)
+        while(Low < High)
         {
-            int CurrSum = Sum[Index] + Slow->val;
+            int CurrSum = Sum[Low] + Sum[High];
             MaxSum = max(MaxSum, CurrSum);
-            Index--;
-            Slow = Slow->next;
+            Low++;
+            High--;
         }
         
         return MaxSum;
