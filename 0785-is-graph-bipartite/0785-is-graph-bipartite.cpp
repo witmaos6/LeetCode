@@ -9,7 +9,7 @@ public:
         
         for(int i = 0; i < N; i++)
         {
-            if(Colors[i])
+            if(Colors[i] != 0)
                 continue;
             
             Colors[i] = 1;
@@ -21,12 +21,12 @@ public:
                 
                 for(int& Node : graph[CurrNode])
                 {
-                    if(!Colors[Node])
+                    if(Colors[Node] == 0)
                     {
                         Colors[Node] = -Colors[CurrNode];
                         BFS.push(Node);
                     }
-                    else if(Colors[Node] == Colors[CurrNode])
+                    else if(Colors[Node] != -Colors[CurrNode])
                     {
                         return false;
                     }
