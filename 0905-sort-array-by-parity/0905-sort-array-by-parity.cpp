@@ -9,16 +9,12 @@ public:
         {
             if(bIsOddNumber(nums[Left]))
             {
-                if(bIsOddNumber(nums[Right]))
-                {
-                    Right--;
-                }
-                else
+                if(!bIsOddNumber(nums[Right]))
                 {
                     swap(nums[Left], nums[Right]);
                     Left++;
-                    Right--;
                 }
+                Right--;
             }
             else
             {
@@ -29,7 +25,7 @@ public:
     }
     
 private:
-    bool bIsOddNumber(int Num)
+    inline bool bIsOddNumber(int Num)
     {
         return (Num & 1);
     }
