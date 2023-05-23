@@ -18,14 +18,10 @@ public:
     
     int add(int val)
     {
-        if(MinHeap.empty() || MinHeap.size() < K)
-        {
-            MinHeap.push(val);
-        }
-        else if(MinHeap.top() <= val)
+        MinHeap.push(val);
+        if(MinHeap.size() > K)
         {
             MinHeap.pop();
-            MinHeap.push(val);
         }
 
         return MinHeap.top();
