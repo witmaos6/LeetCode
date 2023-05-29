@@ -1,16 +1,16 @@
 class ParkingSystem {
-    vector<int> BigPark;
+    int BigParkSize = 0;
     int BigIndex = 0;
-    vector<int> MediumPark;
+    int MediumParkSize = 0;
     int MediumIndex = 0;
-    vector<int> SmallPark;
+    int SmallParkSize = 0;
     int SmallIndex = 0;
 public:
     ParkingSystem(int big, int medium, int small)
     {
-        BigPark.resize(big);
-        MediumPark.resize(medium);
-        SmallPark.resize(small);
+        BigParkSize = big;
+        MediumParkSize = medium;
+        SmallParkSize = small;
     }
     
     bool addCar(int carType)
@@ -18,11 +18,11 @@ public:
         switch(carType)
         {
             case 1:
-                return bPossibleParking(BigPark, BigIndex);
+                return bPossibleParking(BigParkSize, BigIndex);
             case 2:
-                return bPossibleParking(MediumPark, MediumIndex);
+                return bPossibleParking(MediumParkSize, MediumIndex);
             case 3:
-                return bPossibleParking(SmallPark, SmallIndex);
+                return bPossibleParking(SmallParkSize, SmallIndex);
             default :
                 break;
         }
@@ -30,11 +30,10 @@ public:
     }
     
 private:
-    bool bPossibleParking(vector<int>& Park, int& ParkIndex)
+    bool bPossibleParking(int ParkSize, int& ParkIndex)
     {
-        if(ParkIndex < Park.size())
+        if(ParkIndex < ParkSize)
         {
-            Park[ParkIndex] = 1;
             ParkIndex++;
             return true;
         }
