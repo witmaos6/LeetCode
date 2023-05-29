@@ -1,18 +1,16 @@
 class ParkingSystem {
     vector<int> ParkSize;
-    vector<int> ParkIndex;
 public:
     ParkingSystem(int big, int medium, int small)
     {
         ParkSize = {0, big, medium, small};
-        ParkIndex.resize(4);
     }
     
     bool addCar(int carType)
     {
-        if(ParkSize[carType] > ParkIndex[carType])
+        if(ParkSize[carType] > 0)
         {
-            ParkIndex[carType]++;
+            ParkSize[carType]--;
             return true;
         }
         
