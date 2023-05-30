@@ -1,25 +1,68 @@
 class MyHashMap {
-    vector<int> Table;
+    typedef pair<int, int> Node;
+    vector<list<Node>> Table;
     const int Empty = -1;
+    const int NrOfBuckets = 1000;
+    
+    int Hash(int key)
+    {
+        return key % NrOfBuckets;
+    }
+    
+    list<Node>::iterator Find(int key)
+    {
+        int Index = Hash(key);
+        list<Node>::iterator It = Table[Index].begin();
+        
+        while(It != Table[Index].end())
+        {
+            if(It->first == key)
+            {
+                return It;
+            }
+            It++;
+        }
+        
+        return It;
+    }
+    
 public:
     MyHashMap()
     {
-        Table.resize(1000001, Empty);
+        Table.resize(NrOfBuckets);
     }
     
     void put(int key, int value)
     {
-        Table[key] = value;
+        int Index = Hash(key);
+        
+        remove(key);
+
+        Table[Index].push_back({key, value});
     }
     
     int get(int key)
     {
-        return Table[key];
+        int Index = Hash(key);
+        list<Node>::iterator It = Find(key);
+        
+        if(It == Table[Index].end())
+        {
+            return Empty;
+        }
+        
+        return It->second;
     }
     
     void remove(int key)
     {
-        Table[key] = Empty;
+        int Index = Hash(key);
+        
+        list<Node>::iterator It = Find(key);
+        if(It != Table[Index].end())
+        {
+            Table[Index].erase(It);
+        }
     }
 };
 
