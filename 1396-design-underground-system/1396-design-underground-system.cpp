@@ -1,13 +1,11 @@
 struct AvgTime
 {
-    string Name;
     int TotalTime;
     int NrOfId;
     
     AvgTime() {}
-    AvgTime(string name, int Total, int Id)
+    AvgTime(int Total, int Id)
     {
-        Name = name;
         TotalTime = Total;
         NrOfId = Id;
     }
@@ -15,9 +13,9 @@ struct AvgTime
 
 class UndergroundSystem {
     typedef pair<string, int> Costom;
-    unordered_map<int, Costom> StartStation;
+    unordered_map<int, Costom> CheckIn;
     
-    unordered_map<string, vector<AvgTime>> EndStation;
+    unordered_map<string, map<string, AvgTime>> CheckOut;
 public:
     UndergroundSystem()
     {
@@ -26,56 +24,38 @@ public:
     
     void checkIn(int id, string stationName, int t)
     {
-        StartStation[id] = {stationName, t};
+        CheckIn[id] = {stationName, t};
     }
     
     void checkOut(int id, string stationName, int t)
     {
-        string StartStationName = StartStation[id].first;
-        int StartTime = StartStation[id].second;        
+        string StartStation = CheckIn[id].first;
+        int StartTime = CheckIn[id].second;        
         
-        int Index = GetEndIndex(StartStationName, stationName);
+        map<string, AvgTime>& Map = CheckOut[StartStation];
         
-        if(Index == -1)
+        if(Map.find(stationName) != Map.end())
         {
-            AvgTime Temp = AvgTime(stationName, (t - StartTime), 1);
-            EndStation[StartStationName].push_back(Temp);
+            Map[stationName].TotalTime += (t - StartTime);
+            Map[stationName].NrOfId++;
         }
         else
         {
-            EndStation[StartStationName][Index].TotalTime += (t - StartTime);
-            EndStation[StartStationName][Index].NrOfId++;
+            Map[stationName] = AvgTime(t - StartTime, 1);
         }
     }
     
     double getAverageTime(string startStation, string endStation)
     {
-        int Index = GetEndIndex(startStation, endStation);
+        map<string, AvgTime>& Temp = CheckOut[startStation];
         
-        if(Index != -1)
+        if(Temp.find(endStation) != Temp.end())
         {
-            AvgTime& Temp = EndStation[startStation][Index];
-            double Time = static_cast<double>(Temp.TotalTime);
-            double Average = Time / Temp.NrOfId;
-            
+            double Time = static_cast<double>(Temp[endStation].TotalTime);
+            double Average = Time / Temp[endStation].NrOfId;
             return Average;
         }
         return 0;
-    }
-    
-private:
-    int GetEndIndex(const string& StationName, const string& EndStationName)
-    {
-        const int N = static_cast<int>(EndStation[StationName].size());
-        
-        for(int i = 0; i < N; i++)
-        {
-            if(EndStation[StationName][i].Name == EndStationName)
-            {
-                return i;
-            }
-        }
-        return -1;
     }
 };
 
