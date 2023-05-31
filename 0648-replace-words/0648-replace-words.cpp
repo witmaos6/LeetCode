@@ -2,7 +2,6 @@ struct Node
 {
     bool bIsEnd = false;
     vector<Node*> Next;
-    
     Node()
     {
         Next.resize(26);
@@ -18,7 +17,7 @@ public:
         
         for(string& Word : dictionary)
         {
-            BuildTrie(Trie, Word, 0);
+            BuildTrie(Trie, Word);
         }
         
         sentence.push_back(' ');
@@ -31,21 +30,17 @@ public:
             if(sentence[i] == ' ')
             {
                 string Temp = sentence.substr(Begin, i - Begin);
-                string Word;
-                bool bFlag = true;
-                FindWord(Temp, 0, Trie, Word, bFlag);
-                
-                if(Word == "" || Word.size() >= Temp.size() || bFlag == false)
+                string Find = FindWord(Temp, Trie);
+                Begin = i + 1;
+                if(Find == "")
                 {
                     ReplaceWords += Temp;
                 }
                 else
                 {
-                    ReplaceWords += Word;
+                    ReplaceWords += Find;
                 }
                 ReplaceWords += ' ';
-                
-                Begin = i + 1;
             }
         }
         
@@ -54,43 +49,44 @@ public:
     }
     
 private:
-    void BuildTrie(Node* TrieNode, const string& Word, int Index)
+    void BuildTrie(Node* TrieNode, const string& Word)
     {
-        if(Word.size() <= Index)
+        for(const char& C : Word)
         {
-            TrieNode->bIsEnd = true;
-            return;
+            int Index = C - 'a';
+            
+            if(TrieNode->Next[Index] == nullptr)
+            {
+                TrieNode->Next[Index] = new Node();
+            }
+            TrieNode = TrieNode->Next[Index];
         }
-        
-        char CurrChar = Word[Index];
-        int NextIndex = CurrChar - 'a';
-        
-        if(TrieNode->Next[NextIndex] == nullptr)
-        {
-            TrieNode->Next[NextIndex] = new Node();
-        }
-        
-        BuildTrie(TrieNode->Next[NextIndex], Word, Index + 1);
+        TrieNode->bIsEnd = true;
     }
     
-    void FindWord(const string& Temp, int Index, Node* TrieNode, string& Word, bool& Flag)
+    string FindWord(const string& Word, Node* TrieNode)
     {
-        if(Temp.size() <= Index || TrieNode->bIsEnd)
-        {
-            Flag = true;
-            return;
-        }
+        const int N = static_cast<int>(Word.size());
+        string Temp;
         
-        int NextIndex = Temp[Index] - 'a';
-        if(TrieNode->Next[NextIndex] != nullptr)
+        for(int i = 0; i < N; i++)
         {
-            Word += Temp[Index];
-            FindWord(Temp, Index + 1, TrieNode->Next[NextIndex], Word, Flag);
+            int Index = Word[i] - 'a';
+            
+            if(TrieNode->Next[Index])
+            {
+                Temp += Word[i];
+                TrieNode = TrieNode->Next[Index];
+            }
+            else
+            {
+                break;
+            }
+            if(TrieNode->bIsEnd)
+            {
+                return Temp;
+            }
         }
-        else
-        {
-            Flag = false;
-            return;
-        }
+        return "";
     }
 };
