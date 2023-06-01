@@ -1,5 +1,4 @@
 class Solution {
-    typedef pair<int, int> Point;
     int RowSize = 0;
     int ColSize = 0;
     const int Mod = 1e9 + 7;
