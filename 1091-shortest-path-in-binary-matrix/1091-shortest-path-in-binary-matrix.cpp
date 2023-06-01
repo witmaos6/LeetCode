@@ -12,7 +12,7 @@ public:
     {
         N = static_cast<int>(Grid.size());
         
-        if(Grid[0][0] == Block)
+        if(Grid[0][0] == Block || Grid[N - 1][N - 1] == Block)
         {
             return NoClear;
         }
