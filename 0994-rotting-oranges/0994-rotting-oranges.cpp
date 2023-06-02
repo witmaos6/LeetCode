@@ -15,6 +15,7 @@ public:
         ColSize = static_cast<int>(grid[0].size());
         
         queue<Point> BFS;
+        int NrOfOrange = 0;
         
         for(int Row = 0; Row < RowSize; Row++)
         {
@@ -24,8 +25,14 @@ public:
                 {
                     BFS.push({Row, Col});
                 }
+                else if(grid[Row][Col] == Orange)
+                {
+                    NrOfOrange++;
+                }
             }
         }
+        if(NrOfOrange == 0)
+            return 0;
         
         int Count = -1;
         while(!BFS.empty())
@@ -45,6 +52,7 @@ public:
                     if(bInBoundary({Row, Col}) && grid[Row][Col] == Orange)
                     {
                         grid[Row][Col] = Rotten;
+                        NrOfOrange--;
                         BFS.push({Row, Col});
                     }
                 }
@@ -52,22 +60,11 @@ public:
             Count++;
         }
         
-        for(vector<int>& Row : grid)
+        if(NrOfOrange == 0)
         {
-            for(int& State : Row)
-            {
-                if(State == Orange)
-                {
-                    return ExistFreshOrange;
-                }
-            }
+            return Count;
         }
-        
-        if(Count == -1)
-        {
-            return 0;
-        }
-        return Count;
+        return ExistFreshOrange;
     }
     
 private:
