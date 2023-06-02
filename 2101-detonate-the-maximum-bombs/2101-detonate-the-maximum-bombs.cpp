@@ -1,10 +1,12 @@
 class Solution {
     unordered_map<int, vector<int>> Graph;
+    vector<int> Visited;
     int N = 0;
 public:
     int maximumDetonation(vector<vector<int>>& Bombs)
     {
         N = static_cast<int>(Bombs.size());
+        Visited.resize(N, -1);
         
         for(int i = 0; i < N - 1; i++)
         {
@@ -25,7 +27,12 @@ public:
         
         for(int i = 0; i < N; i++)
         {
-            Result = max(Result, BFS(i));
+            if(Visited[i] > -1)
+            {
+                continue;
+            }
+            int Count = DFS(i, i);
+            Result = max(Result, Count);
         }
         
         return Result;
@@ -46,31 +53,18 @@ private:
         return false;
     }
     
-    int BFS(int Index)
+    int DFS(int Index, int BombNumber)
     {
-        int Count = 0;
-        queue<int> Q;
-        Q.push(Index);
+        Visited[Index] = BombNumber;
         
-        vector<bool> Visited(N);
-        Visited[Index] = true;
-        
-        while(!Q.empty())
+        int Result = 1;
+        for(int& Next : Graph[Index])
         {
-            int CurrIndex = Q.front();
-            Q.pop();
-            Count++;
-            
-            for(int& Next : Graph[CurrIndex])
+            if(Visited[Next] != BombNumber)
             {
-                if(!Visited[Next])
-                {
-                    Visited[Next] = true;
-                    Q.push(Next);
-                }
+                Result += DFS(Next, BombNumber);
             }
         }
-        
-        return Count;
+        return Result;
     }
 };
