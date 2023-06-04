@@ -5,51 +5,54 @@ public:
     int findCircleNum(vector<vector<int>>& isConnected)
     {
         const int N = static_cast<int>(isConnected.size());
+        
         UnionFind.resize(N + 1);
+        for(int i = 1; i <= N; i++)
+        {
+            UnionFind[i] = i;
+        }
         
         for(int i = 0; i < N; i++)
         {
             for(int j = 0; j < N; j++)
             {
-                if(isConnected[i][j])
+                if(i != j && isConnected[i][j] == 1)
                 {
                     Union(i + 1, j + 1);
                 }
             }
         }
         
-        int Count = 0;
+        int Province = 0;
         for(int i = 1; i <= N; i++)
         {
-            if(UnionFind[i] == 0)
+            if(UnionFind[i] == i)
             {
-                Count++;
+                Province++;
             }
         }
         
-        return Count;
+        return Province;
     }
     
 private:
-    void Union(int A, int B)
+    void Union(int City1, int City2)
     {
-        A = Find(A);
-        B = Find(B);
+        City1 = GetConnectedNode(City1);
+        City2 = GetConnectedNode(City2);
         
-        if(A != B)
-        {
-            UnionFind[A] = B;
-        }
+        int Root = min(City1, City2);
+        int Sub = max(City1, City2);
+        
+        UnionFind[Sub] = Root;
     }
     
-    int Find(int Index)
+    int GetConnectedNode(int City)
     {
-        if(UnionFind[Index] == 0)
+        if(UnionFind[City] != City)
         {
-            return Index;
+            return GetConnectedNode(UnionFind[City]);
         }
-        
-        UnionFind[Index] = Find(UnionFind[Index]);
-        return UnionFind[Index];
+        return City;
     }
 };
