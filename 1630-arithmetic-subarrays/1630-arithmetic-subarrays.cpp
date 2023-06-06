@@ -4,7 +4,8 @@ public:
     {
         const int M = static_cast<int>(l.size());
         
-        vector<bool> Arithmetic;
+        vector<bool> Arithmetic(M);
+        
         for(int i = 0; i < M; i++)
         {
             int Size = r[i] - l[i] + 1;
@@ -12,16 +13,16 @@ public:
             {
                 if(bIsArithmetic(nums, l[i], r[i]))
                 {
-                    Arithmetic.push_back(true);
+                    Arithmetic[i] = true;
                 }
                 else
                 {
-                    Arithmetic.push_back(false);
+                    Arithmetic[i] = false;
                 }
             }
             else 
             {
-                Arithmetic.push_back(true);
+                Arithmetic[i] = true;
             }
         }
         
