@@ -7,11 +7,10 @@ public:
         vector<bool> Arithmetic;
         for(int i = 0; i < M; i++)
         {
-            vector<int> Temp(nums.begin() + l[i], nums.begin() + r[i] + 1);
-            
-            if(Temp.size() >= 3)
+            int Size = r[i] - l[i] + 1;
+            if(Size >= 3)
             {
-                if(bIsArithmetic(Temp, r[i] - l[i] + 1))
+                if(bIsArithmetic(nums, l[i], r[i]))
                 {
                     Arithmetic.push_back(true);
                 }
@@ -30,18 +29,49 @@ public:
     }
     
 private:
-    bool bIsArithmetic(vector<int>& Array, int Size)
+    bool bIsArithmetic(vector<int>& Array, int Begin, int End)
     {
-        sort(Array.begin(), Array.end());
-                
-        int Diff = Array[1] - Array[0];
+        pair<int, int> MinMaxElement = GetMinMaxElement(Array, Begin, End);
+        int MinInt = MinMaxElement.first;
+        int MaxInt = MinMaxElement.second;
         
-        for(int i = 2; i < Size; i++)
+        if(MinInt == MaxInt)
+            return true;
+        
+        if((MaxInt - MinInt) % (End - Begin) != 0)
+            return false;
+        
+        int Diff = (MaxInt - MinInt) / (End - Begin);
+        
+        vector<bool> Temp(End - Begin + 1);
+        
+        for(int i = Begin; i <= End; i++)
         {
-            if(Array[i] - Array[i - 1] != Diff)
+            if((Array[i] - MinInt) % Diff != 0)
                 return false;
+            
+            int Index = (Array[i] - MinInt) / Diff;
+            
+            if(Temp[Index])
+                return false;
+            
+            Temp[Index] = true;
         }
         
         return true;
+    }
+    
+    pair<int, int> GetMinMaxElement(const vector<int>& Array, int Begin, int End)
+    {
+        int MinElement = INT_MAX;
+        int MaxElement = INT_MIN;
+        
+        for(int i = Begin; i <= End; i++)
+        {
+            MinElement = min(MinElement, Array[i]);
+            MaxElement = max(MaxElement, Array[i]);
+        }
+        
+        return {MinElement, MaxElement};
     }
 };
