@@ -2,46 +2,29 @@ class Solution {
 public:
     int minFlips(int a, int b, int c)
     {
-        vector<bool> BitA = GetIntToBit(a);
-        vector<bool> BitB = GetIntToBit(b);
-        vector<bool> BitC = GetIntToBit(c);
-        
         int CountFlips = 0;
         
-        for(int i = 0; i < 32; i++)
+        while(a || b || c)
         {
-            if(BitC[i])
+            if(c & 1)
             {
-                if(!BitA[i] && !BitB[i])
+                if(!(a & 1) && !(b & 1))
                     CountFlips++;
             }
             else
             {
-                if(BitA[i])
+                if(a & 1)
                     CountFlips++;
                 
-                if(BitB[i])
+                if(b & 1)
                     CountFlips++;
             }
+            
+            a >>= 1;
+            b >>= 1;
+            c >>= 1;
         }
         
         return CountFlips;
-    }
-    
-private:
-    vector<bool> GetIntToBit(int Num)
-    {
-        vector<bool> Bit(32);
-        
-        int Index = 31;
-        
-        while(Num > 0)
-        {
-            Bit[Index] = Num % 2;
-            Num /= 2;
-            
-            Index--;
-        }
-        return Bit;
     }
 };
