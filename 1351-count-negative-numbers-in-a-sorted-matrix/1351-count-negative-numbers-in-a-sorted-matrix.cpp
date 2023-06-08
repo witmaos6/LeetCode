@@ -7,13 +7,13 @@ public:
         
         int Count = 0;
         
-        for(size_t Row = 0; Row < RowSize; Row++)
+        for(size_t Col = 0; Col < ColSize; Col++)
         {
-            for(size_t Col = 0; Col < ColSize; Col++)
+            for(size_t Row = 0; Row < RowSize; Row++)
             {
                 if(grid[Row][Col] < 0)
                 {
-                    int Temp = ColSize - Col;
+                    int Temp = RowSize - Row;
                     Count += Temp;
                     break;
                 }
