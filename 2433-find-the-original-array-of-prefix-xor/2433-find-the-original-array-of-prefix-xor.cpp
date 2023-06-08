@@ -23,19 +23,9 @@ private:
         
         while(Value || Result)
         {
-            if(Result & 1)
+            if((Result & 1) != (Value & 1))
             {
-                if((Value & 1) == 0)
-                {
-                    Origin += Coefficient;
-                }
-            }
-            else
-            {
-                if(Value & 1)
-                {
-                    Origin += Coefficient;
-                }
+                Origin += Coefficient;
             }
             Coefficient <<= 1;
             
