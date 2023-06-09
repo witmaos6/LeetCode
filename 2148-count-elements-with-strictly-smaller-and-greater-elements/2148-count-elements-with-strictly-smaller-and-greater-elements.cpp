@@ -2,23 +2,22 @@ class Solution {
 public:
     int countElements(vector<int>& nums)
     {
-        if(nums.size() < 3)
+        unordered_map<int, int> Table;
+        
+        int MinElement = 1e5;
+        int MaxElement = -1e5;
+        
+        for(int& Num : nums)
         {
-            return 0;
-        }
-        sort(nums.begin(), nums.end());
-        
-        if(nums.front() == nums.back())
-        {
-            return 0;
+            Table[Num]++;
+            
+            MinElement = min(MinElement, Num);
+            MaxElement = max(MaxElement, Num);
         }
         
-        auto Begin = nums.begin();
-        auto End = nums.end();
+        if(MinElement == MaxElement)
+            return 0;
         
-        int MinElement = upper_bound(Begin, End, nums[0]) - Begin;
-        int MaxElement = lower_bound(Begin, End, nums.back()) - Begin;
-        
-        return MaxElement - MinElement;
+        return nums.size() - (Table[MinElement] + Table[MaxElement]);
     }
 };
