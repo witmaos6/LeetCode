@@ -1,37 +1,38 @@
 class Solution {
 public:
-    
-   long long  int test(int a,int index,int n)
+    int maxValue(int n, int index, int maxSum)
     {
-        long long int b=max(0,a-index);
-        long long int res=(a+b)*(a-b+1)/2;
+        maxSum -= n;
 
-        b=max(0,(a-((n-1)-index)));
-        res=res+(a+b)*(a-b+1)/2;
-        
-        return res-a;
-    }
-    
-    int maxValue(int n, int index, int maxSum) {
-        
-        
-        maxSum=maxSum-n;
-        int l=0,r=maxSum;
-        
-        while(l<r)
+        int Low = 0, High = maxSum;
+        int R = n - 1 - index;
+
+        while(Low < High)
         {
-            int m=(l+r+1)/2;
-            if(test(m,index,n)>maxSum)
+            int Middle = (Low + High + 1) / 2;
+
+            long Left = max(0, Middle - index);
+            long LeftSum = GetRangeSum(Left, Middle);
+
+            long Right = max(0, Middle - R);
+            long RightSum = GetRangeSum(Right, Middle);
+
+            long Sum = LeftSum + RightSum - Middle;
+            if(Sum > maxSum)
             {
-                r=m-1;
+                High = Middle - 1;
             }
             else
             {
-                l=m;
+                Low = Middle;
             }
         }
-        return l+1;
-        
-        
+
+        return Low + 1;
+    }
+private:    
+    long GetRangeSum(long Begin, long End)
+    {
+        return (End + Begin) * (End - Begin + 1) / 2;
     }
 };
