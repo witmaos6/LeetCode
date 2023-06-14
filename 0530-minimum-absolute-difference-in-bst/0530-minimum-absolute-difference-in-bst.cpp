@@ -11,32 +11,31 @@
  */
 class Solution 
 {
-    vector<int> Node;
+    int MinDiffer = INT_MAX;
+    int Pre = -1;
 public:
     int getMinimumDifference(TreeNode* root)
     {
         Inorder(root);
-        
-        const size_t N = Node.size();
-        
-        int MinDiffer = INT_MAX;
-        for(size_t i = 1; i < N; i++)
-        {
-            int Temp = Node[i] - Node[i - 1];
-            MinDiffer = min(MinDiffer, Temp);
-        }
-        
+
         return MinDiffer;
     }
     
 private:
     void Inorder(TreeNode* Root)
     {
-        if(Root)
+        if(!Root)
+            return;
+        
+        Inorder(Root->left);
+        
+        if(Pre != -1)
         {
-            Inorder(Root->left);
-            Node.push_back(Root->val);
-            Inorder(Root->right);
+            int Temp = abs(Root->val - Pre);
+            MinDiffer = min(MinDiffer, Temp);
         }
+        Pre = Root->val;
+        
+        Inorder(Root->right);
     }
 };
