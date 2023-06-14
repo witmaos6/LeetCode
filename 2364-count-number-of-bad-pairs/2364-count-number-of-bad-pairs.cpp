@@ -2,13 +2,13 @@ class Solution {
 public:
     long long countBadPairs(vector<int>& nums)
     {
-        const long long N = static_cast<long long>(nums.size());
-        unordered_map<long long, long long> Table;
+        const int N = static_cast<int>(nums.size());
+        unordered_map<int, int> Table;
         
         long long Count = 0;
-        for(long long i = 0; i < N; i++)
+        for(int i = 0; i < N; i++)
         {
-            long long Temp = i - nums[i];
+            int Temp = i - nums[i];
             Count += i - Table[Temp];
             Table[Temp]++;
         }
