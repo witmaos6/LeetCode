@@ -22,13 +22,12 @@ public:
                 if(Memo[Row][Col] == -1)
                 {
                     Count += DFS(grid, Row, Col);
-                    Count %= Mod;
                 }
                 else
                 {
                     Count += Memo[Row][Col];
-                    Count %= Mod;
                 }
+                Count %= Mod;
             }
         }
         
