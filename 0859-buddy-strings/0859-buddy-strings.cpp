@@ -49,15 +49,15 @@ public:
             }
         }
         
-        if(One != -1 && Two != -1)
-        {
-            swap(s[One], s[Two]);
-        }
-        else
+        if(One == -1 || Two == -1)
         {
             return false;
         }
         
-        return (s == goal);
+        if(s[One] == goal[Two] && s[Two] == goal[One])
+        {
+            return true;
+        }
+        return false;
     }
 };
