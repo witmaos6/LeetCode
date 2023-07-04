@@ -3,22 +3,19 @@ class Solution
 public:
     int singleNumber(vector<int>& nums)
     {
-        unordered_map<int, int> Table;
-        
-        for(int& Num : nums)
-        {
-            Table[Num]++;
-        }
-        
         int Result = 0;
-        for(pair<const int, int>& E : Table)
+        
+        for(int i = 0; i < 32; i++)
         {
-            if(E.second == 1)
+            int Sum = 0;
+            for(const int& Num : nums)
             {
-                Result = E.first;
-                break;
+                Sum += (Num >> i) & 1;
             }
+            Sum %= 3;
+            Result |= Sum << i;
         }
+        
         return Result;
     }
 };
