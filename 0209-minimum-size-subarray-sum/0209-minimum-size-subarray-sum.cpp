@@ -3,41 +3,35 @@ public:
     int minSubArrayLen(int target, vector<int>& nums)
     {
         const int N = static_cast<int>(nums.size());
-        int PrefixSum = nums[0];
         
-        int MinSize = INT_MAX;
         int Left = 0, Right = 0;
-        int CurrSize = 1;
+        int Sum = nums[0], Length = INT_MAX;
         
-        while(Right < N)
+        while(Left < N)
         {
-            if(PrefixSum >= target)
+            if(Sum < target)
             {
-                MinSize = min(MinSize, CurrSize);
-                PrefixSum -= nums[Left];
-                Left++;
-                CurrSize--;
-            }
-            else
-            {
-                if(Right < N - 1)
-                {
-                    Right++;
-                }
-                else
+                Right++;
+                if(Right >= N)
                 {
                     break;
                 }
+                Sum += nums[Right];
+            }
+            else if(Sum >= target)
+            {
+                int CurrLength = Right - Left + 1;
+                Length = min(Length, CurrLength);
                 
-                PrefixSum += nums[Right];
-                CurrSize++;
+                Sum -= nums[Left];
+                Left++;
             }
         }
         
-        if(MinSize == INT_MAX)
+        if(Length == INT_MAX)
         {
             return 0;
         }
-        return MinSize;
+        return Length;
     }
 };
