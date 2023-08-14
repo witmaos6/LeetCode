@@ -4,13 +4,19 @@ public:
     {
         priority_queue<int, vector<int>, greater<int>> MinHeap;
         
-        for(int Num : nums)
+        for(int i = 0; i < k; i++)
         {
-            MinHeap.push(Num);
-            
-            if(MinHeap.size() > k)
+            MinHeap.push(nums[i]);
+        }
+        
+        int N = static_cast<int>(nums.size());
+        
+        for(int i = k; i < N; i++)
+        {
+            if(MinHeap.top() <= nums[i])
             {
                 MinHeap.pop();
+                MinHeap.push(nums[i]);
             }
         }
         
