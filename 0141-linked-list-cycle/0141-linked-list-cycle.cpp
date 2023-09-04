@@ -15,22 +15,20 @@ public:
             return false;
         }
         
-        return HasCycle(head, head->next);
-    }
-    
-private:
-    bool HasCycle(ListNode* Slow, ListNode* Fast)
-    {
-        if(Slow == nullptr || Fast == nullptr || Fast->next == nullptr)
+        ListNode* Slow = head;
+        ListNode* Fast = head;
+        
+        while(Fast && Fast->next)
         {
-            return false;
+            Slow = Slow->next;
+            Fast = Fast->next->next;
+            
+            if(Slow == Fast)
+            {
+                return true;
+            }
         }
         
-        if(Slow == Fast)
-        {
-            return true;
-        }
-        
-        return HasCycle(Slow->next, Fast->next->next);
+        return false;
     }
 };
