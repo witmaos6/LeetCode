@@ -13,10 +13,11 @@ public:
         for(int i = 2; i < numRows; i++)
         {
             vector<int> Row = {1};
+            vector<int>& Floor = Result.back();
             
             for(int j = 1; j < i; j++)
             {
-                int Temp = Result.back()[j - 1] + Result.back()[j];
+                int Temp = Floor[j - 1] + Floor[j];
                 Row.push_back(Temp);
             }
             Row.push_back(1);
