@@ -15,7 +15,7 @@ public:
             {
                 Result.push_back(Table[Size]);
                 
-                Table.erase(Size);
+                Table[Size].clear();
             }
         }
         
