@@ -4,16 +4,12 @@ public:
     {
         int N = static_cast<int>(nums.size());
         int Count = 0;
+        vector<int> Memo(101);
         
         for(int i = 0; i < N; i++)
         {
-            for(int j = i + 1; j < N; j++)
-            {
-                if(nums[i] == nums[j])
-                {
-                    Count++;
-                }
-            }
+            Count += Memo[nums[i]];
+            Memo[nums[i]]++;
         }
         
         return Count;
