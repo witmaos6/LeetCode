@@ -3,22 +3,24 @@ class Solution {
 public:
     vector<int> sortByBits(vector<int>& arr)
     {
-        priority_queue<BitPair, vector<BitPair>, greater<BitPair>> MinHeap;
+        map<int, vector<int>> BitCountMap;
         for(int Num : arr)
         {
-            bitset<32> Bits(Num);
-            int CountBits = Bits.count();
+            bitset<32> Bit(Num);
+            int BitCount = Bit.count();
             
-            MinHeap.push({CountBits, Num});
+            BitCountMap[BitCount].push_back(Num);
         }
         
         vector<int> Result;
-        while(!MinHeap.empty())
+        for(auto&[Bit, Nums] : BitCountMap)
         {
-            auto[BitCount, Num] = MinHeap.top();
-            MinHeap.pop();
+            sort(Nums.begin(), Nums.end());
             
-            Result.push_back(Num);
+            for(int Num : Nums)
+            {
+                Result.push_back(Num);
+            }
         }
         
         return Result;
