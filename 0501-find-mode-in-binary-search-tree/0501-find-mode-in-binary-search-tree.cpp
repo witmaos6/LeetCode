@@ -10,47 +10,49 @@
  * };
  */
 class Solution {
-    
+    int PrevValue = INT_MIN;
+    int MaxCount = 0;
+    int Count = 0;
+    vector<int> Result;
 public:
     vector<int> findMode(TreeNode* root)
     {
-        unordered_map<int, int> Table;
-        queue<TreeNode*> BFS;
-        BFS.push(root);
-        int MostFreq = 0;
-        
-        while(!BFS.empty())
-        {
-            size_t Range = BFS.size();
-            
-            for(size_t i = 0; i < Range; i++)
-            {
-                TreeNode* Node = BFS.front();
-                BFS.pop();
-                
-                Table[Node->val]++;
-                MostFreq = max(MostFreq, Table[Node->val]);
-                
-                if(Node->left)
-                {
-                    BFS.push(Node->left);
-                }
-                if(Node->right)
-                {
-                    BFS.push(Node->right);
-                }
-            }
-        }
-        
-        vector<int> Result;
-        for(auto& [Value, Freq] : Table)
-        {
-            if(MostFreq == Freq)
-            {
-                Result.push_back(Value);
-            }
-        }
+        Inorder(root);
         
         return Result;
+    }
+    
+private:
+    void Inorder(TreeNode* root)
+    {
+        if(root == nullptr)
+            return;
+        
+        Inorder(root->left);
+        
+        if(root->val == PrevValue)
+        {
+            Count++;
+        }
+        else
+        {
+            Count = 1;
+        }
+        
+        if(Count > MaxCount)
+        {
+            MaxCount = Count;
+            Result.clear();
+            
+            Result.push_back(root->val);
+        }
+        else if(Count == MaxCount)
+        {
+            Result.push_back(root->val);
+        }
+        
+        PrevValue = root->val;
+        
+        Inorder(root->right);
     }
 };
