@@ -4,20 +4,17 @@ public:
     {
         int XDist = abs(sx - fx);
         int YDist = abs(sy - fy);
-        int Diagonal = min(XDist, YDist);
+        int Dist = max(XDist, YDist);
         
-        if(OverMinLength(XDist, YDist, t) || ((sx == fx && sy == fy) && t == 1))
+        if(Dist > t)
+        {
+            return false;
+        }
+        if(Dist == 0 && t == 1)
         {
             return false;
         }
         
         return true;
-    }
-    
-private:
-    bool OverMinLength(int XDist, int YDist, int Time)
-    {
-        int MaxLength = max(XDist, YDist);
-        return MaxLength > Time;
     }
 };
