@@ -45,39 +45,39 @@ public:
         }
         priority_queue<Node, vector<Node>, Compare> MinHeap;
         MinHeap.push({FromNode, 0});
-        int Result = INT_MAX;
-        vector<bool> Visited(N);
+        vector<int> Distance(N, INT_MAX);
+        Distance[FromNode] = 0;
         
         while(!MinHeap.empty())
         {
             auto [CurrNode, Weight] = MinHeap.top();
             MinHeap.pop();
             
-            if(Visited[CurrNode])
+            if(Weight > Distance[CurrNode])
             {
                 continue;
             }
-            Visited[CurrNode] = true;
+            if(CurrNode == ToNode)
+            {
+                return Weight;
+            }
             
             for(auto& [NextNode, NextWeight] : Table[CurrNode])
             {
-                int Temp = Weight + NextWeight;
-                if(NextNode == ToNode)
+                int NextDistance = Distance[CurrNode] + NextWeight;
+                if(Distance[NextNode] > NextDistance)
                 {
-                    Result = min(Result, Temp);
-                }
-                else
-                {
-                    MinHeap.push({NextNode, Temp});
+                    Distance[NextNode] = NextDistance;
+                    MinHeap.push({NextNode, NextDistance});
                 }
             }
         }
         
-        if(Result == INT_MAX)
+        if(Distance[ToNode] == INT_MAX)
         {
             return -1;
         }
-        return Result;
+        return Distance[ToNode];
     }
 };
 
