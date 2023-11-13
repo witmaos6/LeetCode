@@ -4,7 +4,7 @@ public:
     string sortVowels(string s)
     {
         const int N = static_cast<int>(s.size());
-        unordered_map<char, int> Table;
+        array<int, 128> Table = {0};
         vector<int> SVowelIndex;
         
         for(int i = 0; i < N; i++)
