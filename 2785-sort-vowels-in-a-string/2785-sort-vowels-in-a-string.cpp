@@ -1,26 +1,34 @@
 class Solution {
-    vector<char> Vowels = {'A','E','I','O','U','a','e','i','o','u'};
+    array<char, 10> Vowels = {'A','E','I','O','U','a','e','i','o','u'};
 public:
     string sortVowels(string s)
     {
         const int N = static_cast<int>(s.size());
-        priority_queue<char, vector<char>, greater<char>>MinHeap;
-        vector<int> VowelIndex;
+        unordered_map<char, int> Table;
+        vector<int> SVowelIndex;
         
         for(int i = 0; i < N; i++)
         {
             if(IsVowel(s[i]))
             {
-                VowelIndex.push_back(i);
-                MinHeap.push(s[i]);
+                Table[s[i]]++;
+                SVowelIndex.push_back(i);
             }
         }
         
-        for(int Index : VowelIndex)
+        int VowelIndex = 0;
+        
+        for(int Index : SVowelIndex)
         {
-            s[Index] = MinHeap.top();
-            MinHeap.pop();
+            while(Table[Vowels[VowelIndex]] <= 0)
+            {
+                VowelIndex++;
+            }
+            
+            s[Index] = Vowels[VowelIndex];
+            Table[Vowels[VowelIndex]]--;
         }
+        
         
         return s;
     }
