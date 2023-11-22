@@ -1,30 +1,27 @@
 class Solution {
+    typedef pair<int, int> Point;
 public:
     vector<int> findDiagonalOrder(vector<vector<int>>& nums)
     {
-        const size_t RowSize = nums.size();
-        size_t MaxColSize = 0;
-        
-        for(size_t i = 0; i < RowSize; i++)
-        {
-            MaxColSize = max(MaxColSize, nums[i].size());
-        }
-        
-        vector<vector<int>> Table(RowSize + MaxColSize);
-        for(size_t Row = 0; Row < RowSize; Row++)
-        {
-            for(size_t Col = 0; Col < nums[Row].size(); Col++)
-            {
-                Table[Row + Col].push_back(nums[Row][Col]);
-            }
-        }
-        
+        const int RowSize = static_cast<int>(nums.size());
+        queue<Point> BFS;
+        BFS.push({0, 0});
         vector<int> Result;
-        for(size_t i = 0; i < RowSize + MaxColSize; i++)
+        
+        while(!BFS.empty())
         {
-            for(int j = Table[i].size() - 1; j >= 0; j--)
+            auto [Row, Col] = BFS.front();
+            BFS.pop();
+            
+            Result.push_back(nums[Row][Col]);
+            
+            if(Col == 0 && Row < RowSize - 1)
             {
-                Result.push_back(Table[i][j]);
+                BFS.push({Row + 1, Col});
+            }
+            if(Col + 1 < nums[Row].size())
+            {
+                BFS.push({Row, Col + 1});
             }
         }
         
