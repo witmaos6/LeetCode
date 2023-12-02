@@ -3,10 +3,10 @@ class Solution {
 public:
     int countCharacters(vector<string>& words, string chars)
     {
-        vector<int> Table(26);
+        vector<int> Table(128);
         for(const char C : chars)
         {
-            Table[C - Begin]++;
+            Table[C]++;
         }
         
         const int CharsSize = static_cast<int>(chars.size());
@@ -20,10 +20,10 @@ public:
                 continue;
             }
             
-            vector<int> WordTable(26);
+            vector<int> WordTable(128);
             for(const char C : Word)
             {
-                WordTable[C - Begin]++;
+                WordTable[C]++;
             }
             
             if(IsGood(WordTable, Table))
@@ -38,7 +38,7 @@ public:
 private:
     bool IsGood(vector<int>& Table1, vector<int>& Table2)
     {
-        for(int i = 0; i < 26; i++)
+        for(int i = Begin; i < Begin + 26; i++)
         {
             if(Table2[i] < Table1[i])
             {
