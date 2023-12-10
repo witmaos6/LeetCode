@@ -9,32 +9,32 @@ public:
         
         if(RowSize == ColSize)
         {
-            SetTransposeSquareMatrix(matrix);
+            for(int Row = 0; Row < RowSize; Row++)
+            {
+                for(int Col = Row + 1; Col < ColSize; Col++)
+                {
+                    swap(matrix[Row][Col], matrix[Col][Row]);
+                }
+            }
             return matrix;
         }
         
+        return GetTransposeMatrix(matrix);
+    }
+    
+private:
+    vector<vector<int>> GetTransposeMatrix(const vector<vector<int>>& Matrix)
+    {
         vector<vector<int>> TransposeMatrix(ColSize, vector<int>(RowSize));
         
         for(int Row = 0; Row < RowSize; Row++)
         {
             for(int Col = 0; Col < ColSize; Col++)
             {
-                TransposeMatrix[Col][Row] = matrix[Row][Col];
+                TransposeMatrix[Col][Row] = Matrix[Row][Col];
             }
         }
         
         return TransposeMatrix;
-    }
-    
-private:
-    void SetTransposeSquareMatrix(vector<vector<int>>& Matrix)
-    {
-        for(int Row = 0; Row < RowSize; Row++)
-        {
-            for(int Col = Row + 1; Col < ColSize; Col++)
-            {
-                swap(Matrix[Row][Col], Matrix[Col][Row]);
-            }
-        }
     }
 };
