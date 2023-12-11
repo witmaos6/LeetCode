@@ -9,13 +9,9 @@ public:
         for(int Num : arr)
         {
             Table[Num]++;
-        }
-        
-        for(int i = 0; i < 100001; i++)
-        {
-            if(Table[i] > More25)
+            if(Table[Num] > More25)
             {
-                return i;
+                return Num;
             }
         }
         return -1;
