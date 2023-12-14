@@ -7,7 +7,7 @@ public:
         RowSize = static_cast<int>(grid.size());
         ColSize = static_cast<int>(grid[0].size());
         
-        vector<vector<int>> Memo(2);
+        vector<vector<pair<int, int>>> Memo(2);
         for(int Row = 0; Row < RowSize; Row++)
         {
             int Count = 0;
@@ -18,7 +18,7 @@ public:
                     Count++;
                 }
             }
-            Memo[0].push_back(Count);
+            Memo[0].push_back({Count, ColSize - Count});
         }
         for(int Col = 0; Col < ColSize; Col++)
         {
@@ -30,7 +30,7 @@ public:
                     Count++;
                 }
             }
-            Memo[1].push_back(Count);
+            Memo[1].push_back({Count, RowSize - Count});
         }
         
         vector<vector<int>> Diff(RowSize, vector<int>(ColSize));
@@ -39,9 +39,9 @@ public:
         {
             for(int Col = 0; Col < ColSize; Col++)
             {
-                int Ones = Memo[0][Row] + Memo[1][Col];
-                int Zeros = (ColSize - Memo[0][Row]) + (RowSize - Memo[1][Col]);
-                Diff[Row][Col] = Ones - Zeros;
+                int RowValue = Memo[0][Row].first - Memo[0][Row].second;
+                int ColValue = Memo[1][Col].first - Memo[1][Col].second;
+                Diff[Row][Col] = RowValue + ColValue;
             }
         }
         return Diff;
