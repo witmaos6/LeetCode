@@ -6,7 +6,7 @@ public:
         
         for(int Price : prices)
         {
-            if(MinPair.first >= Price)
+            if(MinPair.first > Price)
             {
                 MinPair.second = MinPair.first;
                 MinPair.first = Price;
