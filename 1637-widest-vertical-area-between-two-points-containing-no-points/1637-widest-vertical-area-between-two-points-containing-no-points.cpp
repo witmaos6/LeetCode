@@ -2,16 +2,27 @@ class Solution {
 public:
     int maxWidthOfVerticalArea(vector<vector<int>>& points)
     {
-        sort(points.begin(), points.end(), [](const vector<int>& A, const vector<int>& B)
-        {
-            return A[0] < B[0];
-        });
-        
         const size_t N = points.size();
-        int MaxWidth = 0;
-        for(size_t i = 1; i < N; i++)
+        
+        priority_queue<int, vector<int>, greater<>> MinHeap;
+        for(size_t i = 0; i < N; i++)
         {
-            MaxWidth = max(MaxWidth, points[i][0] - points[i - 1][0]);
+            MinHeap.push(points[i][0]);
+        }
+        
+        int PrevNum = MinHeap.top();
+        int MaxWidth = 0;
+        
+        while(!MinHeap.empty())
+        {
+            int CurrNum = MinHeap.top();
+            MinHeap.pop();
+            
+            int Diff = CurrNum - PrevNum;
+            
+            MaxWidth = max(MaxWidth, Diff);
+            
+            PrevNum = CurrNum;
         }
         
         return MaxWidth;
