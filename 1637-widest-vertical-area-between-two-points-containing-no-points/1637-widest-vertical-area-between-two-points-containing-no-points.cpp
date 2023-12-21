@@ -4,25 +4,18 @@ public:
     {
         const size_t N = points.size();
         
-        priority_queue<int, vector<int>, greater<>> MinHeap;
+        vector<int> XPoints(N);
         for(size_t i = 0; i < N; i++)
         {
-            MinHeap.push(points[i][0]);
+            XPoints[i] = points[i][0];
         }
         
-        int PrevNum = MinHeap.top();
+        sort(XPoints.begin(), XPoints.end());
         int MaxWidth = 0;
         
-        while(!MinHeap.empty())
+        for(size_t i = 1; i < N; i++)
         {
-            int CurrNum = MinHeap.top();
-            MinHeap.pop();
-            
-            int Diff = CurrNum - PrevNum;
-            
-            MaxWidth = max(MaxWidth, Diff);
-            
-            PrevNum = CurrNum;
+            MaxWidth = max(MaxWidth, XPoints[i] - XPoints[i - 1]);
         }
         
         return MaxWidth;
