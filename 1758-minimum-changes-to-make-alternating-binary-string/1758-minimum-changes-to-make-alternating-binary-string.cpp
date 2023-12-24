@@ -2,27 +2,20 @@ class Solution {
 public:
     int minOperations(string s)
     {
-        int Result = min(GetMinOperations(s, '0'), GetMinOperations(s, '1'));
+        int Count10 = 0;
+        char InputChar = '1';
         
-        return Result;
-    }
-    
-private:
-    int GetMinOperations(const string& S, char FirstChar)
-    {
-        int CountingOper = 0;
-        char InputChar = FirstChar;
-        
-        for(char C : S)
+        for(char C : s)
         {
-            if(C != InputChar)
+            if(C == InputChar)
             {
-                CountingOper++;
+                Count10++;
             }
-            
-            InputChar = (InputChar == '0') ? '1' : '0';
+            InputChar = (InputChar == '1') ? '0' : '1';
         }
         
-        return CountingOper;
+        int Count01 = s.size() - Count10;
+        
+        return min(Count10, Count01);
     }
 };
