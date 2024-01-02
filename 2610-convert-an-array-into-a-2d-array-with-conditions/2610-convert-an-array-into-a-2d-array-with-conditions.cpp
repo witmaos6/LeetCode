@@ -2,26 +2,21 @@ class Solution {
 public:
     vector<vector<int>> findMatrix(vector<int>& nums)
     {
-        sort(nums.begin(), nums.end());
-        
-        const int N = static_cast<int>(nums.size());
-        vector<vector<int>> Result;
-        Result.push_back({nums[0]});
-        
-        for(int i = 1; i < N; i++)
+        unordered_map<int, int> Table;
+        int MaxNum = 0;
+        for(int Num : nums)
         {
-            int Index = 0;
-            while (Index < Result.size() && Result[Index].back() == nums[i])
+            Table[Num]++;
+            MaxNum = max(MaxNum, Table[Num]);
+        }
+        
+        vector<vector<int>> Result(MaxNum);
+        
+        for(auto& [Num, Freq] : Table)
+        {
+            for(int i = 0; i < Freq; i++)
             {
-                Index++;
-            }
-            if(Index < Result.size())
-            {
-                Result[Index].push_back(nums[i]);
-            }
-            else
-            {
-                Result.push_back({nums[i]});
+                Result[i].push_back(Num);
             }
         }
         
