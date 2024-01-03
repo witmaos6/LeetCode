@@ -16,7 +16,7 @@ public:
         {
             for(int i = 0; i < Freq; i++)
             {
-                Result[i].push_back(Num);
+                Result[i].emplace_back(Num);
             }
         }
         
