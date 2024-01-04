@@ -17,18 +17,9 @@ public:
                 return -1;
             }
             
-            int Count = (Freq / 3) + GetDivisionThree(Freq);
+            int Count = (Freq / 3) + ((Freq % 3 == 0) ? 0 : 1);
             Result += Count;
         }
         return Result;
-    }
-private:
-    int GetDivisionThree(int Num)
-    {
-        if(Num % 3 == 0)
-        {
-            return 0;
-        }
-        return 1;
     }
 };
