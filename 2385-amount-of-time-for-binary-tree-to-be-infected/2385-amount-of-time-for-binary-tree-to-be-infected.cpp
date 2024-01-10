@@ -10,62 +10,66 @@
  * };
  */
 class Solution {
-    unordered_map<int, vector<int>> Graph;
+    int Result = 0;
 public:
     int amountOfTime(TreeNode* root, int start)
     {
-        ConstructGraph(root);
-        
-        unordered_set<int> Visited;
-        
-        queue<int> BFS;
-        BFS.push(start);
-        
-        int Result = -1;
-        
-        while(!BFS.empty())
+        if(!root->left && !root->right)
         {
-            Result++;
-            
-            int Range = static_cast<int>(BFS.size());
-            for(int i = 0; i < Range; i++)
-            {
-                int Node = BFS.front();
-                BFS.pop();
-                Visited.insert(Node);
-                
-                for(int AdjNode : Graph[Node])
-                {
-                    if(Visited.find(AdjNode) == Visited.end())
-                    {
-                        BFS.push(AdjNode);
-                    }
-                }
-            }
+            return 0;
         }
+        
+        int StartDepth = FindStartDepth(root, start, 0);
+     
+        DFS(root, StartDepth, start);
         
         return Result;
     }
     
 private:
-    void ConstructGraph(TreeNode* Root)
+    int FindStartDepth(TreeNode* Root, const int Start, int Count)
     {
         if(!Root)
-            return;
+            return 0;
         
-        if(Root->left)
+        if(Start == Root->val)
+            return Count;
+       
+        int LeftDepth = FindStartDepth(Root->left, Start, Count + 1);
+        int RightDepth = FindStartDepth(Root->right, Start, Count + 1);
+        return LeftDepth + RightDepth;
+    }
+    
+    bool DFS(TreeNode* Root, const int Depth, const int Start)
+    {
+        if(!Root)
+            return false;
+        
+        if(Root->val == Start)
         {
-            Graph[Root->val].push_back(Root->left->val);
-            Graph[Root->left->val].push_back(Root->val);
+            Result = max(Result, FindMaxTime(Root) - 1);
+            return true;
         }
         
-        if(Root->right)
-        {
-            Graph[Root->val].push_back(Root->right->val);
-            Graph[Root->right->val].push_back(Root->val);
-        }
+        bool Left = DFS(Root->left, Depth - 1, Start);
+        bool Right = DFS(Root->right, Depth - 1, Start);
         
-        ConstructGraph(Root->left);
-        ConstructGraph(Root->right);
+        if(Left)
+        {
+            Result = max(Result, FindMaxTime(Root->right) + Depth);
+        }
+        if(Right)
+        {
+            Result = max(Result, FindMaxTime(Root->left) + Depth);
+        }
+        return Left || Right;
+    }
+    
+    int FindMaxTime(TreeNode* Root)
+    {
+        if(!Root)
+            return 0;
+        
+        return max(FindMaxTime(Root->left), FindMaxTime(Root->right)) + 1;
     }
 };
