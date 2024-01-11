@@ -14,7 +14,7 @@ class Solution {
 public:
     int maxAncestorDiff(TreeNode* root)
     {
-        DFS(root, INT_MAX, INT_MIN);
+        DFS(root, root->val, root->val);
         
         return Result;
     }
