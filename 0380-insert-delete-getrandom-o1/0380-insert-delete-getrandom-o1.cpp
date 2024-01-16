@@ -38,6 +38,7 @@ public:
             if(CheckIndex == RandomIndex)
             {
                 RandomValue = Value;
+                break;
             }
             CheckIndex++;
         }
