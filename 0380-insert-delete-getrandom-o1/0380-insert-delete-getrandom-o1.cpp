@@ -1,6 +1,7 @@
 class RandomizedSet
 {
-    unordered_set<int> Table;
+    unordered_map<int, int> IndexTable;
+    vector<int> Values;
 public:
     RandomizedSet()
     {
@@ -9,40 +10,39 @@ public:
     
     bool insert(int val)
     {
-        if(Table.find(val) == Table.end())
+        if(IndexTable.find(val) != IndexTable.end())
         {
-            Table.insert(val);
-            return true;
+            return false;
         }
-        return false;
+        
+        Values.push_back(val);
+        IndexTable[val] = Values.size() - 1;
+        
+        return true;
     }
     
     bool remove(int val)
     {
-        if(Table.find(val) != Table.end())
+        if(IndexTable.find(val) == IndexTable.end())
         {
-            Table.erase(val);
-            return true;
+            return false;
         }
-        return false;
+        
+        int RemoveIndex = IndexTable[val];
+        int LastValue = Values.back();
+        
+        IndexTable[LastValue] = RemoveIndex;
+        swap(Values[RemoveIndex], Values[Values.size() - 1]);
+        
+        Values.pop_back();
+        IndexTable.erase(val);
+        return true;
     }
     
     int getRandom()
     {
-        int RandomIndex = rand() % Table.size();
-        int CheckIndex = 0;
-        int RandomValue = 0;
-        
-        for(const int Value : Table)
-        {
-            if(CheckIndex == RandomIndex)
-            {
-                RandomValue = Value;
-                break;
-            }
-            CheckIndex++;
-        }
-        return RandomValue;
+        int Index = rand() % Values.size();
+        return Values[Index];
     }
 };
 
