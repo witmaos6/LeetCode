@@ -3,21 +3,19 @@ public:
     bool uniqueOccurrences(vector<int>& arr)
     {
         unordered_map<int, int> NumToFreq;
-        
         for(int Num : arr)
         {
             NumToFreq[Num]++;
         }
         
-        array<bool, 1001> FreqTable = {false};
-        
+        unordered_set<int> FreqTable;
         for(auto& [Num, Freq] : NumToFreq)
         {
-            if(FreqTable[Freq])
+            if(FreqTable.find(Freq) != FreqTable.end())
             {
                 return false;
             }
-            FreqTable[Freq] = true;
+            FreqTable.insert(Freq);
         }
         
         return true;
