@@ -8,16 +8,19 @@ public:
         
         for(int i = 1; i <= n; i++)
         {
+            long long Value = 0;
+            
             for(int j = 0; j <= k; j++)
             {
-                int Range = min(i - 1, j);
-                for(int Val = 0; Val <= Range; Val++)
+                Value += Memo[i - 1][j];
+                
+                if(j >= i)
                 {
-                    if(j - Val >= 0)
-                    {
-                        Memo[i][j] = (Memo[i][j] + Memo[i - 1][j - Val]) % Mod;
-                    }
+                    Value -= Memo[i - 1][j - i];
                 }
+                
+                long long Temp = Value + Memo[i][j];
+                Memo[i][j] = static_cast<int>(Temp % Mod);
             }
         }
         
