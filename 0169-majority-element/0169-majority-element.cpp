@@ -3,18 +3,25 @@ public:
     int majorityElement(vector<int>& nums)
     {
         const int N = static_cast<int>(nums.size());
+        int Element = 0;
+        int Count = 0;
         
-        unordered_map<int, int> Table;
-        int MajorElement = 0;
-        for(int Num : nums)
+        for(int i = 0; i < N; i++)
         {
-            Table[Num]++;
-            if(Table[Num] > (N / 2))
+            if(Count == 0)
             {
-                MajorElement = Num;
-                break;
+                Element = nums[i];
+                Count = 1;
+            }
+            else if(Element == nums[i])
+            {
+                Count++;
+            }
+            else
+            {
+                Count--;
             }
         }
-        return MajorElement;
+        return Element;
     }
 };
