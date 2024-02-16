@@ -8,16 +8,17 @@ public:
             FreqTable[Num]++;
         }
        
-        vector<int> FreqArr;
-        for(auto&[Num, Freq] : FreqTable)
+        priority_queue<int, vector<int>, greater<>> MinHeap;
+        for(auto& [Num, Freq] : FreqTable)
         {
-            FreqArr.push_back(Freq);
+            MinHeap.push(Freq);
         }
-        sort(FreqArr.begin(), FreqArr.end());
         
-        int Count = static_cast<int>(FreqArr.size());
-        for(int Freq : FreqArr)
+        int Count = static_cast<int>(MinHeap.size());
+        while(!MinHeap.empty())
         {
+            int Freq = MinHeap.top();
+            MinHeap.pop();
             if(Freq > k)
             {
                 break;
