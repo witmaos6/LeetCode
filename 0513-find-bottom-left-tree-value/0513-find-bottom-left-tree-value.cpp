@@ -20,14 +20,12 @@ public:
         while(!BFS.empty())
         {
             size_t Range = BFS.size();
+            LeftMost = BFS.front()->val;
+            
             for(size_t i = 0; i < Range; i++)
             {
                 TreeNode* Node = BFS.front();
                 BFS.pop();
-                if(i == 0)
-                {
-                    LeftMost = Node->val;
-                }
 
                 if(Node->left)
                 {
