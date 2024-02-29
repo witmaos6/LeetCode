@@ -20,13 +20,13 @@ public:
         while(!BFS.empty())
         {
             size_t Range = BFS.size();
-            vector<int> Level;
+            int Comparison = (Index & 1) ? INT_MAX : INT_MIN;
+            
             for(size_t i = 0; i < Range; i++)
             {
                 TreeNode* Node = BFS.front();
                 BFS.pop();
                 
-                Level.push_back(Node->val);
                 if(Node->left)
                 {
                     BFS.push(Node->left);
@@ -35,54 +35,21 @@ public:
                 {
                     BFS.push(Node->right);
                 }
-            }
-            if(Index & 1)
-            {
-                if(!ValidOddIndex(Level))
+                
+                if(Index & 1)
                 {
-                    return false;
+                    if((Node->val & 1) == 1 || Node->val >= Comparison)
+                        return false;
                 }
-            }
-            else
-            {
-                if(!ValidEvenIndex(Level))
+                else
                 {
-                    return false;
+                    if((Node->val & 1) == 0 || Node->val <= Comparison)
+                        return false;
                 }
+                Comparison = Node->val;
             }
             
             Index++;
-        }
-        return true;
-    }
-    
-private:
-    bool ValidEvenIndex(const vector<int>& Arr)
-    {
-        int N = static_cast<int>(Arr.size());
-        int ValidIncreasing = 0;
-        for(int i = 0; i < N; i++)
-        {
-            if(ValidIncreasing >= Arr[i] || (Arr[i] & 1) == 0)
-            {
-                return false;
-            }
-            ValidIncreasing = Arr[i];
-        }
-        return true;
-    }
-    
-    bool ValidOddIndex(const vector<int>& Arr)
-    {
-        int N = static_cast<int>(Arr.size());
-        int ValidDecreasing = INT_MAX;
-        for(int i = 0; i < N; i++)
-        {
-            if(ValidDecreasing <= Arr[i] || (Arr[i] & 1) == 1)
-            {
-                return false;
-            }
-            ValidDecreasing = Arr[i];
         }
         return true;
     }
