@@ -2,6 +2,9 @@ class Solution {
 public:
     int numSubarrayProductLessThanK(vector<int>& nums, int k)
     {
+        if(k == 0)
+            return 0;
+        
         const int N = static_cast<int>(nums.size());
         int Left = 0;
         int Right = 0;
