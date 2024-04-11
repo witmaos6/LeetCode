@@ -2,33 +2,24 @@ class Solution {
 public:
     string removeKdigits(string num, int k)
     {
-        stack<char> Monotonic;
+        string Result;
         for(char Digit : num)
         {
-            while(!Monotonic.empty() && k > 0 && Monotonic.top() > Digit)
+            while(!Result.empty() && Result.back() > Digit && k > 0)
             {
-                Monotonic.pop();
+                Result.pop_back();
                 k--;
             }
-            Monotonic.push(Digit);
+            if(!Result.empty() || Digit != '0')
+            {
+                Result += Digit;
+            }
         }
-        while(k > 0)
-        {
-            Monotonic.pop();
-            k--;
-        }
-        
-        string Result;
-        while(!Monotonic.empty())
-        {
-            Result += Monotonic.top();
-            Monotonic.pop();
-        }
-        while(!Result.empty() && Result.back() == '0')
+        while(!Result.empty() && k > 0)
         {
             Result.pop_back();
+            k--;
         }
-        reverse(Result.begin(), Result.end());
         
         return Result.empty() ? "0" : Result;
     }
