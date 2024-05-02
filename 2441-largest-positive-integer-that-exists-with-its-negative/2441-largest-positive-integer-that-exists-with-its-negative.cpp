@@ -3,15 +3,15 @@ public:
     int findMaxK(vector<int>& nums)
     {
         int MaxInt = INT_MIN;
-        unordered_set<int> Table;
+        array<int, 2001> Table = {0};
         
         for(int Num : nums)
         {
-            if(Table.find(-Num) != Table.end())
+            if(Table[-Num + 1000] == 1)
             {
                 MaxInt = max(MaxInt, abs(Num));
             }
-            Table.insert(Num);
+            Table[Num + 1000] = 1;
         }
         return MaxInt == INT_MIN ? -1 : MaxInt;
     }
