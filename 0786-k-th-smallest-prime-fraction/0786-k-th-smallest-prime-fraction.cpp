@@ -1,26 +1,50 @@
 class Solution {
-    using P = pair<int, int>;
 public:
     vector<int> kthSmallestPrimeFraction(vector<int>& arr, int k)
     {
         const int N = static_cast<int>(arr.size());
-        vector<pair<float, P>> Fractions;
-        Fractions.reserve(N);
-        for(int i = 0; i < N - 1; i++)
+        double Left = 0, Right = 1;
+        vector<int> Result;
+
+        while (Left <= Right)
         {
-            for(int j = i + 1; j < N; j++)
+            double Mid = Left + (Right - Left) / 2;
+            int j = 1, Total = 0, Num = 0, Den = 0;
+            double MaxFrac = 0;
+            for (int i = 0; i < N; i++)
             {
-                float Value = arr[i];
-                Value /= arr[j];
-                Fractions.push_back({Value, {arr[i], arr[j]}});
+                while (j < N && arr[i] >= arr[j] * Mid)
+                {
+                    j++;
+                }
+                
+                Total += N - j;
+
+                if (j < N && MaxFrac < arr[i] * 1.0 / arr[j])
+                {
+                    MaxFrac = arr[i];
+                    MaxFrac /= arr[j];
+                    Num = i;
+                    Den = j;
+                }
+            }
+
+            if (Total == k)
+            {
+                Result = {arr[Num], arr[Den]};
+                break;
+            }
+
+            if (Total > k)
+            {
+                Right = Mid;
+            }
+            else
+            {
+                Left = Mid;
             }
         }
-        
-        sort(Fractions.begin(), Fractions.end());
-        
-        vector<int> Result(2);
-        Result[0] = Fractions[k - 1].second.first;
-        Result[1] = Fractions[k - 1].second.second;
+
         return Result;
     }
 };
