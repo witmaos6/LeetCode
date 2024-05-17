@@ -10,37 +10,57 @@
  * };
  */
 class Solution {
+    using Family = pair<TreeNode*, TreeNode*>;
 public:
     TreeNode* removeLeafNodes(TreeNode* root, int target)
     {
-        root = RemoveLeafNodes(root, target);
+        stack<Family> St;
+        queue<TreeNode*> BFS;
+        BFS.push(root);
+        
+        while(!BFS.empty())
+        {
+            TreeNode* Node = BFS.front();
+            BFS.pop();
+            
+            if(Node->left)
+            {
+                BFS.push(Node->left);
+                St.push({Node, Node->left});
+            }
+            if(Node->right)
+            {
+                BFS.push(Node->right);
+                St.push({Node, Node->right});
+            }
+        }
+        
+        while(!St.empty())
+        {
+            auto[Parent, Child] = St.top();
+            St.pop();
+            
+            if(Child->left == nullptr && Child->right == nullptr)
+            {
+                if(Child->val == target)
+                {
+                    if(Parent->left == Child)
+                    {
+                        Parent->left = nullptr;
+                        delete Child;
+                    }
+                    if(Parent->right == Child)
+                    {
+                        Parent->right = nullptr;
+                        delete Child;
+                    }
+                }
+            }
+        }
+        
+        if(root->val == target && root->left == nullptr && root->right == nullptr)
+            return nullptr;
         
         return root;
-    }
-private:
-    TreeNode* RemoveLeafNodes(TreeNode* Node, const int Target)
-    {
-        if(Node && Node->left == nullptr && Node->right == nullptr)
-        {
-            if(Node->val == Target)
-                return nullptr;
-            
-            return Node;
-        }
-        
-        if(Node->left)
-        {
-            Node->left = RemoveLeafNodes(Node->left, Target);
-        }
-        if(Node->right)
-        {
-            Node->right = RemoveLeafNodes(Node->right, Target);
-        }
-        
-        if(Node->left == nullptr && Node->right == nullptr && Node->val == Target)
-        {
-            return nullptr;
-        }
-        return Node;
     }
 };
