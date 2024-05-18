@@ -10,28 +10,44 @@
  * };
  */
 class Solution {
+    using StNode = tuple<TreeNode*, TreeNode*, bool>;
 public:
     int distributeCoins(TreeNode* root)
     {
-        return distributeCoins(root, nullptr);
-    }
-    
-private:
-    int distributeCoins(TreeNode* Node, TreeNode* ParentNode)
-    {
-        if(Node == nullptr)
-            return 0;
+        stack<StNode> St;
+        St.push({root, nullptr, false});
+        int Moves = 0;
         
-        int Moves = distributeCoins(Node->left, Node) + distributeCoins(Node->right, Node);
-        
-        int Coin = Node->val - 1;
-        if(ParentNode)
+        while(!St.empty())
         {
-            ParentNode->val += Coin;           
+            auto[Node, Parent, Visited] = St.top();
+            St.pop();
+            
+            if(!Visited)
+            {
+                St.emplace(Node, Parent, true);
+                
+                if(Node->left)
+                {
+                    St.emplace(Node->left, Node, false);
+                }
+                if(Node->right)
+                {
+                    St.emplace(Node->right, Node, false);
+                }
+            }
+            else
+            {
+                int Coin = Node->val - 1;
+                if(Parent)
+                {
+                    Parent->val += Coin;
+                }
+                Moves += abs(Coin);
+            }
+            
         }
         
-        Moves += abs(Coin);
         return Moves;
     }
-    
 };
