@@ -17,7 +17,6 @@ public:
             {
                 DivideTwo(s, N);
             }
-            cout << s << '\n';
             Count++;
         }
 
