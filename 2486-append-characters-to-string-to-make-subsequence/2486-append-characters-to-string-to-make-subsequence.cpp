@@ -7,10 +7,12 @@ public:
         int TIndex = 0;
         for(char C : s)
         {
-            if(TIndex < TSize && C == t[TIndex])
+            if(C == t[TIndex])
             {
                 TIndex++;
             }
+            if(TIndex >= TSize)
+                break;
         }
         
         return TSize - TIndex;
