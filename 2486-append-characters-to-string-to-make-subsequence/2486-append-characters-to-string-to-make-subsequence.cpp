@@ -2,13 +2,12 @@ class Solution {
 public:
     int appendCharacters(string s, string t)
     {
-        const int SSize = static_cast<int>(s.size());
         const int TSize = static_cast<int>(t.size());
         
         int TIndex = 0;
-        for(int SIndex = 0; SIndex < SSize; SIndex++)
+        for(char C : s)
         {
-            if(s[SIndex] == t[TIndex])
+            if(TIndex < TSize && C == t[TIndex])
             {
                 TIndex++;
             }
