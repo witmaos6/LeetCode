@@ -3,22 +3,35 @@ public:
     vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2)
     {
         const int N = static_cast<int>(arr1.size());
-        int LastIndex = 0;
-        int Left = -1;
+        map<int, int> Table;
+        for(int Num : arr1)
+        {
+            Table[Num]++;
+        }
+        
+        vector<int> Result;
+        Result.reserve(N);
         
         for(int Num : arr2)
         {
-            for(int Right = Left + 1; Right < N; Right++)
+            if(Table.find(Num) != Table.end())
             {
-                if(arr1[Right] == Num)
+                while(Table[Num] > 0)
                 {
-                    Left++;
-                    swap(arr1[Left], arr1[Right]);
+                    Table[Num]--;
+                    Result.push_back(Num);
                 }
+                Table.erase(Num);
             }
         }
         
-        sort(arr1.begin() + Left + 1, arr1.end());
-        return arr1;
+        for(auto& [Num, Freq] : Table)
+        {
+            while(Freq--)
+            {
+                Result.push_back(Num);
+            }
+        }
+        return Result;
     }
 };
