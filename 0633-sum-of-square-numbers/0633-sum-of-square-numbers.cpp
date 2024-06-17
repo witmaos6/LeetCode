@@ -2,22 +2,30 @@ class Solution {
 public:
     bool judgeSquareSum(int c)
     {
-        for(int Divisor = 2; Divisor * Divisor <= c; Divisor++)
+        long A = 1;
+        long B = sqrt(c);
+        
+        if(B * B == c)
+            return true;
+        
+        while(A <= B)
         {
-            if(c % Divisor == 0)
+            long Sum = (A * A) + (B * B);
+            
+            if(Sum == c)
             {
-                int Exponent = 0;
-                while(c % Divisor == 0)
-                {
-                    Exponent++;
-                    c /= Divisor;
-                }
-                
-                if(Divisor % 4 == 3 && Exponent % 2 != 0)
-                    return false;
+                return true;
+            }
+            else if(Sum < c)
+            {
+                A++;
+            }
+            else
+            {
+                B--;
             }
         }
         
-        return (c % 4 != 3);
+        return false;
     }
 };
