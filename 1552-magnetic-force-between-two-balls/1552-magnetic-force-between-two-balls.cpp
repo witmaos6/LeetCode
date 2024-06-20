@@ -12,9 +12,8 @@ public:
         {
             int Mid = (R + L) / 2;
             
-            if(Traverse(position, Mid, m, N))
+            if(Traverse(position, Mid, m - 1, N))
             {
-                Result = Mid;
                 L = Mid + 1;
             }
             else
@@ -22,22 +21,21 @@ public:
                 R = Mid - 1;
             }
         }
-        return Result;
+        return L - 1;
     }
     
 private:
     bool Traverse(vector<int>& Position, int Distance, int NrOfBall, const int N)
     {
         int PrevPosition = Position.front();
-        int CountBall = 1;
         for(int i = 1; i < N; i++)
         {
             if(Position[i] - PrevPosition >= Distance)
             {
                 PrevPosition = Position[i];
-                CountBall++;
+                NrOfBall--;
             }
-            if(CountBall >= NrOfBall)
+            if(NrOfBall <= 0)
                 return true;
         }
         return false;
