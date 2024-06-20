@@ -5,14 +5,14 @@ public:
         const int N = static_cast<int>(position.size());
         sort(position.begin(), position.end());
         
-        int L = 1, R = (position.back() - position.front()) / (m - 1);
-        int Result = 1;
+        m--;
+        int L = 1, R = (position.back() - position.front()) / m;
         
         while(L <= R)
         {
             int Mid = (R + L) / 2;
             
-            if(Traverse(position, Mid, m - 1, N))
+            if(Traverse(position, N, Mid, m))
             {
                 L = Mid + 1;
             }
@@ -25,7 +25,7 @@ public:
     }
     
 private:
-    bool Traverse(vector<int>& Position, int Distance, int NrOfBall, const int N)
+    bool Traverse(vector<int>& Position, const int N, const int Distance, int NrOfBall)
     {
         int PrevPosition = Position.front();
         for(int i = 1; i < N; i++)
