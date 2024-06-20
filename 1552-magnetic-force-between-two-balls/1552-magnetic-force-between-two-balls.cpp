@@ -11,7 +11,6 @@ public:
         while(L <= R)
         {
             int Mid = (R + L) / 2;
-            
             if(Traverse(position, N, Mid, m))
             {
                 L = Mid + 1;
@@ -34,9 +33,9 @@ private:
             {
                 PrevPosition = Position[i];
                 NrOfBall--;
+                if(NrOfBall <= 0)
+                    return true;
             }
-            if(NrOfBall <= 0)
-                return true;
         }
         return false;
     }
