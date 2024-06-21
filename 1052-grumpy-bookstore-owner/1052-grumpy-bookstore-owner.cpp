@@ -14,29 +14,17 @@ public:
             if(grumpy[i] == 0)
             {
                 Total += customers[i];
+                customers[i] = 0;
             }
         }
         
-        int Memo = 0;
-        for(int i = 0; i < minutes; i++)
-        {
-            if(grumpy[i] == 1)
-            {
-                Memo += customers[i];
-            }
-        }
+        int Memo = accumulate(customers.begin(), customers.begin() + minutes, 0);
         int Result = Total + Memo;
         
-        for(int i = 0; i < N - minutes; i++)
+        for(int i = minutes; i < N; i++)
         {
-            if(grumpy[i] == 1)
-            {
-                Memo -= customers[i];
-            }
-            if(grumpy[i + minutes] == 1)
-            {
-                Memo += customers[i + minutes];
-            }
+            Memo -= customers[i - minutes];
+            Memo += customers[i];
             
             Result = max(Result, Total + Memo);
         }
