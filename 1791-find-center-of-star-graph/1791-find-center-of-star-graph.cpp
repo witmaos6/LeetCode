@@ -2,19 +2,15 @@ class Solution {
 public:
     int findCenter(vector<vector<int>>& edges)
     {
-        unordered_set<int> Table;
-        for(vector<int>& Edge : edges)
-        {
-            for(int Num : Edge)
-            {
-                if(Table.find(Num) != Table.end())
-                {
-                    return Num;
-                }
-                Table.insert(Num);
-            }
-        }
+        int U1 = edges[0][0];
+        int V1 = edges[0][1];
+        int U2 = edges[1][0];
+        int V2 = edges[1][1];
         
-        return -1;
+        if(U1 == U2 || U1 == V2)
+        {
+            return U1;
+        }
+        return V1;
     }
 };
