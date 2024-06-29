@@ -1,54 +1,36 @@
 class Solution {
+    unordered_map<int, vector<int>> DAG;
+    vector<vector<int>> Answer;
 public:
     vector<vector<int>> getAncestors(int n, vector<vector<int>>& edges)
     {
-        unordered_map<int, vector<int>> DAG;
         for(vector<int>& Edge : edges)
         {
             int From = Edge[0];
             int To = Edge[1];
             
-            DAG[To].push_back(From);
+            DAG[From].push_back(To);
         }       
-        
-        vector<set<int>> Ancestors(n);
+
+        Answer.resize(n);
         for(int i = 0; i < n; i++)
         {
-            queue<int> BFS;
-            for(int Num : DAG[i])
-            {
-                BFS.push(Num);
-            }
-            
-            vector<bool> Visited(n);
-            
-            while(!BFS.empty())
-            {
-                int Node = BFS.front();
-                BFS.pop();
-                
-                if(Visited[Node])
-                    continue;
-                
-                Visited[Node] = true;
-                Ancestors[i].insert(Node);
-                
-                for(int Adj : DAG[Node])
-                {
-                    BFS.push(Adj);
-                }
-            }
-        }
-        
-        vector<vector<int>> Answer(n);
-        for(int i = 0; i < n; i++)
-        {
-            for(const int& Num : Ancestors[i])
-            {
-                Answer[i].push_back(Num);
-            }
+            DFS(i, i);
         }
         
         return Answer;
+    }
+    
+    private:
+    void DFS(const int Index, int CurrNode)
+    {
+        for (int Adj : DAG[CurrNode])
+        {
+            if (Answer[Adj].empty() || Answer[Adj].back() != Index)
+            {
+                Answer[Adj].push_back(Index);
+                DFS(Index, Adj);
+            }
+        }
     }
 };
