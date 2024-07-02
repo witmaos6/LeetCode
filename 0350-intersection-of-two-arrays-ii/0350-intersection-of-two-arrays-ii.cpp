@@ -14,9 +14,10 @@ public:
         vector<int> Result;
         for(int i = 0; i < Nums2Size; i++)
         {
-            if(Table.find(nums2[i]) != Table.end() && Table[nums2[i]] > 0)
+            unordered_map<int,int>::iterator It = Table.find(nums2[i]);
+            if(It != Table.end() && It->second > 0)
             {
-                Table[nums2[i]]--;
+                It->second--;
                 Result.push_back(nums2[i]);
             }
         }
