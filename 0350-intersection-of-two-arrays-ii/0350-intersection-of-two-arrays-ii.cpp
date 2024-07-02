@@ -2,23 +2,20 @@ class Solution {
 public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2)
     {
-        const int Nums1Size = static_cast<int>(nums1.size());
-        const int Nums2Size = static_cast<int>(nums2.size());
-        
         unordered_map<int, int> Table;
-        for(int i = 0; i < Nums1Size; i++)
+        for(int Num : nums1)
         {
-            Table[nums1[i]]++;
+            Table[Num]++;
         }
         
         vector<int> Result;
-        for(int i = 0; i < Nums2Size; i++)
+        for(int Num : nums2)
         {
-            unordered_map<int,int>::iterator It = Table.find(nums2[i]);
+            unordered_map<int,int>::iterator It = Table.find(Num);
             if(It != Table.end() && It->second > 0)
             {
                 It->second--;
-                Result.push_back(nums2[i]);
+                Result.push_back(Num);
             }
         }
         
