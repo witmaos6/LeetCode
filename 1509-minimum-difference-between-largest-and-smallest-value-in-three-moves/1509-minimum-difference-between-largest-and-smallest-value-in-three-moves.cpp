@@ -9,14 +9,13 @@ public:
         }
         
         sort(nums.begin(), nums.end());
-        int Left = -1, Right = N - 5;
-        int Result = INT_MAX;
+        int Left = 0, Right = N - 4;
+        int Result = nums[Right] - nums[Left];
         
-        for(int i = 0; i < 4; i++)
-        {
+        for(int i = 0; i < 3; i++)
+        {   
             Right++;
             Left++;
-            
             int CurrDiffer = nums[Right] - nums[Left];
             Result = min(Result, CurrDiffer);
         }
