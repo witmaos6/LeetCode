@@ -45,11 +45,6 @@ public:
         {
             return {-1, -1};
         }
-        if(CriticalPoint.size() == 2)
-        {
-            int Dist = CriticalPoint.back() - CriticalPoint.front();
-            return {Dist, Dist};
-        }
         
         vector<int> Result(2, INT_MAX);
         Result[1] = CriticalPoint.back() - CriticalPoint.front();
