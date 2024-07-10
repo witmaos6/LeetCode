@@ -2,25 +2,26 @@ class Solution {
 public:
     int minOperations(vector<string>& logs)
     {
-        vector<string> Folders = {"Main"};
+        int LengthFromMain = 0;
         
         for(const string& Log : logs)
         {
-            if(Log.front() == '.')
+            if(Log == "../")
             {
-                if(Log[1] == '.')
+                if(LengthFromMain > 0)
                 {
-                    if(Folders.back() != "Main")
-                    {
-                        Folders.pop_back();
-                    }
+                    LengthFromMain--;
                 }
+            }
+            else if(Log == "./")
+            {
+                continue;
             }
             else
             {
-                Folders.push_back(Log);
+                LengthFromMain++;
             }
         }
-        return Folders.size() - 1;
+        return LengthFromMain;
     }
 };
