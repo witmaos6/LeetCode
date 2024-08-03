@@ -2,7 +2,7 @@ class Solution {
 public:
     bool canBeEqual(vector<int>& target, vector<int>& arr)
     {
-        unordered_map<int, int> Table;
+        vector<int> Table(1001);
         
         for(int Num : target)
         {
@@ -11,14 +11,10 @@ public:
         
         for(int Num : arr)
         {
-            if(Table.find(Num) == Table.end())
-            {
-                return false;
-            }
             Table[Num]--;
         }
         
-        for(auto&[Num, Freq] : Table)
+        for(int Freq : Table)
         {
             if(Freq != 0)
             {
