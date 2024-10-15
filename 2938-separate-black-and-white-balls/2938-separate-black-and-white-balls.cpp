@@ -20,8 +20,9 @@ public:
             }
             else
             {
-                swap(s[Left], s[Right]);
                 Count += (Right - Left);
+                Left++;
+                Right--;
             }
         }
         
