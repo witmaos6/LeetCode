@@ -11,28 +11,27 @@ public:
         }
         
         const int N = static_cast<int>(Digits.size());
-        for(int i = N - 1; i > 0; --i)
+        int MaxDigit = -1;
+        int MaxIndex = -1;
+        int LeftIndex = -1;
+        int RightIndex = -1;
+        for(int i = 0; i < N; ++i)
         {
-            int MaxValue = Digits[i];
-            int MaxIndex = -1;
-            for(int j = i - 1; j >= 0; --j)
-            {
-                if(MaxValue < Digits[j])
-                {
-                    MaxValue = Digits[j];
-                    MaxIndex = j;
-                }
-                else if(MaxValue == Digits[j] && MaxValue != Digits[i])
-                {
-                    MaxIndex = j;
-                }
+            if(Digits[i] > MaxDigit){
+                MaxDigit = Digits[i];
+                MaxIndex = i;
+                continue;
             }
-            
-            if(MaxIndex != -1)
+            if(Digits[i] < MaxDigit)
             {
-                swap(Digits[i], Digits[MaxIndex]);
-                break;
+                LeftIndex = i;
+                RightIndex = MaxIndex;
             }
+        }
+
+        if(LeftIndex != -1)
+        {
+            swap(Digits[LeftIndex], Digits[RightIndex]);
         }
         
         int Result = 0;
