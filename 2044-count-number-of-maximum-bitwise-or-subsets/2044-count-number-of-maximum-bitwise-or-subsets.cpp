@@ -13,12 +13,17 @@ public:
         int Result = 0;
         for(int i = 0; i < N; ++i)
         {
-            int Count = DFS(nums, i, nums[i]);
             if(nums[i] == ORResult)
             {
-                Count += 1;
+                int Remain = N - (i + 1);
+                int RemainCount = pow(2, Remain);
+                Result += RemainCount;
             }
-            Result += Count;
+            else
+            {
+                int Count = DFS(nums, i, nums[i]);
+                Result += Count;
+            }
         }
         
         return Result;
@@ -26,7 +31,7 @@ public:
     
 private:
     int DFS(const vector<int>& Nums, const int Index, const int Num)
-    {
+    {   
         int Count = 0;
         for(int i = Index + 1; i < N; ++i)
         {
@@ -34,10 +39,14 @@ private:
             
             if(ORNum == ORResult)
             {
-                Count++;
+                int Remain = N - (i + 1);
+                int RemainCount = pow(2, Remain);
+                Count += RemainCount;
             }
-            
-            Count += DFS(Nums, i, ORNum);
+            else
+            {
+                Count += DFS(Nums, i, ORNum);
+            }
         }
         
         return Count;
