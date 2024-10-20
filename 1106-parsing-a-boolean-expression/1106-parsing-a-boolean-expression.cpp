@@ -1,4 +1,5 @@
 class Solution {
+    using Pair = pair<int, int>;
 public:
     bool parseBoolExpr(string expression)
     {
@@ -12,16 +13,16 @@ public:
             }
             else if(C == ')')
             {
-                vector<bool> Booleans;
+                Pair Booleans = {0, 0}; // first == true, second == false
                 while(!Expression.empty())
                 {
                     if(Expression.top() == 't')
                     {
-                        Booleans.push_back(true);
+                        Booleans.first = 1;
                     }
                     else if(Expression.top() == 'f')
                     {
-                        Booleans.push_back(false);
+                        Booleans.second = 1;
                     }
                     else if(Expression.top() == '(')
                     {
@@ -38,23 +39,23 @@ public:
                     
                     if(Operator == '!')
                     {
-                        if(Booleans.front() == true)
+                        if(Booleans.first == 1)
                         {
                             Expression.push('f');
                         }
-                        else if(Booleans.front() == false)
+                        else if(Booleans.second == 1)
                         {
                             Expression.push('t');
                         }
                     }
                     else if(Operator == '&')
                     {
-                        char Result = AndOperator(Booleans);
+                        char Result = (Booleans.second == 1) ? 'f' : 't';
                         Expression.push(Result);
                     }
                     else if(Operator == '|')
                     {
-                        char Result = OrOperator(Booleans);
+                        char Result = (Booleans.first == 1) ? 't' : 'f';
                         Expression.push(Result);
                     }
                 }
@@ -66,29 +67,5 @@ public:
             return true;
         }
         return false;
-    }
-private:
-    char AndOperator(const vector<bool>& Booleans)
-    {
-        for(bool B : Booleans)
-        {
-            if(B == false)
-            {
-                return 'f';
-            }
-        }
-        return 't';
-    }
-    
-    char OrOperator(const vector<bool>& Booleans)
-    {
-        for(bool B : Booleans)
-        {
-            if(B == true)
-            {
-                return 't';
-            }
-        }
-        return 'f';
     }
 };
