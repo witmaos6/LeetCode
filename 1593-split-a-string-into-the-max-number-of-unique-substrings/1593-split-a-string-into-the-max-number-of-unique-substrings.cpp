@@ -27,6 +27,9 @@ public:
 private:
     void BackTracking(const string& S, const int Index)
     {
+        if (Table.size() + (S.size() - Index) <= MaxSplit)
+            return;
+        
         if(Index + 1 >= N)
         {
             MaxSplit = max(MaxSplit, static_cast<int>(Table.size()));
