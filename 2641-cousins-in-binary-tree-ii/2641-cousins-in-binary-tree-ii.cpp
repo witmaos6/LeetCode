@@ -9,68 +9,62 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-struct Family
-{
-    TreeNode* Parent;
-    TreeNode* Child;
-    
-    Family(){}
-    Family(TreeNode* P, TreeNode* C) : Parent(P), Child(C){}
-};
 
 class Solution {
+    vector<int> LevelSums;
 public:
     TreeNode* replaceValueInTree(TreeNode* root)
     {
-        queue<Family> BFS;
-        if(root)
-        {
-            root->val = 0;
-            if(root->left)
-            {
-                BFS.push(Family(root, root->left));
-            }
-            if(root->right)
-            {
-                BFS.push(Family(root, root->right));
-            }
-        }
+        LevelSums.resize(1, 0);
+        ChildSum(root, 0);
         
-        while(!BFS.empty())
-        {
-            size_t Range = BFS.size();
-            
-            unordered_map<TreeNode*, int> ChildSum;
-            vector<Family> LevelNode;
-            int Sum = 0;
-                
-            for(size_t i = 0; i < Range; i++)
-            {
-                LevelNode.push_back(BFS.front());
-                
-                TreeNode* Parent = BFS.front().Parent;
-                TreeNode* CurrNode = BFS.front().Child;
-                BFS.pop();
-                
-                Sum += CurrNode->val;
-                ChildSum[Parent] += CurrNode->val;
-                
-                if(CurrNode->left)
-                {
-                    BFS.push(Family(CurrNode, CurrNode->left));
-                }
-                if(CurrNode->right)
-                {
-                    BFS.push(Family(CurrNode, CurrNode->right));
-                }
-            }
-            
-            for(Family& Node : LevelNode)
-            {
-                Node.Child->val = Sum - ChildSum[Node.Parent];
-            }
-        }
+        CousinsSum(root, nullptr, 0);
         
         return root;
+    }
+    
+private:
+    void ChildSum(TreeNode* Root, const int Level)
+    {
+        if(Root == nullptr)
+            return;
+        
+        int Sum = 0;
+        if(Root->left)
+        {
+            Sum += Root->left->val;
+        }
+        if(Root->right)
+        {
+            Sum += Root->right->val;
+        }
+        Root->val = Sum;
+        
+        if(LevelSums.size() <= Level)
+        {
+            LevelSums.resize(Level + 1);
+        }
+        LevelSums[Level] += Sum;
+        
+        ChildSum(Root->left, Level + 1);
+        ChildSum(Root->right, Level + 1);
+    }
+    
+    void CousinsSum(TreeNode* Root, TreeNode* Parent, const int Level)
+    {
+        if(Root == nullptr)
+            return;
+        
+        CousinsSum(Root->left, Root, Level + 1);
+        CousinsSum(Root->right, Root, Level + 1);
+        
+        if(Parent == nullptr)
+        {
+            Root->val = 0;
+        }
+        else
+        {
+            Root->val = LevelSums[Level - 1] - Parent->val;
+        }
     }
 };
