@@ -58,13 +58,13 @@ private:
         CousinsSum(Root->left, Root, Level + 1);
         CousinsSum(Root->right, Root, Level + 1);
         
-        if(Parent == nullptr)
+        if(Parent)
         {
-            Root->val = 0;
+            Root->val = LevelSums[Level - 1] - Parent->val;
         }
         else
         {
-            Root->val = LevelSums[Level - 1] - Parent->val;
+            Root->val = 0;
         }
     }
 };
