@@ -10,41 +10,15 @@ public:
         {
             for(int Col = 0; Col < Cols; ++Col)
             {
-                if(matrix[Row][Col] == 1)
+                if (Row > 0 && Col > 0 && matrix[Row][Col] > 0)
                 {
-                    int SubCount = 0;
-                    int Range = min(Rows - Row, Cols - Col);
-                    for(int Length = 1; Length <= Range; ++Length)
-                    {
-                        if(IsSquare(matrix, Row, Col, Length))
-                        {
-                            ++SubCount;
-                        }
-                    }
-                    Count += SubCount;
+                    int MinAdj = min(matrix[Row - 1][Col], matrix[Row][Col - 1]);
+                    matrix[Row][Col] = min(matrix[Row - 1][Col - 1], MinAdj) + 1;
                 }
+                Count += matrix[Row][Col];
             }
         }
         
         return Count;
-    }
-    
-private:
-    bool IsSquare(const vector<vector<int>>& Matrix, int BeginRow, int BeginCol, const int Length)
-    {
-        const int RowBoundary = BeginRow + Length;
-        const int ColBoundary = BeginCol + Length;
-        
-        for(int Row = BeginRow; Row < RowBoundary; ++Row)
-        {
-            for(int Col = BeginCol; Col < ColBoundary; ++Col)
-            {
-                if(Matrix[Row][Col] == 0)
-                {
-                    return false;
-                }
-            }
-        }
-        return true;
     }
 };
