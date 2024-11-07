@@ -2,24 +2,20 @@ class Solution {
 public:
     int largestCombination(vector<int>& candidates)
     {
-        const int Max = 1e7;
-        
-        int MaxCount = 0;
-        for(int i = 1; i < Max; i <<= 1)
+        array<int, 24> BitCounts{};
+
+        for(int Num : candidates)
         {
-            int Count = 0;
+            int Bit = 0;
             
-            for(int& Num : candidates)
+            while(Num > 0)
             {
-                if(Num & i)
-                {
-                    ++Count;
-                }
+                BitCounts[Bit] += (Num & 1);
+                ++Bit;
+                Num >>= 1;
             }
-            
-            MaxCount = max(MaxCount, Count);
         }
         
-        return MaxCount;
+        return *max_element(BitCounts.begin(), BitCounts.end());
     }
 };
