@@ -1,16 +1,22 @@
 class Solution {
+    const int a = 0;
+    const int b = 1;
+    const int c = 2;
 public:
     int takeCharacters(string s, int k)
     {
-        unordered_map<char, int> Table;
+        array<int, 3> Table;
         
         for(char& C : s)
         {
-            Table[C]++;
+            Table[GetIndex(C)]++;
         }
         
-        if(Table['a'] < k || Table['b'] < k || Table['c'] < k)
-            return -1;
+        for(int& Num : Table)
+        {
+            if(Num < k)
+                return -1;
+        }
         
         const int N = static_cast<int>(s.size());        
         int j = 0;
@@ -18,13 +24,13 @@ public:
         int MinMinute = INT_MAX;
         for(int i = 0; i < N; ++i)
         {
-            char C = s[i];
-            --Table[C];
+            int Index = GetIndex(s[i]);
+            --Table[Index];
             ++Erase;
             
-            while(Table[C] < k)
+            while(Table[Index] < k)
             {
-                ++Table[s[j]];
+                ++Table[GetIndex(s[j])];
                 ++j;
                 --Erase;
             }
@@ -33,5 +39,20 @@ public:
         }
         
         return MinMinute;
+    }
+    
+private:
+    int GetIndex(char C)
+    {
+        if(C == 'a')
+            return a;
+        
+        if(C == 'b')
+            return b;
+        
+        if(C == 'c')
+            return c;
+        
+        return 0;
     }
 };
