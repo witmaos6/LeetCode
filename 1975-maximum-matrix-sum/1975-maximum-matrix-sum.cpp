@@ -2,16 +2,15 @@ class Solution {
 public:
     long long maxMatrixSum(vector<vector<int>>& matrix)
     {
-        const int Rows = static_cast<int>(matrix.size());
-        const int Cols = static_cast<int>(matrix[0].size());
+        const int N = static_cast<int>(matrix.size());
         
         int NegativeCount = 0;
         int MinValue = INT_MAX;
         long long Sum = 0;
         
-        for(int Row = 0; Row < Rows; ++Row)
+        for(int Row = 0; Row < N; ++Row)
         {
-            for(int Col = 0; Col < Cols; ++Col)
+            for(int Col = 0; Col < N; ++Col)
             {
                 if(matrix[Row][Col] < 0)
                 {
