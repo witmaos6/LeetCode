@@ -36,7 +36,7 @@ public:
                 
                 if(InBoundary(DRow, DCol) && !Visited[DRow][DCol])
                 {
-                    int WaitTime = ((grid[DRow][DCol] - Time) % 2 == 0) ? 1 : 0;
+                    int WaitTime = (((grid[DRow][DCol] - Time) & 1) == 0) ? 1 : 0;
                     int NextTime = max(Time + 1, grid[DRow][DCol] + WaitTime);
                     
                     Dijkstra.push({NextTime, {DRow, DCol}});
