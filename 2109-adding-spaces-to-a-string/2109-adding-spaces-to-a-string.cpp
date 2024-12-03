@@ -5,6 +5,7 @@ public:
         const int N = static_cast<int>(s.size());
         const int M = static_cast<int>(spaces.size());
         string Result;
+        Result.reserve(N + M);
         int SpaceIndex = 0;
         
         for(int i = 0; i < N; ++i)
