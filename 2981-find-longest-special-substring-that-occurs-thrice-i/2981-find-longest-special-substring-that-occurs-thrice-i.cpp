@@ -5,6 +5,7 @@ public:
         unordered_map<string, int> Table;
         
         const int N = static_cast<int>(s.size());
+        string ResultStr;
         
         for(int i = 0; i < N; i++)
         {
@@ -15,22 +16,18 @@ public:
                 {
                     SubStr += s[j];
                     Table[SubStr]++;
+                    
+                    if(Table[SubStr] >= 3)
+                    {
+                        if(ResultStr.size() < SubStr.size())
+                        {
+                            ResultStr = SubStr;
+                        }
+                    }
                 }
                 else
                 {
                     break;
-                }
-            }
-        }
-        
-        string ResultStr;
-        for(auto&[SubStr, Freq] : Table)
-        {
-            if(Freq >= 3)
-            {
-                if(ResultStr.empty() || ResultStr.size() < SubStr.size())
-                {
-                    ResultStr = SubStr;
                 }
             }
         }
