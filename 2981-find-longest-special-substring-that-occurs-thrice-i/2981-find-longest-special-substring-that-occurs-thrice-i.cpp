@@ -2,40 +2,33 @@ class Solution {
 public:
     int maximumLength(string s)
     {
-        unordered_map<string, int> Table;
+        array<array<int, 51>, 26> Count = {0};
         
         const int N = static_cast<int>(s.size());
-        string ResultStr;
         
-        for(int i = 0; i < N; i++)
+        int L = 0;
+        int Result = -1;
+        for(int R = 1; R <= N; R++)
         {
-            string SubStr;
-            for(int j = i; j < N; j++)
+            while(R < N && s[R] == s[L])
             {
-                if(SubStr.empty() || SubStr.back() == s[j])
+                R++;
+            }
+            for(int i = R - 1; i >= L; i--)
+            {
+                int Length = i - L + 1;
+                int Index = s[L] - 'a';
+                
+                Count[Index][Length] += R - i;
+                if(Count[Index][Length] >= 3 && Length > Result)
                 {
-                    SubStr += s[j];
-                    Table[SubStr]++;
-                    
-                    if(Table[SubStr] >= 3)
-                    {
-                        if(ResultStr.size() < SubStr.size())
-                        {
-                            ResultStr = SubStr;
-                        }
-                    }
-                }
-                else
-                {
-                    break;
+                    Result = Length;
                 }
             }
+            
+            L = R;
         }
         
-        if(ResultStr.size() == 0)
-        {
-            return -1;
-        }
-        return ResultStr.size();
+        return Result;
     }
 };
