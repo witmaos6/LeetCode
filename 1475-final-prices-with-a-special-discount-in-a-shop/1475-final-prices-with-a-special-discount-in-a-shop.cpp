@@ -3,18 +3,22 @@ public:
     vector<int> finalPrices(vector<int>& prices)
     {
         const int N = static_cast<int>(prices.size());
-        for(int i = 0; i < N - 1; i++)
+        stack<int> Monotonic;
+        for(int i = N - 1; i >= 0; i--)
         {
-            for(int j = i + 1; j < N; j++)
+            while(!Monotonic.empty() && Monotonic.top() > prices[i])
             {
-                if(prices[i] >= prices[j])
-                {
-                    prices[i] -= prices[j];
-                    break;
-                }
+                Monotonic.pop();
             }
+            
+            int Temp = prices[i];
+            if(!Monotonic.empty())
+            {
+                prices[i] -= Monotonic.top();
+            }
+            Monotonic.push(Temp);
         }
-        
+
         return prices;
     }
 };
