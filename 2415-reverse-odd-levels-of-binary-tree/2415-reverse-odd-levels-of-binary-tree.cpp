@@ -20,11 +20,8 @@ public:
         while(!BFS.empty())
         {
             size_t Range = BFS.size();
-            vector<TreeNode*> Levels;
-            if((Level & 1) == 1)
-            {
-                Levels.reserve(Range * 2);
-            }
+            queue<TreeNode*> LevelQueue;
+            stack<int> Reverse;
             
             for(size_t i = 0; i < Range; i++)
             {
@@ -34,28 +31,29 @@ public:
                 if(Node->left)
                 {
                     BFS.push(Node->left);
+                }
+                if(Node->right)
+                {
                     BFS.push(Node->right);
                 }
                 
                 if((Level & 1) == 1)
                 {
-                    Levels.push_back(Node);
+                    LevelQueue.push(Node);
+                    Reverse.push(Node->val);
                 }
             }
             
-            if(Levels.size() > 0)
+            while(!LevelQueue.empty())
             {
-                int Right = static_cast<int>(Levels.size()) - 1;
-                int Left = 0;
+                TreeNode* Node = LevelQueue.front();
+                LevelQueue.pop();
                 
-                while(Left < Right)
-                {
-                    swap(Levels[Left]->val, Levels[Right]->val);
-                    Left++;
-                    Right--;
-                }
+                int Value = Reverse.top();
+                Reverse.pop();
+                
+                Node->val = Value;
             }
-            
             Level++;
         }
         
