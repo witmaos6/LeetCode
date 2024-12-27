@@ -5,12 +5,17 @@ public:
         const int N = static_cast<int>(values.size());
         
         int MaxResult = 0;
-        int MaxLeft = values[0];
+        int Left = 0;
         
-        for(int i = 1; i < N; i++)
+        for(int Right = 1; Right < N; Right++)
         {
-            MaxResult = max(MaxResult, MaxLeft + values[i] - i);
-            MaxLeft = max(MaxLeft, values[i] + i);
+            int SightseeingSpot = values[Left] + values[Right] + Left - Right;
+            MaxResult = max(MaxResult, SightseeingSpot);
+            
+            if(values[Left] + Left < values[Right] + Right)
+            {
+                Left = Right;
+            }
         }
         
         return MaxResult;
