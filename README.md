@@ -6,6 +6,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Array
 |  |
 | ------- |
+| [0689-maximum-sum-of-3-non-overlapping-subarrays](https://github.com/witmaos6/LeetCode/tree/master/0689-maximum-sum-of-3-non-overlapping-subarrays) |
 | [1744-number-of-ways-to-form-a-target-string-given-a-dictionary](https://github.com/witmaos6/LeetCode/tree/master/1744-number-of-ways-to-form-a-target-string-given-a-dictionary) |
 ## String
 |  |
@@ -14,5 +15,6 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Dynamic Programming
 |  |
 | ------- |
+| [0689-maximum-sum-of-3-non-overlapping-subarrays](https://github.com/witmaos6/LeetCode/tree/master/0689-maximum-sum-of-3-non-overlapping-subarrays) |
 | [1744-number-of-ways-to-form-a-target-string-given-a-dictionary](https://github.com/witmaos6/LeetCode/tree/master/1744-number-of-ways-to-form-a-target-string-given-a-dictionary) |
 <!---LeetCode Topics End-->
