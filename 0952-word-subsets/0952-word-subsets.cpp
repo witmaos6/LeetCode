@@ -2,10 +2,10 @@ class Solution {
 public:
     vector<string> wordSubsets(vector<string>& words1, vector<string>& words2)
     {
-        vector<int> Word2Table(26);
+        array<int, 26> Word2Table = {0};
         for(string& Word : words2)
         {
-            vector<int> SubsetTable = MakeWordFreq(Word);
+            array<int, 26> SubsetTable = MakeWordFreq(Word);
 
             for(int i = 0; i < 26; i++)
             {
@@ -15,10 +15,9 @@ public:
 
         vector<string> Result;
         Result.reserve(words1.size());
-
         for(string& Word : words1)
         {
-            vector<int> Freq = MakeWordFreq(Word);
+            array<int, 26> Freq = MakeWordFreq(Word);
 
             if(IsSubset(Freq, Word2Table))
             {
@@ -28,9 +27,9 @@ public:
         return Result;
     }
 private:
-    vector<int> MakeWordFreq(const string& Word)
+    array<int, 26> MakeWordFreq(const string& Word)
     {
-        vector<int> Freq(26);
+        array<int, 26> Freq = {0};
         for(const char& C : Word)
         {
             Freq[C - 'a']++;
@@ -38,7 +37,7 @@ private:
         return Freq;
     }
 
-    bool IsSubset(const vector<int>& Table1, const vector<int>& Table2)
+    bool IsSubset(const array<int, 26>& Table1, const array<int, 26>& Table2)
     {
         for(int i = 0; i < 26; i++)
         {
