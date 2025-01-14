@@ -4,25 +4,24 @@ public:
     {
         const int N = static_cast<int>(A.size());
         vector<int> Table(N + 1);
-        vector<int> Result;
-        Result.reserve(N);
+        vector<int> Result(N);
 
         int Count = 0;
         for(int i = 0; i < N; i++)
         {
             Table[A[i]]++;
+            if(Table[A[i]] == 2)
+            {
+                Count++;
+            }
+
             Table[B[i]]++;
-
-            if(Table[A[i]] >= 2)
-            {
-                Count++;
-            }
-            if(A[i] != B[i] && Table[B[i]] >= 2)
+            if(Table[B[i]] == 2)
             {
                 Count++;
             }
 
-            Result.push_back(Count);
+            Result[i] = Count;
         }
 
         return Result;
