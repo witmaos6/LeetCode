@@ -3,47 +3,37 @@ public:
     int minimizeXor(int num1, int num2)
     {
         int Num2BitCount = GetBitCount(num2);
-        array<int, 32> Bitset = GetBitSet(num1);
-
-        array<int, 32> ResultBitset;
-        for(int i = 0; i < 32; i++)
+        
+        int FindNum = 0;
+        for(int i = 31; i>= 0; i--)
         {
-            if(Bitset[i] == 1)
+            int Mark = (1 << i);
+            
+            if(Mark & num1)
             {
-                Num2BitCount--;
-                ResultBitset[i] = 1;
-
-                if(Num2BitCount == 0)
-                    break;
-            }
-        }
-        if(Num2BitCount > 0)
-        {
-            for(int i = 31; i >= 0; i--)
-            {
-                if(ResultBitset[i] == 0)
+                if(Num2BitCount > 0)
                 {
-                    ResultBitset[i] = 1;
+                    FindNum |= Mark;
                     Num2BitCount--;
-                    if(Num2BitCount == 0)
-                        break;
                 }
             }
         }
 
-        int Result = 0;
-        int Exponent = 0;
-        for(int i = 31; i >= 0; i--)
+        for(int i = 0; i < 32; i++)
         {
-            if(ResultBitset[i] == 1)
+            if(Num2BitCount <= 0)
+                break;
+
+            int Mark = (1 << i);
+
+            if((FindNum & Mark) == 0)
             {
-                long long Multiple = pow(2, Exponent);
-                Result += (ResultBitset[i] * Multiple);
+                FindNum |= Mark;
+                Num2BitCount--;
             }
-            Exponent++;
         }
 
-        return Result;
+        return FindNum;
     }
 
 private:
@@ -59,20 +49,5 @@ private:
             Num /= 2;
         }
         return Count;
-    }
-
-    array<int, 32> GetBitSet(int Num)
-    {
-        array<int, 32> Bitset;
-        int Index = 0;
-
-        while(Num > 0)
-        {
-            Bitset[Index] = (Num % 2);
-            Index++;
-            Num /= 2;
-        }
-        reverse(Bitset.begin(), Bitset.end());
-        return Bitset;
     }
 };
