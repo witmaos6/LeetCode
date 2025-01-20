@@ -6,36 +6,30 @@ public:
         const int Rows = static_cast<int>(mat.size());
         const int Cols = static_cast<int>(mat[0].size());
 
-        unordered_map<int, int> NumToIndex;
-        for(int i = 0; i < ArrSize; i++)
-        {
-            NumToIndex[arr[i]] = i;
-        }
+        vector<pair<int, int>> NumToCoordinate(Rows * Cols);
         
-        int MinIndex = ArrSize - 1;
         for(int Row = 0; Row < Rows; Row++)
         {
-            int MaxIndex = 0;
             for(int Col = 0; Col < Cols; Col++)
             {
-                int Num = mat[Row][Col];
-                MaxIndex = max(MaxIndex, NumToIndex[Num]);
+                NumToCoordinate[mat[Row][Col] - 1] = {Row, Col};
             }
-            MinIndex = min(MinIndex, MaxIndex);
         }
 
-        for(int Col = 0; Col < Cols; Col++)
+        vector<int> RowsMark(Rows);
+        vector<int> ColsMark(Cols);
+
+        for(int i = 0; i < ArrSize; i++)
         {
-            int MaxIndex = 0;
-            for(int Row = 0; Row < Rows; Row++)
+            auto[Row, Col] = NumToCoordinate[arr[i] - 1];
+            RowsMark[Row]++;
+            ColsMark[Col]++;
+            if(RowsMark[Row] == Cols || ColsMark[Col] == Rows)
             {
-                int Num = mat[Row][Col];
-                MaxIndex = max(MaxIndex, NumToIndex[Num]);
+                return i;
             }
-
-            MinIndex = min(MinIndex, MaxIndex);
         }
 
-        return MinIndex;
+        return ArrSize - 1;
     }
 };
