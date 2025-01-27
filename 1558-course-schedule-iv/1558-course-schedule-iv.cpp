@@ -2,22 +2,19 @@ class Solution {
 public:
     vector<bool> checkIfPrerequisite(int numCourses, vector<vector<int>>& prerequisites, vector<vector<int>>& queries)
     {
-        unordered_map<int, vector<int>> Graph;
+        unordered_map<int, unordered_set<int>> Graph;
         for(vector<int>& Prerequisite : prerequisites)
         {
-            Graph[Prerequisite[1]].push_back(Prerequisite[0]);
+            Graph[Prerequisite[1]].insert(Prerequisite[0]);
         }
 
         for(int i = 0; i < numCourses; i++)
         {
             for(int j = 0; j < numCourses; j++)
             {
-                if(IsExist(Graph[j], i))
+                if(Graph[j].count(i))
                 {
-                    for(int& Num : Graph[i])
-                    {
-                        PushUnique(Graph[j], Num);
-                    }
+                    Graph[j].insert(Graph[i].begin(), Graph[i].end());
                 }
             }
         }
@@ -26,37 +23,10 @@ public:
         Result.reserve(queries.size());
         for(vector<int>& Query : queries)
         {
-            bool Temp = IsExist(Graph[Query[1]], Query[0]);
+            bool Temp = Graph[Query[1]].count(Query[0]) > 0;
             Result.push_back(Temp);
         }
 
         return Result;
-    }
-private:
-    bool IsExist(const vector<int>& Arr, const int Element)
-    {
-        for(const int& Num : Arr)
-        {
-            if(Num == Element)
-                return true;
-        }
-        return false;
-    }
-
-    void PushUnique(vector<int>& Arr, const int Element)
-    {
-        bool IsExist = false;
-        for(int& Num : Arr)
-        {
-            if(Num == Element)
-            {
-                IsExist = true;
-            }
-        }
-
-        if(!IsExist)
-        {
-            Arr.push_back(Element);
-        }
     }
 };
