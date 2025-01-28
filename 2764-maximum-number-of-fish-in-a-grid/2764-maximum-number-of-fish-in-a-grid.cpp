@@ -14,7 +14,7 @@ public:
             {
                 if(grid[Row][Col] > 0)
                 {
-                    int Fishes = BFS(grid, Row, Col);
+                    int Fishes = DFS(grid, Row, Col);
                     MaxFishes = max(MaxFishes, Fishes);
                 }
             }
@@ -25,29 +25,19 @@ public:
 private:
     array<int, 5> Dir = {-1,0,1,0,-1};
     using Point = pair<int, int>;
-    int BFS(vector<vector<int>>& grid, const int BeginRow, const int BeginCol)
+    int DFS(vector<vector<int>>& grid, const int Row, const int Col)
     {
-        queue<Point> Q;
-        Q.emplace(BeginRow, BeginCol);
-        int Fishes = 0;
+        if(!InBoundary(Row, Col) || grid[Row][Col] == 0)
+            return 0;
 
-        while(!Q.empty())
+        int Fishes = grid[Row][Col];
+        grid[Row][Col] = 0;
+
+        for(int i = 0; i < 4; i++)
         {
-            auto[Row, Col] = Q.front();
-            Q.pop();
-            Fishes += grid[Row][Col];
-            grid[Row][Col] = 0;
-
-            for(int i = 0; i < 4; i++)
-            {
-                int DRow = Row + Dir[i];
-                int DCol = Col + Dir[i + 1];
-
-                if(InBoundary(DRow, DCol) && grid[DRow][DCol] > 0)
-                {
-                    Q.emplace(DRow, DCol);
-                }
-            }
+            int DRow = Row + Dir[i];
+            int DCol = Col + Dir[i + 1];
+            Fishes += DFS(grid, DRow, DCol);
         }
         return Fishes;
     }
