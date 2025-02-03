@@ -41,6 +41,6 @@ public:
             }
         }
 
-        return (MaxIncreasingNum > MaxDecreasingNum) ? MaxIncreasingNum : MaxDecreasingNum;
+        return max(MaxIncreasingNum, MaxDecreasingNum);
     }
 };
