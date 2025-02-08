@@ -1,5 +1,6 @@
 class NumberContainers {
-    unordered_map<int, set<int>> NumToIndices;
+    using MinHeap = priority_queue<int, vector<int>, greater<int>>;
+    unordered_map<int, MinHeap> NumToIndices;
     unordered_map<int, int> IndexToNum;
 public:
     NumberContainers()
@@ -9,26 +10,24 @@ public:
     
     void change(int index, int number)
     {
-        if(IndexToNum.count(index))
-        {
-            const int PrevNum = IndexToNum[index];
-            NumToIndices[PrevNum].erase(index);
-        }
         IndexToNum[index] = number;
-        NumToIndices[number].insert(index);
+        NumToIndices[number].push(index);
     }
     
     int find(int number)
     {
-        if(NumToIndices.count(number))
+        auto FindIt = NumToIndices.find(number);
+        if(FindIt == NumToIndices.end())
         {
-            if(NumToIndices[number].empty())
-            {
-                return -1;
-            }
-            return *NumToIndices[number].begin();
+            return -1;
         }
-        return -1;
+
+        MinHeap& Heap = FindIt->second;
+        while(!Heap.empty() && (IndexToNum[Heap.top()] != number))
+        {
+            Heap.pop();
+        }
+        return (Heap.empty()) ? -1 : Heap.top();
     }
 };
 
