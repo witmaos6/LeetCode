@@ -2,35 +2,31 @@ class Solution {
 public:
     string clearDigits(string s)
     {
-        const char Erase = '-';
-        const int N = static_cast<int>(s.size());
-        
-        for(int i = 0; i < N; i++)
+        stack<char> Stack;
+
+        for(char& C : s)
         {
-            if(isdigit(s[i]))
+            if(isdigit(C))
             {
-                s[i] = Erase;
-                
-                for(int j = i - 1; j >= 0; j--)
+                if(!Stack.empty())
                 {
-                    if(!isdigit(s[j]) && s[j] != Erase)
-                    {
-                        s[j] = Erase;
-                        break;
-                    }
+                    Stack.pop();
                 }
+            }
+            else
+            {
+                Stack.push(C);
             }
         }
 
         string Result;
-        for(int i = 0; i < N; i++)
+        while(!Stack.empty())
         {
-            if(s[i] != Erase)
-            {
-                Result += s[i];
-            }
+            Result += Stack.top();
+            Stack.pop();
         }
 
+        reverse(Result.begin(), Result.end());
         return Result;
     }
 };
