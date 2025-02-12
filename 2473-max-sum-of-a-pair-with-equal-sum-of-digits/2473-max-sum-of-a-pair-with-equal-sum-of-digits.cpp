@@ -2,23 +2,23 @@ class Solution {
 public:
     int maximumSum(vector<int>& nums)
     {
-        unordered_map<int, int> DigitSumToMaxNum;
+        vector<int> DigitSumToMaxNum(82, -1);
         int MaxSum = -1;
         
         for(int& Num : nums)
         {
             int DigitSum = GetDigitSum(Num);
 
-            if(DigitSumToMaxNum.find(DigitSum) == DigitSumToMaxNum.end())
-            {
-                DigitSumToMaxNum[DigitSum] = Num;
-            }
-            else
+            if(DigitSumToMaxNum[DigitSum] != -1)
             {
                 int CurrSum = DigitSumToMaxNum[DigitSum] + Num;
                 MaxSum = max(MaxSum, CurrSum);
 
                 DigitSumToMaxNum[DigitSum] = max(DigitSumToMaxNum[DigitSum], Num);
+            }
+            else
+            {
+                DigitSumToMaxNum[DigitSum] = Num;
             }
         }
 
