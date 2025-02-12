@@ -1,26 +1,24 @@
 class Solution {
-    using Pair = pair<int, int>;
 public:
     int maximumSum(vector<int>& nums)
     {
-        unordered_map<int, Pair> DigitSumToPair;
+        unordered_map<int, int> DigitSumToMaxNum;
         int MaxSum = -1;
         
         for(int& Num : nums)
         {
             int DigitSum = GetDigitSum(Num);
 
-            if(DigitSumToPair.find(DigitSum) == DigitSumToPair.end())
+            if(DigitSumToMaxNum.find(DigitSum) == DigitSumToMaxNum.end())
             {
-                DigitSumToPair[DigitSum] = {Num, 0};
+                DigitSumToMaxNum[DigitSum] = Num;
             }
             else
             {
-                Pair& P = DigitSumToPair[DigitSum];
-                SetLargestPair(Num, P);
-
-                int CurrSum = P.first + P.second;
+                int CurrSum = DigitSumToMaxNum[DigitSum] + Num;
                 MaxSum = max(MaxSum, CurrSum);
+
+                DigitSumToMaxNum[DigitSum] = max(DigitSumToMaxNum[DigitSum], Num);
             }
         }
 
@@ -37,16 +35,5 @@ private:
             Num /= 10;
         }
         return Sum;
-    }
-
-    void SetLargestPair(int a, Pair& P)
-    {
-        int b = P.first;
-        int c = P.second;
-        if (a > c) std::swap(a, c);
-        if (a > b) std::swap(a, b);
-        if (b > c) std::swap(b, c);
-        P.first = b;
-        P.second = c;
     }
 };
