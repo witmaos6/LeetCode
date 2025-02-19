@@ -11,6 +11,7 @@ public:
 
         K = k;
         DFS(0, '-', n);
+        reverse(HappyString.begin(), HappyString.end());
         return HappyString;
     }
 private:
@@ -28,7 +29,7 @@ private:
             {
                 if(DFS(Index + 1, C, N))
                 {
-                    HappyString = C + HappyString;
+                    HappyString += C;
                     return true;
                 }
             }
