@@ -18,14 +18,7 @@ public:
         {
             root->val = 0;
             Table.insert(0);
-            if(root->left)
-            {
-                DFS(root->left, 0, true);
-            }
-            if(root->right)
-            {
-                DFS(root->right, 0, false);
-            }
+            BFS(root);
         }
     }
     
@@ -38,20 +31,30 @@ public:
         return false;
     }
 private:
-    void DFS(TreeNode* Node, int Parent, bool IsLeft)
+    void BFS(TreeNode* Root)
     {
-        if(Node)
+        if(Root == nullptr)
+            return;
+
+        queue<TreeNode*> Q;
+        Q.push(Root);
+
+        while(!Q.empty())
         {
-            int Temp = IsLeft ? 1 : 2;
-            Node->val = Parent * 2 + Temp;
-            Table.insert(Node->val);
+            TreeNode* Node = Q.front();
+            Q.pop();
+
             if(Node->left)
             {
-                DFS(Node->left, Node->val, true);
+                Node->left->val = Node->val * 2 + 1;
+                Table.insert(Node->left->val);
+                Q.push(Node->left);
             }
             if(Node->right)
             {
-                DFS(Node->right, Node->val, false);
+                Node->right->val = Node->val * 2 + 2;
+                Table.insert(Node->right->val);
+                Q.push(Node->right);
             }
         }
     }
