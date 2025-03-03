@@ -2,44 +2,36 @@ class Solution {
 public:
     vector<int> pivotArray(vector<int>& nums, int pivot)
     {
-        queue<int> LeftSide;
-        queue<int> RightSide;
+        const int N = static_cast<int>(nums.size());
+        vector<int> Result(N);
+        int Index = 0;
         int NrOfPivot = 0;
 
-        for(int& Num : nums)
+        for(int i = 0; i < N; i++)
         {
-            if(Num < pivot)
+            if(nums[i] < pivot)
             {
-                LeftSide.push(Num);
+                Result[Index] = nums[i];
+                Index++;
             }
-            else if(Num > pivot)
-            {
-                RightSide.push(Num);
-            }
-            else
+            else if(nums[i] == pivot)
             {
                 NrOfPivot++;
             }
         }
-
-        int i = 0;
-        while(!LeftSide.empty())
+        for(int i = 0; i < NrOfPivot; i++)
         {
-            nums[i] = LeftSide.front();
-            LeftSide.pop();
-            i++;
+            Result[Index] = pivot;
+            Index++;
         }
-        for(int j = 0; j < NrOfPivot; j++)
+        for(int i = 0; i < N; i++)
         {
-            nums[i] = pivot;
-            i++;
+            if(nums[i] > pivot)
+            {
+                Result[Index] = nums[i];
+                Index++;
+            }
         }
-        while(!RightSide.empty())
-        {
-            nums[i] = RightSide.front();
-            RightSide.pop();
-            i++;
-        }
-        return nums;
+        return Result;
     }
 };
