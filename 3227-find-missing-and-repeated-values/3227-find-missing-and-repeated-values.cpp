@@ -7,21 +7,20 @@ public:
         int ExpectedTotal = pow(N, 2) * (pow(N, 2) + 1) / 2;
         int Total = 0;
         int TwiceNum = 0;
-        for(int Row = 0; Row < N; Row++)
+        for(vector<int>& Row : grid)
         {
-            for(int Col = 0; Col < N; Col++)
+            for(int& Num : Row)
             {
-                if(Table[grid[Row][Col]])
+                if(Table[Num])
                 {
-                    TwiceNum = grid[Row][Col];
+                    TwiceNum = Num;
                 }
-                Total += grid[Row][Col];
-                Table[grid[Row][Col]] = true;
+                Total += Num;
+                Table[Num] = true;
             }
         }
 
-        vector<int> Result = {TwiceNum, TwiceNum + (ExpectedTotal - Total)};
-
+        vector<int> Result = {TwiceNum, TwiceNum + ExpectedTotal - Total};
         return Result;
     }
 };
