@@ -2,28 +2,27 @@ class Solution {
 public:
     vector<int> closestPrimes(int left, int right)
     {
-        vector<int> PrimeNums;
-        int MinDiffer = INT_MAX;
-        int MinIndex = 0;
-        int Index = 0;
+        vector<bool> IsPrime(right + 1, true);
+        IsPrime[0] = false;
+        IsPrime[1] = false;
 
-        left = (left == 1) ? 2 : left;
-
-        for(int Num = left; Num <= right; Num++)
+        for(int i = 2; i * i <= right; i++)
         {
-            if(IsPrimeNumber(Num) == false)
-                continue;
-
-            PrimeNums.push_back(Num);
-            if(PrimeNums.size() >= 2)
+            if(IsPrime[i])
             {
-                int Differ = PrimeNums[Index + 1] - PrimeNums[Index];
-                if(Differ < MinDiffer)
+                for(int j = i * i; j <= right; j += i)
                 {
-                    MinDiffer = Differ;
-                    MinIndex = Index;
+                    IsPrime[j] = false;
                 }
-                Index++;
+            }
+        }
+
+        vector<int> PrimeNums;
+        for(int i = left; i <= right; i++)
+        {
+            if(IsPrime[i])
+            {
+                PrimeNums.push_back(i);
             }
         }
 
@@ -32,17 +31,18 @@ public:
             return {-1, -1};
         }
 
-        vector<int> Result = {PrimeNums[MinIndex], PrimeNums[MinIndex + 1]};
-        return Result;
-    }
-
-    bool IsPrimeNumber(const int Num)
-    {
-        for(int i = 2; i * i <= Num; i++)
+        int MinDiffer = INT_MAX;
+        vector<int> Result(2, -1);
+        for(int i = 1; i < PrimeNums.size(); i++)
         {
-            if(Num % i == 0)
-                return false;
+            int Differ = PrimeNums[i] - PrimeNums[i - 1];
+            if(Differ < MinDiffer)
+            {
+                MinDiffer = Differ;
+                Result[0] = PrimeNums[i - 1];
+                Result[1] = PrimeNums[i];
+            }
         }
-        return true;
+        return Result;
     }
 };
