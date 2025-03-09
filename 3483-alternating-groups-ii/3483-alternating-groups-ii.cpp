@@ -3,11 +3,12 @@ public:
     int numberOfAlternatingGroups(vector<int>& colors, int k)
     {
         const int N = static_cast<int>(colors.size());
+        const int Range = N + k - 1;
 
         int GroupCount = 0;
         int PrevColor = -1;
         int AlterCount = 0;
-        for (int i = 0; i < N + k - 1; i++)
+        for (int i = 0; i < Range; i++)
         {
             if(colors[i % N] != PrevColor)
             {
