@@ -14,10 +14,9 @@ public:
                 AlterCount++;
                 PrevColor = colors[i % N];
 
-                if(AlterCount == k)
+                if(AlterCount >= k)
                 {
                     GroupCount++;
-                    AlterCount--;
                 }
             }
             else
