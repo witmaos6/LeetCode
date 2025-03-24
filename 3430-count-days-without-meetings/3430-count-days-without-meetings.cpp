@@ -4,9 +4,8 @@ public:
     {
         sort(meetings.begin(), meetings.end());
         const int N = static_cast<int>(meetings.size());
-        int MeetingDays = 0;
         int i = 0;
-        while(i < N)
+        for(int i = 0; i < N; i++)
         {
             int Begin = meetings[i][0];
             int End = meetings[i][1];
@@ -17,10 +16,9 @@ public:
                 i++;
             }
 
-            MeetingDays += (End - Begin) + 1;
-            i++;
+            days -= (End - Begin) + 1;
         }
 
-        return days - MeetingDays;
+        return days;
     }
 };
