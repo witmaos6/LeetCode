@@ -4,17 +4,14 @@ public:
     {
         const int N = static_cast<int>(nums.size());
         long long Result = 0;
-        for(int i = 0; i < N - 2; i++)
+        long long MaxI = nums[0];
+        long long MaxIJ = LLONG_MIN;
+
+        for(int j = 1; j < N - 1; j++)
         {
-            for(int j = i + 1; j < N - 1; j++)
-            {
-                for(int k = j + 1; k < N; k++)
-                {
-                    long long Temp = nums[i] - nums[j];
-                    Temp *= nums[k];
-                    Result = max(Result, Temp);
-                }
-            }
+            MaxIJ = max(MaxIJ, MaxI - nums[j]);
+            MaxI = max(MaxI, (long long)nums[j]);
+            Result = max(Result, MaxIJ * (long long)nums[j + 1]);
         }
         return Result;
     }
