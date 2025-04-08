@@ -9,16 +9,14 @@ public:
         }
 
         const int N = static_cast<int>(nums.size());
-        int NrOfNums = N;
         int i = 0;
         int Count = 0;
-        while(Table.size() != NrOfNums)
+        while(Table.size() < (N - i) && i < N)
         {
             const int Range = min(i + 3, N);
             for(int j = i; j < Range; j++)
             {
                 Table[nums[j]]--;
-                NrOfNums--;
                 if(Table[nums[j]] == 0)
                 {
                     Table.erase(nums[j]);
