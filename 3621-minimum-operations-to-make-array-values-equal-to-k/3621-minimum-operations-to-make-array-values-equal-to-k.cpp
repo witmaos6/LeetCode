@@ -2,23 +2,19 @@ class Solution {
 public:
     int minOperations(vector<int>& nums, int k)
     {
-        vector<int> Table(101);
+        unordered_set<int> Table;
         for(int& Num : nums)
         {
             if(Num < k)
                 return -1;
 
-            Table[Num]++;
+            Table.insert(Num);
         }
 
-        int Count = 0;
-        for(int i = 100; i > k; i--)
+        if(Table.find(k) == Table.end())
         {
-            if(Table[i] > 0)
-            {
-                Count++;
-            }
+            return Table.size();
         }
-        return Count;
+        return Table.size() - 1;
     }
 };
