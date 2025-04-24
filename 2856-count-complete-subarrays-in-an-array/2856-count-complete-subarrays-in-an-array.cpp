@@ -2,32 +2,26 @@ class Solution {
 public:
     int countCompleteSubarrays(vector<int>& nums)
     {
-        int DistinctNum = GetDistinctNum(nums);
+        int NrOfDistinct = unordered_set<int>(nums.begin(), nums.end()).size();
+
         const int N = static_cast<int>(nums.size());
-        int Count = 0;
+        unordered_map<int, int> Table;
+        int Result = 0;
+        int Left = 0;
         for(int i = 0; i < N; i++)
         {
-            unordered_set<int> Table;
-            for(int j = i; j < N; j++)
+            Table[nums[i]]++;
+            while(Table.size() == NrOfDistinct)
             {
-                Table.insert(nums[j]);
-                if(Table.size() == DistinctNum)
+                Result += (N - i);
+                Table[nums[Left]]--;
+                if(Table[nums[Left]] == 0)
                 {
-                    Count += (N - j);
-                    break;
+                    Table.erase(nums[Left]);
                 }
+                Left++;
             }
         }
-        return Count;
-    }
-private:
-    int GetDistinctNum(vector<int>& Nums)
-    {
-        unordered_set<int> Table;
-        for(int& Num : Nums)
-        {
-            Table.insert(Num);
-        }
-        return Table.size();
+        return Result;
     }
 };
