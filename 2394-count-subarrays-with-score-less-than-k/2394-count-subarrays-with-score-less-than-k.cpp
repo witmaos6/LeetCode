@@ -14,18 +14,13 @@ public:
             Sum += nums[i];
             Count++;
 
-            long long Product = Sum * Count;
-            while(Product >= k && Left < i)
+            while(Sum * Count >= k)
             {
                 Sum -= nums[Left];
                 Count--;
-                Product = Sum * Count;
                 Left++;
             }
-            if(Product < k)
-            {
-                CountSubarray += (i - Left + 1);
-            }
+            CountSubarray += Count;
         }
         return CountSubarray;
     }
