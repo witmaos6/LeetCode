@@ -5,22 +5,11 @@ public:
         int Count = 0;
         for(int& Num : nums)
         {
-            if(IsEvenNumberOfDigits(Num))
+            if((to_string(Num).size() & 1) == 0)
             {
                 Count++;
             }
         }
         return Count;
-    }
-private:
-    bool IsEvenNumberOfDigits(int Num)
-    {
-        int Count = 0;
-        while(Num > 0)
-        {
-            Num /= 10;
-            Count++;
-        }
-        return (Count & 1) == 0;
     }
 };
