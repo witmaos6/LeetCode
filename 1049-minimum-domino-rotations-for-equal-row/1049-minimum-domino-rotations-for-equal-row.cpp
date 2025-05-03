@@ -6,36 +6,28 @@ public:
         int Result = INT_MAX;
         for(int Num = 1; Num <= 6; Num++)
         {
-            int TopsCount = 0;
-            int BottomsCount = 0;
-            int BothCount = 0;
-            bool Impossible = false;
+            int TopSwap = 0;
+            int BottomSwap = 0;
 
             for(int i = 0; i < N; i++)
             {
                 if(tops[i] != Num && bottoms[i] != Num)
                 {
-                    Impossible = true;
+                    TopSwap = INT_MAX;
+                    BottomSwap = INT_MAX;
                     break;
                 }
-                if(tops[i] == Num && bottoms[i] == Num)
+                if(tops[i] != Num)
                 {
-                    BothCount++;
+                    TopSwap++;
                 }
-                if(tops[i] == Num)
+                if(bottoms[i] != Num)
                 {
-                    TopsCount++;
-                }
-                if(bottoms[i] == Num)
-                {
-                    BottomsCount++;
+                    BottomSwap++;
                 }
             }
-
-            if(!Impossible)
-            {
-                Result = min(TopsCount - BothCount, BottomsCount - BothCount);
-            }
+            int Temp = min(TopSwap, BottomSwap);
+            Result = min(Result, Temp);
         }
 
         return (Result == INT_MAX) ? -1 : Result;
