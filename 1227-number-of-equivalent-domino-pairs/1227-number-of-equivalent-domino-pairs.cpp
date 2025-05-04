@@ -2,17 +2,24 @@ class Solution {
 public:
     int numEquivDominoPairs(vector<vector<int>>& dominoes)
     {
-        map<vector<int>, int> Table;
+        array<int, 100> Table = {0};
         int Result = 0;
 
-        for(vector<int>& domino : dominoes)
+        for(vector<int>& Domino : dominoes)
         {
-            if(domino[0] > domino[1])
+            int Temp = 0;
+            if(Domino[0] > Domino[1])
             {
-                swap(domino[0], domino[1]);
+                Temp += Domino[1];
+                Temp += Domino[0] * 10;
             }
-            Table[domino]++;
-            Result += (Table[domino] - 1);
+            else
+            {
+                Temp += Domino[0];
+                Temp += Domino[1] * 10;
+            }
+            Table[Temp]++;
+            Result += (Table[Temp] - 1);
         }
 
         return Result;
