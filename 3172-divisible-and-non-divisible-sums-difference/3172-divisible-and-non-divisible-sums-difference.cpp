@@ -6,20 +6,19 @@ public:
         {
             return (n * (n + 1)) / 2;
         }
-        int Sum1 = 0;
-        int Sum2 = 0;
+        int Sum = 0;
         for(int i = 1; i <= n; i++)
         {
             if(i % m == 0)
             {
-                Sum2 += i;
+                Sum -= i;
             }
             else
             {
-                Sum1 += i;
+                Sum += i;
             }
         }
 
-        return Sum1 - Sum2;
+        return Sum;
     }
 };
