@@ -7,6 +7,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0073-set-matrix-zeroes](https://github.com/witmaos6/LeetCode/tree/master/0073-set-matrix-zeroes) |
+| [0135-candy](https://github.com/witmaos6/LeetCode/tree/master/0135-candy) |
 | [0368-largest-divisible-subset](https://github.com/witmaos6/LeetCode/tree/master/0368-largest-divisible-subset) |
 | [0407-trapping-rain-water-ii](https://github.com/witmaos6/LeetCode/tree/master/0407-trapping-rain-water-ii) |
 | [0689-maximum-sum-of-3-non-overlapping-subarrays](https://github.com/witmaos6/LeetCode/tree/master/0689-maximum-sum-of-3-non-overlapping-subarrays) |
@@ -268,6 +269,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Greedy
 |  |
 | ------- |
+| [0135-candy](https://github.com/witmaos6/LeetCode/tree/master/0135-candy) |
 | [0768-partition-labels](https://github.com/witmaos6/LeetCode/tree/master/0768-partition-labels) |
 | [0797-rabbits-in-forest](https://github.com/witmaos6/LeetCode/tree/master/0797-rabbits-in-forest) |
 | [1049-minimum-domino-rotations-for-equal-row](https://github.com/witmaos6/LeetCode/tree/master/1049-minimum-domino-rotations-for-equal-row) |
