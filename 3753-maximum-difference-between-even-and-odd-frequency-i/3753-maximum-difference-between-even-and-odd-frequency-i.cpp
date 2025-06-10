@@ -8,8 +8,8 @@ public:
             Table[C - 'a']++;
         }
 
-        int MaxOdd = 0, MinOdd = INT_MAX;
-        int MaxEven = 0, MinEven = INT_MAX;
+        int MaxOdd = 0;
+        int MinEven = INT_MAX;
 
         for(int& Freq : Table)
         {
@@ -20,11 +20,9 @@ public:
             if((Freq & 1) == 1)
             {
                 MaxOdd = max(MaxOdd, Freq);
-                MinOdd = min(MinOdd, Freq);
             }
             else
             {
-                MaxEven = max(MaxEven, Freq);
                 MinEven = min(MinEven, Freq);
             }
         }
