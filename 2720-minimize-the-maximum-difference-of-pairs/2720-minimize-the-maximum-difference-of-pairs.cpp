@@ -35,18 +35,17 @@ private:
     {
         int Sum = 0;
         
-        for(int i = 0; i < N - 1; i++)
+        for(int i = 1; i < N; i++)
         {
-            if(Nums[i + 1] - Nums[i] <= Middle)
+            if(Nums[i] - Nums[i - 1] <= Middle)
             {
                 Sum++;
                 i++;
             }
-            
-            if(Sum >= Pair)
-            {
-                return true;
-            }
+        }
+        if(Sum >= Pair)
+        {
+            return true;
         }
         
         return false;
