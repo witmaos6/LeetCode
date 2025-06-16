@@ -4,14 +4,17 @@ public:
     {
         const int N = static_cast<int>(nums.size());
         int Result = -1;
-        for(int i = 0; i < N; i++)
+        int IMin = nums[0];
+        for(int i = 1; i < N; i++)
         {
-            for(int j = i + 1; j < N; j++)
+            int Temp = nums[i];
+            if(Temp <= IMin)
             {
-                if(nums[i] < nums[j])
-                {
-                    Result = max(Result, (nums[j] - nums[i]));
-                }
+                IMin = Temp;
+            }
+            else
+            {
+                Result = max(Result, Temp - IMin);
             }
         }
         return Result;
