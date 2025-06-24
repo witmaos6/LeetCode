@@ -3,35 +3,24 @@ public:
     vector<int> findKDistantIndices(vector<int>& nums, int key, int k)
     {
         const int N = static_cast<int>(nums.size());
-        int j = 0;
         vector<int> Result;
 
-        while(j < N)
+        int Begin = 0;
+        for(int i = 0; i < N; i++)
         {
-            if(nums[j] == key)
+            if(nums[i] == key)
             {
-                int Begin = max(0, j - k);
-                for(int i = Begin; i < j; i++)
+                int Left = max(0, i - k);
+                int Right = min(N - 1, i + k);
+
+                while(Begin <= Right)
                 {
-                    if((!Result.empty() && Result.back() < i) || Result.empty())
+                    if(Begin >= Left)
                     {
-                        Result.push_back(i);
+                        Result.push_back(Begin);
                     }
+                    Begin++;
                 }
-                int End = min(N, j + k + 1);
-                for(int i = j; i < End; i++)
-                {
-                    Result.push_back(i);
-                    if(nums[i] == key)
-                    {
-                        End = min(N, i + k + 1);
-                    }
-                }
-                j = End;
-            }
-            else
-            {
-                j++;
             }
         }
         return Result;
