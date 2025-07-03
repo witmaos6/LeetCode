@@ -2,25 +2,18 @@ class Solution {
 public:
     char kthCharacter(int k)
     {
-        string Word = "a";
-
-        while(Word.size() < k)
+        int Index = k - 1;
+        int Add = 0;
+        while(Index > 0)
         {
-            string GeneratedWord;
-            for(char& C : Word)
+            int P = 1;
+            while(P * 2 <= Index)
             {
-                GeneratedWord += Generated(C);
+                P *= 2;
             }
-            Word += GeneratedWord;
+            Add++;
+            Index -= P;
         }
-        return Word[k - 1];
-    }
-private:
-    char Generated(char C)
-    {
-        if(C == 'z')
-            return 'a';
-
-        return static_cast<char>(C + 1);
+        return 'a' + (Add % 26);
     }
 };
