@@ -15,19 +15,11 @@ public:
         if(head == nullptr)
             return 0;
 
-        vector<int> Bits;
+        int Result = 0;
         while(head)
         {
-            Bits.push_back(head->val);
+            Result = (Result << 1) + head->val;
             head = head->next;
-        }
-
-        const int N = static_cast<int>(Bits.size());
-        int Result = 0;
-        for(int i = N - 1; i >= 0; i--)
-        {
-            int Num = Bits[i] * pow(2, (N - 1 - i));
-            Result += Num;
         }
         return Result;
     }
