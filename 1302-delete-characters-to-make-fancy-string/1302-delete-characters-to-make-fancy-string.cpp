@@ -5,27 +5,20 @@ public:
         string Fancy;
         char Prev = '-';
         int Count = 0;
-        const int N = static_cast<int>(s.size());
-        for(int i = 0; i <= N; i++)
+        for(char& C : s)
         {
-            char C = s[i];
             if(Prev == C)
             {
                 Count++;
+                if(Count >= 3)
+                    continue;
             }
             else
             {
-                if(Count >= 1)
-                {
-                    Fancy += Prev;
-                    if(Count >= 2)
-                    {
-                        Fancy += Prev;
-                    }
-                }
                 Prev = C;
                 Count = 1;
             }
+            Fancy += C;
         }
         return Fancy;
     }
