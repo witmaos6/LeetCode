@@ -5,26 +5,19 @@ public:
         const int N = static_cast<int>(nums.size());
         int MaxBitwiseAnd = *max_element(nums.begin(),nums.end());
         int MaxCount = 1;
-        int Count = 0;
-        int Index = 0;
-        
-        while(Index < N)
+        int Count = 1;
+        for(int i = 1; i < N; i++)
         {
-            if(nums[Index] == MaxBitwiseAnd)
+            if(nums[i] == nums[i - 1] && nums[i] == MaxBitwiseAnd)
             {
-                while(Index < N && nums[Index++] == MaxBitwiseAnd)
-                {
-                    Count++;
-                }
-                MaxCount = max(MaxCount, Count);
-                Count = 0;
+                Count++;
             }
             else
             {
-                Index++;
+                Count = 1;
             }
+            MaxCount = max(MaxCount, Count);
         }
-        
         return MaxCount;
     }
 };
