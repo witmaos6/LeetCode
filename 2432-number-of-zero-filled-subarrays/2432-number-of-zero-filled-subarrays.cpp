@@ -3,12 +3,11 @@ public:
     long long zeroFilledSubarray(vector<int>& nums)
     {
         nums.push_back(1);
-        const int N = static_cast<int>(nums.size());
         long long Count = 0;
         long long Result = 0;
-        for(int i = 0; i < N; i++)
+        for(int& Num : nums)
         {
-            if(nums[i] == 0)
+            if(Num == 0)
             {
                 Count++;
             }
