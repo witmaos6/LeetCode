@@ -23,8 +23,7 @@ public:
             return true;
         while(N > 0)
         {
-            int Digit = N % 10;
-            if(Digit == 0)
+            if(N % 10 == 0)
                 return true;
 
             N /= 10;
