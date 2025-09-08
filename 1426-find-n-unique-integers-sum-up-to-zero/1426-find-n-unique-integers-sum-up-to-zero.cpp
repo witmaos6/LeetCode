@@ -3,25 +3,15 @@ public:
     vector<int> sumZero(int n)
     {
         vector<int> Nums(n);
-        int Negative = -(n / 2);
-        int Index = 0;
-        while(Index < (n / 2))
-        {
-            Nums[Index] = Negative;
-            Negative++;
-            Index++;
-        }
-        if((n & 1) == 1)
-        {
-            Nums[Index] = 0;
-            Index++;
-        }
+        int Negative = -1;
         int Positive = 1;
-        while(Index < n)
+
+        for(int i = 0; i < n / 2; i++)
         {
-            Nums[Index] = Positive;
+            Nums[i * 2] = Positive;
             Positive++;
-            Index++;
+            Nums[i * 2 + 1] = Negative;
+            Negative--;
         }
         return Nums;
     }
