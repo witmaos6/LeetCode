@@ -19,13 +19,15 @@ public:
 
     bool ContainZero(int N)
     {
-        string Str = to_string(N);
-        for(char& C : Str)
+        if(N == 0)
+            return true;
+        while(N > 0)
         {
-            if(C == '0')
-            {
+            int Digit = N % 10;
+            if(Digit == 0)
                 return true;
-            }
+
+            N /= 10;
         }
         return false;
     }
