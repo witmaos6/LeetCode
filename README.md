@@ -926,4 +926,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [3462-vowels-game-in-a-string](https://github.com/witmaos6/LeetCode/tree/master/3462-vowels-game-in-a-string) |
+## Database
+|  |
+| ------- |
+| [0175-combine-two-tables](https://github.com/witmaos6/LeetCode/tree/master/0175-combine-two-tables) |
 <!---LeetCode Topics End-->
