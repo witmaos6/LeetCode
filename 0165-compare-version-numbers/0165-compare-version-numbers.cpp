@@ -2,34 +2,66 @@ class Solution {
 public:
     int compareVersion(string version1, string version2)
     {
-        int V1s = static_cast<int>(version1.size());
-        int V2s = static_cast<int>(version2.size());
-        
-        int i = 0;
-        int j = 0;
-        while(i < V1s || j < V2s)
+        istringstream SS1(version1);
+        string Buffer;
+        vector<int> BuffToInt1;
+        while(getline(SS1, Buffer, '.'))
         {
-            int Value1 = 0, Value2 = 0;
-            
-            while ((i < V1s) && (version1[i] != '.'))
-            {
-                Value1 = Value1 * 10 + (version1[i] - '0');
-                i++;
-            }
-            while ((j < V2s) && (version2[j] != '.'))
-            {
-                Value2 = Value2 * 10 + (version2[j] - '0');
-                j++;
-            }
-            if (Value1 < Value2)
-                return -1;
-            if (Value1 > Value2)
-                return 1;
-            
-            i++;
-            j++;
+            BuffToInt1.push_back(stoi(Buffer));
         }
-        
+
+        istringstream SS2(version2);
+        Buffer.clear();
+        vector<int> BuffToInt2;
+        while(getline(SS2, Buffer, '.'))
+        {
+            BuffToInt2.push_back(stoi(Buffer));
+        }
+
+        const int N = static_cast<int>(BuffToInt1.size());
+        const int M = static_cast<int>(BuffToInt2.size());
+        int Range = min(N, M);
+        for(int i = 0; i < Range; i++)
+        {
+            if(BuffToInt1[i] > BuffToInt2[i])
+            {
+                return 1;
+            }
+            else if(BuffToInt1[i] < BuffToInt2[i])
+            {
+                return -1;
+            }
+        }
+
+        if(N > M)
+        {
+            if(IsBigger(BuffToInt1, Range))
+            {
+                return 1;
+            }
+        }
+        else if(N < M)
+        {
+            if(IsBigger(BuffToInt2, Range))
+            {
+                return -1;
+            }
+        }
+
         return 0;
+    }
+
+private:
+    bool IsBigger(vector<int>& Arr, int Range)
+    {
+        int N = static_cast<int>(Arr.size());
+        for(int i = Range; i < N; i++)
+        {
+            if(Arr[i] > 0)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 };
