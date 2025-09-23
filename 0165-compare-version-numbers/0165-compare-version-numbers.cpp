@@ -2,47 +2,23 @@ class Solution {
 public:
     int compareVersion(string version1, string version2)
     {
-        istringstream SS1(version1);
-        string Buffer;
-        vector<int> BuffToInt1;
-        while(getline(SS1, Buffer, '.'))
-        {
-            BuffToInt1.push_back(stoi(Buffer));
-        }
-
-        istringstream SS2(version2);
-        Buffer.clear();
-        vector<int> BuffToInt2;
-        while(getline(SS2, Buffer, '.'))
-        {
-            BuffToInt2.push_back(stoi(Buffer));
-        }
+        vector<int> BuffToInt1 = SplitString(version1);
+        vector<int> BuffToInt2 = SplitString(version2);
 
         const int N = static_cast<int>(BuffToInt1.size());
         const int M = static_cast<int>(BuffToInt2.size());
-        int Range = min(N, M);
+        int Range = max(N, M);
+
         for(int i = 0; i < Range; i++)
         {
-            if(BuffToInt1[i] > BuffToInt2[i])
-            {
-                return 1;
-            }
-            else if(BuffToInt1[i] < BuffToInt2[i])
-            {
-                return -1;
-            }
-        }
+            int Num1 = (i < N) ? BuffToInt1[i] : 0;
+            int Num2 = (i < M) ? BuffToInt2[i] : 0;
 
-        if(N > M)
-        {
-            if(IsBigger(BuffToInt1, Range))
+            if(Num1 > Num2)
             {
                 return 1;
             }
-        }
-        else if(N < M)
-        {
-            if(IsBigger(BuffToInt2, Range))
+            else if(Num1 < Num2)
             {
                 return -1;
             }
@@ -50,18 +26,16 @@ public:
 
         return 0;
     }
-
-private:
-    bool IsBigger(vector<int>& Arr, int Range)
+    
+    vector<int> SplitString(const string& Str)
     {
-        int N = static_cast<int>(Arr.size());
-        for(int i = Range; i < N; i++)
+        istringstream SS1(Str);
+        string Buffer;
+        vector<int> BuffToInt;
+        while(getline(SS1, Buffer, '.'))
         {
-            if(Arr[i] > 0)
-            {
-                return true;
-            }
+            BuffToInt.push_back(stoi(Buffer));
         }
-        return false;
+        return BuffToInt;
     }
 };
