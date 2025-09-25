@@ -2,30 +2,13 @@ class Solution {
 public:
     int minimumTotal(vector<vector<int>>& triangle)
     {
-        const int N = static_cast<int>(triangle.size());
-        if(N == 1)
-            return triangle[0][0];
-
-        for(int i = 1; i < N; i++)
+        for (int row = (int)triangle.size() - 2; row >= 0; row--)
         {
-            int M = static_cast<int>(triangle[i].size());
-            triangle[i][0] += triangle[i - 1][0];
-
-            for(int j = 1; j < M; j++)
+            for (int col = 0; col < (int)triangle[row].size(); col++)
             {
-                int Top1 = triangle[i - 1][j - 1];
-                int Top2 = (triangle[i - 1].size() > j) ? triangle[i - 1][j] : INT_MAX;
-
-                int Min = min(Top1, Top2);
-                triangle[i][j] += Min;
+                triangle[row][col] += min(triangle[row + 1][col], triangle[row + 1][col + 1]);
             }
         }
-
-        int Result = INT_MAX;
-        for(int& Num : triangle.back())
-        {
-            Result = min(Result, Num);
-        }
-        return Result;
+        return triangle[0][0];
     }
 };
