@@ -10,6 +10,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0037-sudoku-solver](https://github.com/witmaos6/LeetCode/tree/master/0037-sudoku-solver) |
 | [0073-set-matrix-zeroes](https://github.com/witmaos6/LeetCode/tree/master/0073-set-matrix-zeroes) |
 | [0118-pascals-triangle](https://github.com/witmaos6/LeetCode/tree/master/0118-pascals-triangle) |
+| [0120-triangle](https://github.com/witmaos6/LeetCode/tree/master/0120-triangle) |
 | [0135-candy](https://github.com/witmaos6/LeetCode/tree/master/0135-candy) |
 | [0368-largest-divisible-subset](https://github.com/witmaos6/LeetCode/tree/master/0368-largest-divisible-subset) |
 | [0407-trapping-rain-water-ii](https://github.com/witmaos6/LeetCode/tree/master/0407-trapping-rain-water-ii) |
@@ -242,6 +243,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0118-pascals-triangle](https://github.com/witmaos6/LeetCode/tree/master/0118-pascals-triangle) |
+| [0120-triangle](https://github.com/witmaos6/LeetCode/tree/master/0120-triangle) |
 | [0368-largest-divisible-subset](https://github.com/witmaos6/LeetCode/tree/master/0368-largest-divisible-subset) |
 | [0689-maximum-sum-of-3-non-overlapping-subarrays](https://github.com/witmaos6/LeetCode/tree/master/0689-maximum-sum-of-3-non-overlapping-subarrays) |
 | [0806-domino-and-tromino-tiling](https://github.com/witmaos6/LeetCode/tree/master/0806-domino-and-tromino-tiling) |
