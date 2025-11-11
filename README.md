@@ -16,6 +16,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0368-largest-divisible-subset](https://github.com/witmaos6/LeetCode/tree/master/0368-largest-divisible-subset) |
 | [0407-trapping-rain-water-ii](https://github.com/witmaos6/LeetCode/tree/master/0407-trapping-rain-water-ii) |
 | [0417-pacific-atlantic-water-flow](https://github.com/witmaos6/LeetCode/tree/master/0417-pacific-atlantic-water-flow) |
+| [0474-ones-and-zeroes](https://github.com/witmaos6/LeetCode/tree/master/0474-ones-and-zeroes) |
 | [0498-diagonal-traverse](https://github.com/witmaos6/LeetCode/tree/master/0498-diagonal-traverse) |
 | [0594-longest-harmonious-subsequence](https://github.com/witmaos6/LeetCode/tree/master/0594-longest-harmonious-subsequence) |
 | [0611-valid-triangle-number](https://github.com/witmaos6/LeetCode/tree/master/0611-valid-triangle-number) |
@@ -214,6 +215,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0038-count-and-say](https://github.com/witmaos6/LeetCode/tree/master/0038-count-and-say) |
 | [0165-compare-version-numbers](https://github.com/witmaos6/LeetCode/tree/master/0165-compare-version-numbers) |
 | [0166-fraction-to-recurring-decimal](https://github.com/witmaos6/LeetCode/tree/master/0166-fraction-to-recurring-decimal) |
+| [0474-ones-and-zeroes](https://github.com/witmaos6/LeetCode/tree/master/0474-ones-and-zeroes) |
 | [0768-partition-labels](https://github.com/witmaos6/LeetCode/tree/master/0768-partition-labels) |
 | [0868-push-dominoes](https://github.com/witmaos6/LeetCode/tree/master/0868-push-dominoes) |
 | [0952-word-subsets](https://github.com/witmaos6/LeetCode/tree/master/0952-word-subsets) |
@@ -287,6 +289,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0118-pascals-triangle](https://github.com/witmaos6/LeetCode/tree/master/0118-pascals-triangle) |
 | [0120-triangle](https://github.com/witmaos6/LeetCode/tree/master/0120-triangle) |
 | [0368-largest-divisible-subset](https://github.com/witmaos6/LeetCode/tree/master/0368-largest-divisible-subset) |
+| [0474-ones-and-zeroes](https://github.com/witmaos6/LeetCode/tree/master/0474-ones-and-zeroes) |
 | [0689-maximum-sum-of-3-non-overlapping-subarrays](https://github.com/witmaos6/LeetCode/tree/master/0689-maximum-sum-of-3-non-overlapping-subarrays) |
 | [0806-domino-and-tromino-tiling](https://github.com/witmaos6/LeetCode/tree/master/0806-domino-and-tromino-tiling) |
 | [0826-soup-servings](https://github.com/witmaos6/LeetCode/tree/master/0826-soup-servings) |
