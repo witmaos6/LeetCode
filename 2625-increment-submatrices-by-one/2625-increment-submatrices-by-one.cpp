@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<int>> rangeAddQueries(int n, vector<vector<int>>& queries)
     {
-        vector<vector<int>> Memo(n, vector<int>(n + 1));
+        vector<vector<int>> Memo(n + 1, vector<int>(n));
 
         for(vector<int>& Query : queries)
         {
@@ -11,10 +11,13 @@ public:
             int Col1 = Query[1];
             int Col2 = Query[3];
 
-            for(int Row = Row1; Row <= Row2; Row++)
+            Memo[Row1][Col1]++;
+            Memo[Row2 + 1][Col1]--;
+
+            if(Col2 + 1 < n)
             {
-                Memo[Row][Col1] += 1;
-                Memo[Row][Col2 + 1] -= 1;
+                Memo[Row1][Col2 + 1]--;
+                Memo[Row2 + 1][Col2 + 1]++;
             }
         }
 
@@ -26,10 +29,15 @@ public:
             }
         }
 
-        for(int Row = 0; Row < n; Row++)
+        for(int Col = 0; Col < n; Col++)
         {
-            Memo[Row].pop_back();
+            for(int Row = 1; Row < n; Row++)
+            {
+                Memo[Row][Col] += Memo[Row - 1][Col];
+            }
         }
+
+        Memo.resize(n);
         return Memo;
     }
 };
