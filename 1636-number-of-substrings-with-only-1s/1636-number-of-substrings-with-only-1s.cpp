@@ -16,7 +16,7 @@ public:
             else if(C == '0')
             {
                 long long Count = Count1;
-                long long Temp = 1LL * (Count * (Count + 1)) / 2 % Mod;
+                long long Temp = (Count * (Count + 1)) / 2 % Mod;
                 Result += (Temp % Mod);
                 Count1 = 0;
             }
