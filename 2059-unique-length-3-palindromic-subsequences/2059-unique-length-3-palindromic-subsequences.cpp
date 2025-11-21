@@ -1,40 +1,36 @@
 class Solution {
 public:
     int countPalindromicSubsequence(string s)
-    {        
-        int Result = 0;
-        for(int i = 0; i < 26; i++)
-        {
-            vector<bool> Exist(26);
-            int Left = s.find('a' + i);
-            if(Left == string::npos)
-                continue;
-
-            int Right = s.find_last_of('a' + i);
-            if(Right - Left < 2)
-                continue;
-
-            for(int j = Left + 1; j < Right; j++)
-            {
-                Exist[s[j] - 'a'] = true;
-                if(CountExist(Exist) == 26)
-                    break;
-            }
-            Result += CountExist(Exist);
-        }
-        return Result;
-    }
-private:
-    int CountExist(const vector<bool>& Arr)
     {
-        int Count = 0;
-        for(bool Exist : Arr)
+        const int N = static_cast<int>(s.size());
+        vector<pair<int, int>> Table(26, {-1, -1});
+        
+        for(int i = 0; i < N; i++)
         {
-            if(Exist)
+            if(Table[s[i] - 'a'].first == -1)
             {
-                Count++;
+                Table[s[i] - 'a'].first = i;
+            }
+            else
+            {
+                Table[s[i] - 'a'].second = i;
             }
         }
-        return Count;
+        
+        int Result = 0;
+        for(auto& [Begin, End] : Table)
+        {
+            if(Begin != -1)
+            {
+                unordered_set<char> MiddleChar;
+                for(int i = Begin + 1; i < End; i++)
+                {
+                    MiddleChar.insert(s[i]);
+                }
+                Result += static_cast<int>(MiddleChar.size());
+            }
+        }
+        
+        return Result;
     }
 };
