@@ -1,39 +1,46 @@
 class Solution {
+    using Pair = pair<int, int>;
 public:
     int countPalindromicSubsequence(string s)
     {
         const int N = static_cast<int>(s.size());
-        vector<pair<int, int>> Table(26, {-1, -1});
-        
+        vector<Pair> Table(26, {-1, -1});
+
         for(int i = 0; i < N; i++)
         {
-            if(Table[s[i] - 'a'].first == -1)
+            int Index = s[i] - 'a';
+            if(Table[Index].first == -1)
             {
-                Table[s[i] - 'a'].first = i;
+                Table[Index].first = i;
             }
             else
             {
-                Table[s[i] - 'a'].second = i;
+                Table[Index].second = i;
             }
         }
-        
+
         int Result = 0;
-        for(int i = 0; i < 26; i++)
+        for(auto& [Begin, End] : Table)
         {
-            int Begin = Table[i].first;
             if(Begin == -1)
                 continue;
-            
-            int End = Table[i].second;
-            
-            unordered_set<char> MiddleChar;
-            for(int j = Begin + 1; j < End; j++)
+
+            vector<bool> Middle(26);
+            for(int i = Begin + 1; i < End; i++)
             {
-                MiddleChar.insert(s[j]);
+                Middle[s[i] - 'a'] = true;
             }
-            Result += static_cast<int>(MiddleChar.size());
+
+            int Count = 0;
+            for(bool T : Middle)
+            {
+                if(T)
+                    Count++;
+            }
+
+            Result += Count;
         }
-        
+
         return Result;
     }
 };
