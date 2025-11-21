@@ -18,15 +18,18 @@ public:
         }
         
         int Result = 0;
-        for(auto& [Begin, End] : Table)
+        for(int i = 0; i < 26; i++)
         {
+            int Begin = Table[i].first;
             if(Begin == -1)
                 continue;
             
+            int End = Table[i].second;
+            
             unordered_set<char> MiddleChar;
-            for(int i = Begin + 1; i < End; i++)
+            for(int j = Begin + 1; j < End; j++)
             {
-                MiddleChar.insert(s[i]);
+                MiddleChar.insert(s[j]);
             }
             Result += static_cast<int>(MiddleChar.size());
         }
