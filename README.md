@@ -29,6 +29,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0830-largest-triangle-area](https://github.com/witmaos6/LeetCode/tree/master/0830-largest-triangle-area) |
 | [0854-making-a-large-island](https://github.com/witmaos6/LeetCode/tree/master/0854-making-a-large-island) |
 | [0905-length-of-longest-fibonacci-subsequence](https://github.com/witmaos6/LeetCode/tree/master/0905-length-of-longest-fibonacci-subsequence) |
+| [0912-sort-an-array](https://github.com/witmaos6/LeetCode/tree/master/0912-sort-an-array) |
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/witmaos6/LeetCode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
 | [0934-bitwise-ors-of-subarrays](https://github.com/witmaos6/LeetCode/tree/master/0934-bitwise-ors-of-subarrays) |
 | [0940-fruit-into-baskets](https://github.com/witmaos6/LeetCode/tree/master/0940-fruit-into-baskets) |
@@ -661,6 +662,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0407-trapping-rain-water-ii](https://github.com/witmaos6/LeetCode/tree/master/0407-trapping-rain-water-ii) |
 | [0794-swim-in-rising-water](https://github.com/witmaos6/LeetCode/tree/master/0794-swim-in-rising-water) |
+| [0912-sort-an-array](https://github.com/witmaos6/LeetCode/tree/master/0912-sort-an-array) |
 | [1478-maximum-number-of-events-that-can-be-attended](https://github.com/witmaos6/LeetCode/tree/master/1478-maximum-number-of-events-that-can-be-attended) |
 | [1485-minimum-cost-to-make-at-least-one-valid-path-in-a-grid](https://github.com/witmaos6/LeetCode/tree/master/1485-minimum-cost-to-make-at-least-one-valid-path-in-a-grid) |
 | [1612-avoid-flood-in-the-city](https://github.com/witmaos6/LeetCode/tree/master/1612-avoid-flood-in-the-city) |
@@ -774,6 +776,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0611-valid-triangle-number](https://github.com/witmaos6/LeetCode/tree/master/0611-valid-triangle-number) |
 | [0759-set-intersection-size-at-least-two](https://github.com/witmaos6/LeetCode/tree/master/0759-set-intersection-size-at-least-two) |
 | [0900-reordered-power-of-2](https://github.com/witmaos6/LeetCode/tree/master/0900-reordered-power-of-2) |
+| [0912-sort-an-array](https://github.com/witmaos6/LeetCode/tree/master/0912-sort-an-array) |
 | [1018-largest-perimeter-triangle](https://github.com/witmaos6/LeetCode/tree/master/1018-largest-perimeter-triangle) |
 | [1262-greatest-sum-divisible-by-three](https://github.com/witmaos6/LeetCode/tree/master/1262-greatest-sum-divisible-by-three) |
 | [1353-find-resultant-array-after-removing-anagrams](https://github.com/witmaos6/LeetCode/tree/master/1353-find-resultant-array-after-removing-anagrams) |
@@ -970,6 +973,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Divide and Conquer
 |  |
 | ------- |
+| [0912-sort-an-array](https://github.com/witmaos6/LeetCode/tree/master/0912-sort-an-array) |
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/witmaos6/LeetCode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
 | [2280-count-good-triplets-in-an-array](https://github.com/witmaos6/LeetCode/tree/master/2280-count-good-triplets-in-an-array) |
 ## Two Pointers
@@ -1133,6 +1137,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Merge Sort
 |  |
 | ------- |
+| [0912-sort-an-array](https://github.com/witmaos6/LeetCode/tree/master/0912-sort-an-array) |
 | [2280-count-good-triplets-in-an-array](https://github.com/witmaos6/LeetCode/tree/master/2280-count-good-triplets-in-an-array) |
 ## Monotonic Queue
 |  |
@@ -1175,4 +1180,16 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [3233-maximize-the-number-of-partitions-after-operations](https://github.com/witmaos6/LeetCode/tree/master/3233-maximize-the-number-of-partitions-after-operations) |
 | [3851-find-sum-of-array-product-of-magical-sequences](https://github.com/witmaos6/LeetCode/tree/master/3851-find-sum-of-array-product-of-magical-sequences) |
+## Bucket Sort
+|  |
+| ------- |
+| [0912-sort-an-array](https://github.com/witmaos6/LeetCode/tree/master/0912-sort-an-array) |
+## Radix Sort
+|  |
+| ------- |
+| [0912-sort-an-array](https://github.com/witmaos6/LeetCode/tree/master/0912-sort-an-array) |
+## Counting Sort
+|  |
+| ------- |
+| [0912-sort-an-array](https://github.com/witmaos6/LeetCode/tree/master/0912-sort-an-array) |
 <!---LeetCode Topics End-->
