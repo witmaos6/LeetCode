@@ -7,9 +7,7 @@ public:
         Result.reserve(nums.size());
         for(int& Num : nums)
         {
-            Curr += Num;
-            Curr <<= 1;
-            Curr %= 5;
+            Curr = (Curr + Num) * 2 % 5;
 
             Result.push_back((Curr % 5 == 0));
         }
