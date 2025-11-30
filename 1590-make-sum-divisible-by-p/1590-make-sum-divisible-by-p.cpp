@@ -24,7 +24,7 @@ public:
             int CurrentMod = PrefixSum % p;
             int TargetMod = (CurrentMod - Remain + p) % p;
 
-            if (PrefixMod.find(TargetMod) != PrefixMod.end())
+            if (PrefixMod.count(TargetMod))
             {
                 MinLength = min(MinLength, i - PrefixMod[TargetMod]);
             }
