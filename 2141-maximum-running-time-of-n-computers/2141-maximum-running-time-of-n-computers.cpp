@@ -6,21 +6,22 @@ public:
 
         long long Left = 1;
         long long Right = accumulate(batteries.begin(), batteries.end(), 0LL) / n;
-
-        while(Left < Right)
+        long long Result = 0;
+        while(Left <= Right)
         {
-            long long Mid = (Right + Left + 1) / 2;
+            long long Mid = Left + (Right - Left) / 2;
 
             if(Possible(batteries, Mid, n))
             {
-                Left = Mid;
+                Left = Mid + 1;
+                Result = Mid;
             }
             else
             {
                 Right = Mid - 1;
             }
         }
-        return Left;
+        return Result;
     }
 
 private:
