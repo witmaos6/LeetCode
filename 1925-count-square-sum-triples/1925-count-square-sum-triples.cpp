@@ -3,21 +3,19 @@ public:
     int countTriples(int n)
     {
         int Count = 0;
-        for(int a = 1; a <= n; a++)
+        int Sqrt = sqrt(n);
+        for(int u = 2; u <= Sqrt; u++)
         {
-            for(int b = a + 1; b <= n; b++)
+            for(int v = 1; v < u; v++)
             {
-                if((a * a) + (b * b) > n * n)
-                {
-                    break;
-                }
-                for(int c = b + 1; c <= n; c++)
-                {
-                    if((a * a) + (b * b) == c * c)
-                    {
-                        Count += 2;
-                    }
-                }
+                if(~(u - v) & 1 || gcd(u, v) != 1)
+                    continue;
+
+                int C = u * u + v * v;
+                if(C > n)
+                    continue;
+                
+                Count += 2 * (n / C);
             }
         }
         return Count;
