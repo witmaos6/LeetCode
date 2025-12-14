@@ -270,6 +270,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [2107-find-unique-binary-string](https://github.com/witmaos6/LeetCode/tree/master/2107-find-unique-binary-string) |
 | [2137-final-value-of-variable-after-performing-operations](https://github.com/witmaos6/LeetCode/tree/master/2137-final-value-of-variable-after-performing-operations) |
 | [2140-longest-subsequence-repeated-k-times](https://github.com/witmaos6/LeetCode/tree/master/2140-longest-subsequence-repeated-k-times) |
+| [2147-number-of-ways-to-divide-a-long-corridor](https://github.com/witmaos6/LeetCode/tree/master/2147-number-of-ways-to-divide-a-long-corridor) |
 | [2211-count-collisions-on-a-road](https://github.com/witmaos6/LeetCode/tree/master/2211-count-collisions-on-a-road) |
 | [2220-find-all-possible-recipes-from-given-supplies](https://github.com/witmaos6/LeetCode/tree/master/2220-find-all-possible-recipes-from-given-supplies) |
 | [2221-check-if-a-parentheses-string-can-be-valid](https://github.com/witmaos6/LeetCode/tree/master/2221-check-if-a-parentheses-string-can-be-valid) |
@@ -343,6 +344,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1986-largest-color-value-in-a-directed-graph](https://github.com/witmaos6/LeetCode/tree/master/1986-largest-color-value-in-a-directed-graph) |
 | [2028-the-earliest-and-latest-rounds-where-players-compete](https://github.com/witmaos6/LeetCode/tree/master/2028-the-earliest-and-latest-rounds-where-players-compete) |
 | [2061-painting-a-grid-with-three-different-colors](https://github.com/witmaos6/LeetCode/tree/master/2061-painting-a-grid-with-three-different-colors) |
+| [2147-number-of-ways-to-divide-a-long-corridor](https://github.com/witmaos6/LeetCode/tree/master/2147-number-of-ways-to-divide-a-long-corridor) |
 | [2262-solving-questions-with-brainpower](https://github.com/witmaos6/LeetCode/tree/master/2262-solving-questions-with-brainpower) |
 | [2267-minimum-difference-in-sums-after-removal-of-elements](https://github.com/witmaos6/LeetCode/tree/master/2267-minimum-difference-in-sums-after-removal-of-elements) |
 | [2408-number-of-people-aware-of-a-secret](https://github.com/witmaos6/LeetCode/tree/master/2408-number-of-people-aware-of-a-secret) |
@@ -938,6 +940,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1925-count-square-sum-triples](https://github.com/witmaos6/LeetCode/tree/master/1925-count-square-sum-triples) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/witmaos6/LeetCode/tree/master/1993-sum-of-all-subset-xor-totals) |
 | [2050-count-good-numbers](https://github.com/witmaos6/LeetCode/tree/master/2050-count-good-numbers) |
+| [2147-number-of-ways-to-divide-a-long-corridor](https://github.com/witmaos6/LeetCode/tree/master/2147-number-of-ways-to-divide-a-long-corridor) |
 | [2160-minimum-operations-to-make-a-uni-value-grid](https://github.com/witmaos6/LeetCode/tree/master/2160-minimum-operations-to-make-a-uni-value-grid) |
 | [2174-next-greater-numerically-balanced-number](https://github.com/witmaos6/LeetCode/tree/master/2174-next-greater-numerically-balanced-number) |
 | [2202-sum-of-k-mirror-numbers](https://github.com/witmaos6/LeetCode/tree/master/2202-sum-of-k-mirror-numbers) |
