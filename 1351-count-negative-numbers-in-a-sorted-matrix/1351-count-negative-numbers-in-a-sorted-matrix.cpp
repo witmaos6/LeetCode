@@ -2,21 +2,16 @@ class Solution {
 public:
     int countNegatives(vector<vector<int>>& grid)
     {
-        const size_t RowSize = grid.size();
-        const size_t ColSize = grid[0].size();
-        
+        const int Rows = static_cast<int>(grid.size());
+        const int Cols = static_cast<int>(grid[0].size());
+
         int Count = 0;
-        
-        for(size_t Row = 0; Row < RowSize; Row++)
+        for(int i = 0; i < Rows; i++)
         {
-            if(grid[Row].back() < 0)
-            {
-                int Index = lower_bound(grid[Row].begin(), grid[Row].end(), -1, greater<int>()) - grid[Row].begin();
-                
-                Count += (ColSize - Index);
-            }
+            int Index = lower_bound(grid[i].begin(), grid[i].end(), -1, greater<int>()) - grid[i].begin();
+
+            Count += (Cols - Index);
         }
-        
         return Count;
     }
 };
