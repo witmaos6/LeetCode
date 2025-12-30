@@ -28,7 +28,6 @@ private:
     bool IsMagicSquareCondition(const vector<vector<int>>& Grid, const int Row, const int Col)
     {
         vector<int> Table(10);
-        Table[0] = 1;
         for(int i = Row; i < Row + 3; i++)
         {
             for(int j = Col; j < Col + 3; j++)
@@ -43,7 +42,7 @@ private:
                 }
             }
         }
-        for(int i = 0; i < 10; i++)
+        for(int i = 1; i < 10; i++)
         {
             if(Table[i] == 0)
                 return false;
