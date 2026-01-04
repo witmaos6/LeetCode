@@ -5,15 +5,16 @@ public:
         int Result = 0;
         for(int& Num : nums)
         {
-            int Count = 0;
-            set<int> Divisors;
+            vector<int> Divisors;
             for(int i = 1; i * i <= Num; i++)
             {
                 if(Num % i == 0)
                 {
-                    Count += 2;
-                    Divisors.insert(i);
-                    Divisors.insert(Num / i);
+                    Divisors.push_back(i);
+                    if(i != Num / i)
+                    {
+                        Divisors.push_back(Num / i);
+                    }
                 }
             }
             if(Divisors.size() == 4)
