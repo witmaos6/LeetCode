@@ -5,21 +5,23 @@ public:
         int Result = 0;
         for(int& Num : nums)
         {
-            vector<int> Divisors;
+            int Count = 0;
+            int Sum = 0;
             for(int i = 1; i * i <= Num; i++)
             {
                 if(Num % i == 0)
                 {
-                    Divisors.push_back(i);
+                    Count++;
+                    Sum += i;
                     if(i != Num / i)
                     {
-                        Divisors.push_back(Num / i);
+                        Count++;
+                        Sum += Num / i;
                     }
                 }
             }
-            if(Divisors.size() == 4)
+            if(Count == 4)
             {
-                int Sum = accumulate(Divisors.begin(), Divisors.end(), 0);
                 Result += Sum;
             }
         }
