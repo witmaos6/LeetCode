@@ -13,25 +13,25 @@ class Solution {
 public:
     int maxLevelSum(TreeNode* root)
     {
+        if(root == nullptr)
+            return 0;
+
         queue<TreeNode*> BFS;
         BFS.push(root);
-        
+        int Max = INT_MIN;
         int MaxLevel = 1;
-        int CurrLevel = 1;
-        int MaxSum = root->val;
-        
+        int Level = 1;
+
         while(!BFS.empty())
         {
-            size_t Range = BFS.size();
             int Sum = 0;
-            
-            for(size_t i = 0; i < Range; i++)
+            int Range = BFS.size();
+            for(int i = 0; i < Range; i++)
             {
                 TreeNode* Node = BFS.front();
                 BFS.pop();
-                
+
                 Sum += Node->val;
-                
                 if(Node->left)
                 {
                     BFS.push(Node->left);
@@ -41,14 +41,15 @@ public:
                     BFS.push(Node->right);
                 }
             }
-            if(MaxSum < Sum)
+
+            if(Max < Sum)
             {
-                MaxSum = Sum;
-                MaxLevel = CurrLevel;
+                Max = Sum;
+                MaxLevel = Level;
             }
-            CurrLevel++;
+            Level++;
         }
-        
+
         return MaxLevel;
     }
 };
