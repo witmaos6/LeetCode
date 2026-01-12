@@ -3,22 +3,19 @@ public:
     int minTimeToVisitAllPoints(vector<vector<int>>& points)
     {
         const int N = static_cast<int>(points.size());
-        
-        int Time = 0;
+
+        int Result = 0;
         for(int i = 1; i < N; i++)
         {
-            Time += GetTime(points[i - 1], points[i]);
+            Result += GetDist(points[i - 1], points[i]);
         }
-        
-        return Time;
+        return Result;
     }
-    
 private:
-    int GetTime(vector<int>& From, vector<int>& To)
+    int GetDist(vector<int>& From, vector<int>& To)
     {
-        int XDist = abs(From[0] - To[0]);
-        int YDist = abs(From[1] - To[1]);
-        
-        return max(XDist, YDist);
+        int X = abs(From[0] - To[0]);
+        int Y = abs(From[1] - To[1]);
+        return max(X, Y);
     }
 };
