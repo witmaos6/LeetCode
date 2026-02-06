@@ -7,28 +7,17 @@ public:
             return 0;
 
         sort(nums.begin(), nums.end());
+        int MaxLen = 1;
+        int L = 0;
 
-        int Result = INT_MAX;
         for(int i = 0; i < N; i++)
         {
-            long long Target = 1LL * nums[i] * k;
-            if(Target >= INT_MAX)
+            while((long long)nums[i] > (long long)nums[L] * k)
             {
-                Target = INT_MAX;
+                L++;
             }
-            int Index = upper_bound(nums.begin() + i + 1, nums.end(), Target) - nums.begin();
-
-            if(Index >= N)
-            {
-                Index--;
-            }
-            if(Target < nums[Index])
-            {
-                Index--;
-            }
-            int Remove = N - (Index + 1) + i;
-            Result = min(Result, Remove);
+            MaxLen = max(MaxLen, i - L + 1);
         }
-        return (Result == INT_MAX) ? 0 : Result;
+        return N - MaxLen;
     }
 };
