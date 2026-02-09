@@ -15,10 +15,10 @@ public:
     TreeNode* balanceBST(TreeNode* root)
     {
         Inorder(root);
-        
+
         return SetRebuild(0, Rebuild.size() - 1);
     }
-    
+
 private:
     void Inorder(TreeNode* Node)
     {
@@ -29,17 +29,17 @@ private:
             Inorder(Node->right);
         }
     }
-    
+
     TreeNode* SetRebuild(int Left, int Right)
     {
         if(Left > Right)
             return nullptr;
-        
+
         int Mid = (Left + Right) / 2;
-                
+
         Rebuild[Mid]->left = SetRebuild(Left, Mid - 1);
         Rebuild[Mid]->right = SetRebuild(Mid + 1, Right);
-        
+
         return Rebuild[Mid];
     }
 };
