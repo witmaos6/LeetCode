@@ -4,11 +4,13 @@ public:
     {
         const int N = static_cast<int>(nums.size());
         int Result = 0;
+        unordered_set<int> Table;
+        array<int, 2> Count = {0};
         
         for(int i = 0; i < N; i++)
         {
-            unordered_set<int> Table;
-            array<int, 2> Count = {0};
+            Table.clear();
+            Count = {0};
             for(int j = i; j < N; j++)
             {
                 if(Table.count(nums[j]) == 0)
