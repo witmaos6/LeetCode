@@ -282,6 +282,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0038-count-and-say](https://github.com/witmaos6/LeetCode/tree/master/0038-count-and-say) |
+| [0067-add-binary](https://github.com/witmaos6/LeetCode/tree/master/0067-add-binary) |
 | [0165-compare-version-numbers](https://github.com/witmaos6/LeetCode/tree/master/0165-compare-version-numbers) |
 | [0166-fraction-to-recurring-decimal](https://github.com/witmaos6/LeetCode/tree/master/0166-fraction-to-recurring-decimal) |
 | [0474-ones-and-zeroes](https://github.com/witmaos6/LeetCode/tree/master/0474-ones-and-zeroes) |
@@ -584,6 +585,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Bit Manipulation
 |  |
 | ------- |
+| [0067-add-binary](https://github.com/witmaos6/LeetCode/tree/master/0067-add-binary) |
 | [0342-power-of-four](https://github.com/witmaos6/LeetCode/tree/master/0342-power-of-four) |
 | [0756-pyramid-transition-matrix](https://github.com/witmaos6/LeetCode/tree/master/0756-pyramid-transition-matrix) |
 | [0934-bitwise-ors-of-subarrays](https://github.com/witmaos6/LeetCode/tree/master/0934-bitwise-ors-of-subarrays) |
@@ -999,6 +1001,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Simulation
 |  |
 | ------- |
+| [0067-add-binary](https://github.com/witmaos6/LeetCode/tree/master/0067-add-binary) |
 | [0498-diagonal-traverse](https://github.com/witmaos6/LeetCode/tree/master/0498-diagonal-traverse) |
 | [1642-water-bottles](https://github.com/witmaos6/LeetCode/tree/master/1642-water-bottles) |
 | [2021-remove-all-occurrences-of-a-substring](https://github.com/witmaos6/LeetCode/tree/master/2021-remove-all-occurrences-of-a-substring) |
@@ -1057,6 +1060,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0066-plus-one](https://github.com/witmaos6/LeetCode/tree/master/0066-plus-one) |
+| [0067-add-binary](https://github.com/witmaos6/LeetCode/tree/master/0067-add-binary) |
 | [0166-fraction-to-recurring-decimal](https://github.com/witmaos6/LeetCode/tree/master/0166-fraction-to-recurring-decimal) |
 | [0326-power-of-three](https://github.com/witmaos6/LeetCode/tree/master/0326-power-of-three) |
 | [0342-power-of-four](https://github.com/witmaos6/LeetCode/tree/master/0342-power-of-four) |
