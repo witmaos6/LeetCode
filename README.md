@@ -586,6 +586,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0067-add-binary](https://github.com/witmaos6/LeetCode/tree/master/0067-add-binary) |
+| [0190-reverse-bits](https://github.com/witmaos6/LeetCode/tree/master/0190-reverse-bits) |
 | [0342-power-of-four](https://github.com/witmaos6/LeetCode/tree/master/0342-power-of-four) |
 | [0756-pyramid-transition-matrix](https://github.com/witmaos6/LeetCode/tree/master/0756-pyramid-transition-matrix) |
 | [0934-bitwise-ors-of-subarrays](https://github.com/witmaos6/LeetCode/tree/master/0934-bitwise-ors-of-subarrays) |
@@ -1195,6 +1196,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Divide and Conquer
 |  |
 | ------- |
+| [0190-reverse-bits](https://github.com/witmaos6/LeetCode/tree/master/0190-reverse-bits) |
 | [0912-sort-an-array](https://github.com/witmaos6/LeetCode/tree/master/0912-sort-an-array) |
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/witmaos6/LeetCode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
 | [1382-balance-a-binary-search-tree](https://github.com/witmaos6/LeetCode/tree/master/1382-balance-a-binary-search-tree) |
