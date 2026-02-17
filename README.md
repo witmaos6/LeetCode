@@ -588,6 +588,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0067-add-binary](https://github.com/witmaos6/LeetCode/tree/master/0067-add-binary) |
 | [0190-reverse-bits](https://github.com/witmaos6/LeetCode/tree/master/0190-reverse-bits) |
 | [0342-power-of-four](https://github.com/witmaos6/LeetCode/tree/master/0342-power-of-four) |
+| [0401-binary-watch](https://github.com/witmaos6/LeetCode/tree/master/0401-binary-watch) |
 | [0756-pyramid-transition-matrix](https://github.com/witmaos6/LeetCode/tree/master/0756-pyramid-transition-matrix) |
 | [0934-bitwise-ors-of-subarrays](https://github.com/witmaos6/LeetCode/tree/master/0934-bitwise-ors-of-subarrays) |
 | [1018-binary-prefix-divisible-by-5](https://github.com/witmaos6/LeetCode/tree/master/1018-binary-prefix-divisible-by-5) |
@@ -1153,6 +1154,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0037-sudoku-solver](https://github.com/witmaos6/LeetCode/tree/master/0037-sudoku-solver) |
+| [0401-binary-watch](https://github.com/witmaos6/LeetCode/tree/master/0401-binary-watch) |
 | [0679-24-game](https://github.com/witmaos6/LeetCode/tree/master/0679-24-game) |
 | [0756-pyramid-transition-matrix](https://github.com/witmaos6/LeetCode/tree/master/0756-pyramid-transition-matrix) |
 | [1160-letter-tile-possibilities](https://github.com/witmaos6/LeetCode/tree/master/1160-letter-tile-possibilities) |
