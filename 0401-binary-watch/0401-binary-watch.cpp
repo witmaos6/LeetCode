@@ -25,14 +25,11 @@ private:
         if(Count == 0)
         {
             string Time = to_string(Hour) + ':';
-            if(Minute >= 10)
+            if(Minute < 10)
             {
-                Time += to_string(Minute);
+                Time += '0';
             }
-            else
-            {
-                Time += '0' + to_string(Minute);
-            }
+            Time += to_string(Minute);
             Times.insert(Time);
             return;
         }
