@@ -589,6 +589,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0190-reverse-bits](https://github.com/witmaos6/LeetCode/tree/master/0190-reverse-bits) |
 | [0342-power-of-four](https://github.com/witmaos6/LeetCode/tree/master/0342-power-of-four) |
 | [0401-binary-watch](https://github.com/witmaos6/LeetCode/tree/master/0401-binary-watch) |
+| [0693-binary-number-with-alternating-bits](https://github.com/witmaos6/LeetCode/tree/master/0693-binary-number-with-alternating-bits) |
 | [0756-pyramid-transition-matrix](https://github.com/witmaos6/LeetCode/tree/master/0756-pyramid-transition-matrix) |
 | [0934-bitwise-ors-of-subarrays](https://github.com/witmaos6/LeetCode/tree/master/0934-bitwise-ors-of-subarrays) |
 | [1018-binary-prefix-divisible-by-5](https://github.com/witmaos6/LeetCode/tree/master/1018-binary-prefix-divisible-by-5) |
