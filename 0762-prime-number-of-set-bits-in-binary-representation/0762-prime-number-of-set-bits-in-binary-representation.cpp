@@ -5,7 +5,7 @@ public:
         int Result = 0;
         for(int Num = left; Num <= right; Num++)
         {
-            int Count = CountOneBit(Num);
+            int Count = __builtin_popcount(Num);
 
             if(Count != 1 && IsPrime(Count))
             {
@@ -13,18 +13,6 @@ public:
             }
         }
         return Result;
-    }
-
-private:
-    int CountOneBit(int Num)
-    {
-        int Count = 0;
-        while(Num > 0)
-        {
-            Count += (Num & 1);
-            Num >>= 1;
-        }
-        return Count;
     }
 
     bool IsPrime(int Num)
