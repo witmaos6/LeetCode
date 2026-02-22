@@ -2,24 +2,26 @@ class Solution {
 public:
     int binaryGap(int n)
     {
-        vector<bool> Bitset;
+        int PreIndex = -1;
+        int Index = 0;
+        int Result = 0;
+
         while(n > 0)
         {
-            Bitset.push_back(n & 1);
+            int Bit = (n & 1);
+            if(Bit == 1)
+            {
+                if(PreIndex != -1)
+                {
+                    Result = max(Result, Index - PreIndex);
+                }
+                PreIndex = Index;
+            }
+
             n >>= 1;
+            Index++;
         }
 
-        const int N = static_cast<int>(Bitset.size());
-        int PreIndex = N - 1;
-        int Result = 0;
-        for(int i = N - 2; i >= 0; i--)
-        {
-            if(Bitset[i])
-            {
-                Result = max(Result, PreIndex - i);
-                PreIndex = i;
-            }
-        }
         return Result;
     }
 };
