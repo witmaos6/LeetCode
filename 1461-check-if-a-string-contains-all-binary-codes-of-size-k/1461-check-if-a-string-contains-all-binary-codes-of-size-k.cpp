@@ -9,8 +9,7 @@ public:
         unordered_set<string> Table;
         for(int i = 0; i <= N - k; i++)
         {
-            string Code = s.substr(i, k);
-            Table.insert(Code);
+            Table.insert(s.substr(i, k));
         }
 
         return Table.size() == (1 << k);
