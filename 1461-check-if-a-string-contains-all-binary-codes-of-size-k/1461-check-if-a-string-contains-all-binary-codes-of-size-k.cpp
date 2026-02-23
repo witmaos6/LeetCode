@@ -7,17 +7,9 @@ public:
             return false;
 
         unordered_set<string> Table;
-        string Code;
-        for(int i = 0; i < k; i++)
+        for(int i = 0; i <= N - k; i++)
         {
-            Code += s[i];
-        }
-        Table.insert(Code);
-
-        for(int i = k; i < N; i++)
-        {
-            Code.erase(Code.begin());
-            Code += s[i];
+            string Code = s.substr(i, k);
             Table.insert(Code);
         }
 
