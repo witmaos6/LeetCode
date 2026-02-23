@@ -21,6 +21,6 @@ public:
             Table.insert(Code);
         }
 
-        return Table.size() == pow(2, k);
+        return Table.size() == (1 << k);
     }
 };
