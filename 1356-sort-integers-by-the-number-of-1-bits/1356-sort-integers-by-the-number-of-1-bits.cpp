@@ -1,28 +1,25 @@
 class Solution {
-    typedef pair<int, int> BitPair;
+    using Pair = pair<int, int>;
 public:
     vector<int> sortByBits(vector<int>& arr)
     {
-        map<int, vector<int>> BitCountMap;
-        for(int Num : arr)
+        vector<Pair> Binaries;
+        Binaries.reserve(arr.size());
+        for(int& Num : arr)
         {
-            bitset<32> Bit(Num);
-            int BitCount = Bit.count();
-            
-            BitCountMap[BitCount].push_back(Num);
+            int Binary = __builtin_popcount(Num);
+            Binaries.emplace_back(Binary, Num);
         }
         
+        sort(Binaries.begin(), Binaries.end());
+
         vector<int> Result;
-        for(auto&[Bit, Nums] : BitCountMap)
+        Result.reserve(arr.size());
+        for(Pair& P : Binaries)
         {
-            sort(Nums.begin(), Nums.end());
-            
-            for(int Num : Nums)
-            {
-                Result.push_back(Num);
-            }
+            Result.push_back(P.second);
         }
-        
+
         return Result;
     }
 };
