@@ -1,25 +1,16 @@
 class Solution {
-    using Pair = pair<int, int>;
 public:
     vector<int> sortByBits(vector<int>& arr)
     {
-        vector<Pair> Binaries;
-        Binaries.reserve(arr.size());
-        for(int& Num : arr)
+        sort(arr.begin(), arr.end(), [] (int A, int B)
         {
-            int Binary = __builtin_popcount(Num);
-            Binaries.emplace_back(Binary, Num);
-        }
-        
-        sort(Binaries.begin(), Binaries.end());
+            int CountA = __builtin_popcount(A);
+            int CountB = __builtin_popcount(B);
 
-        vector<int> Result;
-        Result.reserve(arr.size());
-        for(Pair& P : Binaries)
-        {
-            Result.push_back(P.second);
-        }
-
-        return Result;
+            if(CountA == CountB)
+                return A < B;
+            return CountA < CountB;
+        });
+        return arr;
     }
 };
