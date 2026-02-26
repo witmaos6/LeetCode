@@ -1,75 +1,62 @@
 class Solution {
+    int N = 0;
 public:
     int numSteps(string s)
     {
-        reverse(s.begin(), s.end());
-        s.push_back('0');
-        const int N = static_cast<int>(s.size());
-
+        s = '0' + s;
+        N = static_cast<int>(s.size());
         int Count = 0;
-        while(!IsOne(s, N))
+
+        while(!IsValid(s))
         {
-            if(s[0] == '1')
+            if(s.back() == '0')
             {
-                AddOne(s, N);
+                DivideTwo(s);
             }
-            else
+            else if(s.back() == '1')
             {
-                DivideTwo(s, N);
+                AddOne(s);
             }
+            
             Count++;
         }
-
         return Count;
     }
-    
+
 private:
-    void AddOne(string& S, const int N)
+    void AddOne(string& S)
     {
-        if(S[0] == '0')
+        S.back() = '0';
+        for(int i = N - 2; i >= 0; i--)
         {
-            S[0] = '1';
-            return;
-        }
-        else if(S[0] == '1')
-        {
-            S[0] = '0';
-        }
-            
-        for(int i = 1; i < N; i++)
-        {
-            if(S[i] == '0')
+            if(S[i] == '1')
+            {
+                S[i] = '0';
+            }
+            else if(S[i] == '0')
             {
                 S[i] = '1';
                 break;
             }
-            else
-            {
-                S[i] = '0';
-            }
         }
     }
     
-    void DivideTwo(string& S, const int N)
+    void DivideTwo(string& S)
     {
-        for(int i = 1; i < N; i++)
+        for(int i = N - 1; i > 0; i--)
         {
-            S[i - 1] = S[i];
+            S[i] = S[i - 1];
         }
-        S.back() = '0';
+        S.front() = '0';
     }
-    
-    bool IsOne(const string& S, const int N)
+
+    bool IsValid(string& S)
     {
-        if(S[0] == '1')
+        for(int i = 0; i < N - 1; i++)
         {
-            for(int i = 1; i < N; i++)
-            {
-                if(S[i] == '1')
-                    return false;
-            }
-            return true;
+            if(S[i] == '1')
+                return false;
         }
-        return false;
+        return true;
     }
 };
