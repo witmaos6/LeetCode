@@ -19,6 +19,6 @@ public:
 
     bool bIsTwoPowerN(int n)
     {
-        return !(n & n - 0);
+        return !(n & n - 1);
     }
 };
