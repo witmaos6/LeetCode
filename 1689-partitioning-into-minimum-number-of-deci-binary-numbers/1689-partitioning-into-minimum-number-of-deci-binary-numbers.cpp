@@ -5,10 +5,9 @@ public:
         char Result = '0';
         for(char& Decimal : n)
         {
-            char Temp = Decimal;
-            if(Temp > Result)
+            if(Decimal > Result)
             {
-                Result = Temp;
+                Result = Decimal;
                 if(Result == '9')
                     break;
             }
