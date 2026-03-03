@@ -6,7 +6,10 @@ public:
         for(int i = 0; i < n; i++)
         {
             string Post = PostBit(Bits);
-            Bits = Bits + '1' + Post;
+            Bits += '1' + Post;
+
+            if(Bits.size() >= k)
+                break;
         }
         return Bits[k - 1];
     }
