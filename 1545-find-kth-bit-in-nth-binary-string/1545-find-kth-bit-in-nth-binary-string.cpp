@@ -1,34 +1,31 @@
 class Solution {
-    const char Begin = '0';
 public:
     char findKthBit(int n, int k)
     {
-        string BinaryStr(1, Begin);
-        
-        for(int i = 0; i < n; ++i)
+        string Bits = "0";
+        for(int i = 0; i < n; i++)
         {
-            string InvertReverseStr = MakeInvertReverseStr(BinaryStr);
-            BinaryStr += '1' + InvertReverseStr;
+            string Post = PostBit(Bits);
+            Bits = Bits + '1' + Post;
         }
-        
-        return BinaryStr[k - 1];
+        return Bits[k - 1];
     }
-    
+
 private:
-    string MakeInvertReverseStr(const string& Str)
+    string PostBit(string Bits)
     {
-        const int N = static_cast<int>(Str.size());
-        string Result(N, '0');
-        
-        for(int i = 0; i < N; ++i)
+        for(char& Bit : Bits)
         {
-            if(Str[i] == '0')
+            if(Bit == '0')
             {
-                Result[i] = '1';
+                Bit = '1';
+            }
+            else if(Bit == '1')
+            {
+                Bit = '0';
             }
         }
-        
-        reverse(Result.begin(), Result.end());
-        return Result;
+        reverse(Bits.begin(), Bits.end());
+        return Bits;
     }
 };
