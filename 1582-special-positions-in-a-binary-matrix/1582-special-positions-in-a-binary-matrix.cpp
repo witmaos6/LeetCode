@@ -2,55 +2,40 @@ class Solution {
 public:
     int numSpecial(vector<vector<int>>& mat)
     {
-        const int RowSize = static_cast<int>(mat.size());
-        const int ColSize = static_cast<int>(mat[0].size());
-        
-        int CountSpecial = 0;
-        for(int Row = 0; Row < RowSize; Row++)
+        const int Rows = static_cast<int>(mat.size());
+        const int Cols = static_cast<int>(mat[0].size());
+        int Count = 0;
+
+        for(int Row = 0; Row < Rows; Row++)
         {
-            for(int Col = 0; Col < ColSize; Col++)
+            for(int Col = 0; Col < Cols; Col++)
             {
                 if(mat[Row][Col] == 1)
                 {
-                    if(ExistRowOne(mat[Row], Col, ColSize))
+                    bool isSpecial = true;
+                    for(int i = 0; i < Rows; i++)
                     {
-                        break;
-                    }
-                    
-                    int CountCol = 0;
-                    for(int i = 0; i < RowSize; i++)
-                    {
-                        if(mat[i][Col] == 1)
+                        if(mat[i][Col] == 1 && i != Row)
                         {
-                            CountCol++;
-                            
-                            if(CountCol > 1)
-                                break;
+                            isSpecial = false;
+                            break;
                         }
                     }
-                    
-                    if(CountCol == 1)
+                    for(int i = 0; i < Cols; i++)
                     {
-                        CountSpecial++;
-                        break;
+                        if(mat[Row][i] == 1 && i != Col)
+                        {
+                            isSpecial = false;
+                            break;
+                        }
+                    }
+                    if(isSpecial)
+                    {
+                        Count++;
                     }
                 }
             }
         }
-        
-        return CountSpecial;
-    }
-    
-private:
-    bool ExistRowOne(vector<int>& Mat, int Col, const int ColSize)
-    {
-        for(int i = Col + 1; i < ColSize; i++)
-        {
-            if(Mat[i] == 1)
-            {
-                return true;
-            }
-        }
-        return false;
+        return Count;
     }
 };
