@@ -2,37 +2,19 @@ class Solution {
 public:
     int minOperations(string s)
     {
-        const int N = static_cast<int>(s.size());
-        if(N == 1)
-            return 0;
-        
-        int Count1 = 0; // 0101...
-        int Count2 = 0; // 1010...
-        for(int i = 0; i < N; i++)
+        int Count1 = 0;
+        char Input = '1';
+
+        for(char& C : s)
         {
-            if((i & 1) == 0)
+            if(C == Input)
             {
-                if(s[i] == '0')
-                {
-                    Count1++;
-                }
-                else if(s[i] == '1')
-                {
-                    Count2++;
-                }
+                Count1++;
             }
-            else
-            {
-                if(s[i] == '1')
-                {
-                    Count1++;
-                }
-                else if(s[i] == '0')
-                {
-                    Count2++;
-                }
-            }
+            Input = (Input == '1') ? '0' : '1';
         }
-        return min((N - Count1), (N - Count2));
+        
+        int Count0 = s.size() - Count1;
+        return min(Count0, Count1);
     }
 };
