@@ -2,23 +2,13 @@ class Solution {
 public:
     bool checkOnesSegment(string s)
     {
-        bool ExistOne = false;
-        char Prev = '0';
+        char Prev = '1';
         for(char& C : s)
         {
             if(C == '1')
             {
                 if(Prev == '0')
-                {
-                    if(ExistOne)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        ExistOne = true;
-                    }
-                }
+                    return false;
             }
             Prev = C;
         }
