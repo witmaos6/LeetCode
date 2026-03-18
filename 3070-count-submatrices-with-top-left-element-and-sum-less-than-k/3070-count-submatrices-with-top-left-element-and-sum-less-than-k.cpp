@@ -5,28 +5,28 @@ public:
         const int Rows = static_cast<int>(grid.size());
         const int Cols = static_cast<int>(grid[0].size());
 
-        int Result = (grid[0][0] <= k) ? 1 : 0;
-        for(int i = 1; i < Cols; i++)
+        int Result = 0;
+
+        for(int Row = 0; Row < Rows; Row++)
         {
-            grid[0][i] += grid[0][i - 1];
-
-            if(grid[0][i] <= k)
+            for(int Col = 0; Col < Cols; Col++)
             {
-                Result++;
-            }
-        }
+                int PrefixSum = grid[Row][Col];
 
-        for(int Row = 1; Row < Rows; Row++)
-        {
-            grid[Row][0] += grid[Row - 1][0];
-            if(grid[Row][0] <= k)
-            {
-                Result++;
-            }
+                if(Row > 0)
+                {
+                    PrefixSum += grid[Row - 1][Col];
+                }
+                if(Col > 0)
+                {
+                    PrefixSum += grid[Row][Col - 1];
+                }
+                if(Row > 0 && Col > 0)
+                {
+                    PrefixSum -= grid[Row - 1][Col - 1];
+                }
+                grid[Row][Col] = PrefixSum;
 
-            for(int Col = 1; Col < Cols; Col++)
-            {
-                grid[Row][Col] = (grid[Row][Col] + grid[Row - 1][Col] + grid[Row][Col - 1] - grid[Row - 1][Col - 1]);
                 if(grid[Row][Col] <= k)
                 {
                     Result++;
