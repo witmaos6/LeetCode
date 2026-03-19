@@ -27,7 +27,7 @@ public:
                 }
                 grid[Row][Col] = PrefixSum;
 
-                if(grid[Row][Col] <= k)
+                if(PrefixSum <= k)
                 {
                     Result++;
                 }
