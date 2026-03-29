@@ -2,12 +2,11 @@ class Solution {
 public:
     bool canBeEqual(string s1, string s2)
     {
-        bool ZeroTwo = (s1[0] == s2[0]) && (s1[2] == s2[2]);
-        ZeroTwo = (ZeroTwo || (s1[0] == s2[2] && s1[2] == s2[0]));
-
-        bool OneThree = (s1[1] == s2[1]) && (s1[3] == s2[3]);
-        OneThree = (OneThree || (s1[1] == s2[3] && s1[3] == s2[1]));
-
-        return ZeroTwo && OneThree;
+        for(int i = 0; i < 2; i++)
+        {
+            if(s1[i] != s2[i])
+                swap(s1[i], s1[i + 2]);
+        }
+        return s1 == s2;
     }
 };
