@@ -2,22 +2,21 @@ class Solution {
 public:
     bool checkStrings(string s1, string s2)
     {
-        return IsEqual(s1, s2, 0) && IsEqual(s1, s2, 1);
-    }
+        const int N = s1.size();
+        array<array<int, 26>, 2> Table{};
 
-private:
-    bool IsEqual(const string& S1, const string& S2, int Index)
-    {
-        const int N = S1.size();
-        array<int, 26> Table1 = {0};
-        array<int, 26> Table2 = {0};
-
-        for(int i = Index; i < N; i += 2)
+        for(int i = 0; i < N; i++)
         {
-            Table1[S1[i] - 'a']++;
-            Table2[S2[i] - 'a']++;
+            bool Odd = i & 1;
+            Table[Odd][s1[i] - 'a']++;
+            Table[Odd][s2[i] - 'a']--;
         }
 
-        return Table1 == Table2;
+        for(int i = 0; i < 26; i++)
+        {
+            if(Table[0][i] >= 1 || Table[1][i] >= 1)
+                return false;
+        }
+        return true;
     }
 };
