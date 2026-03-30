@@ -9,8 +9,8 @@ private:
     bool IsEqual(const string& S1, const string& S2, int Index)
     {
         const int N = S1.size();
-        vector<int> Table1(26);
-        vector<int> Table2(26);
+        array<int, 26> Table1 = {0};
+        array<int, 26> Table2 = {0};
 
         for(int i = Index; i < N; i += 2)
         {
