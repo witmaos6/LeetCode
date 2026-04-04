@@ -4,18 +4,18 @@ public:
     {
         const int N = encodedText.size();
         const int Cols = N / rows;
-        string Result;
 
+        string Result;
+        Result.reserve(Cols);
         for(int i = 0; i < Cols; i++)
         {
-            Result += encodedText[i];
-            for(int j = 1; j < rows; j++)
+            for(int j = 0; j < rows; j++)
             {
-                int ToCol = j * (Cols + 1);
-                if(i + ToCol >= N)
+                int ToCol = i + j;
+                if(ToCol >= Cols)
                     break;
 
-                Result += encodedText[i + ToCol];
+                Result += encodedText[j * Cols + ToCol];
             }
         }
 
