@@ -4,28 +4,18 @@ public:
     {
         const int N = encodedText.size();
         const int Cols = N / rows;
-        vector<vector<char>> Cells(rows, vector<char>(Cols));
-
-        for(int i = 0; i < rows; i++)
-        {
-            int ToCols = i * Cols;
-            for(int j = 0; j < Cols; j++)
-            {
-                Cells[i][j] = encodedText[ToCols + j];
-            }
-        }
-
         string Result;
+
         for(int i = 0; i < Cols; i++)
         {
-            int Row = 0;
-            int Col = i;
-
-            while(Row < rows && Col < Cols)
+            Result += encodedText[i];
+            for(int j = 1; j < rows; j++)
             {
-                Result += Cells[Row][Col];
-                Row++;
-                Col++;
+                int ToCol = j * (Cols + 1);
+                if(i + ToCol >= N)
+                    break;
+
+                Result += encodedText[i + ToCol];
             }
         }
 
@@ -33,6 +23,7 @@ public:
         {
             Result.pop_back();
         }
+        
         return Result;
     }
 };
