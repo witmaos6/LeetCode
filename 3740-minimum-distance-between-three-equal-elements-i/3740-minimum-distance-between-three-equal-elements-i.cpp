@@ -2,21 +2,29 @@ class Solution {
 public:
     int minimumDistance(vector<int>& nums)
     {
+        vector<vector<int>> Table(101);
         const int N = nums.size();
-        int Result = INT_MAX;
 
-        for(int i = 0; i < N - 2; i++)
+        for(int i = 0; i < N; i++)
         {
-            for(int j = i + 1; j < N - 1; j++)
+            Table[nums[i]].push_back(i);
+        }
+
+        int Result = INT_MAX;
+        for(vector<int>& Indices : Table)
+        {
+            if(Indices.size() < 3)
+                continue;
+
+            const int Range = Indices.size();
+            for(int i = 0; i <= Range - 3; i++)
             {
-                for(int k = j + 1; k < N; k++)
-                {
-                    if(nums[i] == nums[j] && nums[j] == nums[k])
-                    {
-                        int Distance = abs(i - j) + abs(j - k) + abs(k - i);
-                        Result = min(Result, Distance);
-                    }
-                }
+                int I = Indices[i];
+                int J = Indices[i + 1];
+                int K = Indices[i + 2];
+
+                int Sum = abs(I - J) + abs(J - K) + abs(K - I);
+                Result = min(Result, Sum);
             }
         }
         return (Result == INT_MAX) ? -1 : Result;
