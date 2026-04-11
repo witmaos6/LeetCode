@@ -2,7 +2,7 @@ class Solution {
 public:
     int minimumDistance(vector<int>& nums)
     {
-        vector<vector<int>> Table(100001);
+        unordered_map<int, vector<int>> Table;
         const int N = nums.size();
 
         for(int i = 0; i < N; i++)
@@ -11,7 +11,7 @@ public:
         }
 
         int Result = INT_MAX;
-        for(vector<int>& Indices : Table)
+        for(auto&[Num, Indices] : Table)
         {
             if(Indices.size() < 3)
                 continue;
