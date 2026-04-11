@@ -5,28 +5,24 @@ public:
         unordered_map<int, vector<int>> Table;
         const int N = nums.size();
 
+        int Result = INT_MAX;
         for(int i = 0; i < N; i++)
         {
-            Table[nums[i]].push_back(i);
-        }
+            vector<int>& Indices = Table[nums[i]];
+            Indices.push_back(i);
 
-        int Result = INT_MAX;
-        for(auto&[Num, Indices] : Table)
-        {
-            if(Indices.size() < 3)
-                continue;
-
-            const int Range = Indices.size();
-            for(int i = 0; i <= Range - 3; i++)
+            if(Indices.size() >= 3)
             {
-                int I = Indices[i];
-                int J = Indices[i + 1];
-                int K = Indices[i + 2];
+                const int M = Indices.size();
+                int I = Indices[M - 3];
+                int J = Indices[M - 2];
+                int K = Indices[M - 1];
 
                 int Sum = abs(I - J) + abs(J - K) + abs(K - I);
                 Result = min(Result, Sum);
             }
         }
+
         return (Result == INT_MAX) ? -1 : Result;
     }
 };
