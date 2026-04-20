@@ -5,18 +5,21 @@ public:
         const int N = colors.size();
         int MaxDist = 0;
 
-        for(int i = 0; i < N; i++)
-        {
-            int CurrColor = colors[i];
+        int i = 0, j = N - 1;
 
-            for(int j = 0; j < N; j++)
-            {
-                if(CurrColor != colors[j])
-                {
-                    MaxDist = max(MaxDist, abs(i - j));
-                }
-            }
+        while(colors[i] == colors[j])
+        {
+            i++;
         }
+        MaxDist = max(MaxDist, j - i);
+
+        i = 0;
+        while(colors[i] == colors[j])
+        {
+            j--;
+        }
+        MaxDist = max(MaxDist, j - i);
+        
         return MaxDist;
     }
 };
