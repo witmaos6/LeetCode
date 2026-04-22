@@ -14,6 +14,8 @@ public:
                     if(Query[i] != Word[i])
                     {
                         DiffCount++;
+                        if(DiffCount > 2)
+                            break;
                     }
                 }
                 if(DiffCount <= 2)
