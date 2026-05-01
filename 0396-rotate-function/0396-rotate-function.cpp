@@ -3,12 +3,12 @@ public:
     int maxRotateFunction(vector<int>& nums)
     {
         const int N = nums.size();
-        int PrefixSum = accumulate(nums.begin(), nums.end(), 0);
-
+        int PrefixSum = 0;
         int F = 0;
         for(int i = 0; i < N; i++)
         {
             F += (i * nums[i]);
+            PrefixSum += nums[i];
         }
 
         int Result = F;
