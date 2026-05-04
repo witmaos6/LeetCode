@@ -9,6 +9,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0011-container-with-most-water](https://github.com/witmaos6/LeetCode/tree/master/0011-container-with-most-water) |
 | [0036-valid-sudoku](https://github.com/witmaos6/LeetCode/tree/master/0036-valid-sudoku) |
 | [0037-sudoku-solver](https://github.com/witmaos6/LeetCode/tree/master/0037-sudoku-solver) |
+| [0048-rotate-image](https://github.com/witmaos6/LeetCode/tree/master/0048-rotate-image) |
 | [0066-plus-one](https://github.com/witmaos6/LeetCode/tree/master/0066-plus-one) |
 | [0073-set-matrix-zeroes](https://github.com/witmaos6/LeetCode/tree/master/0073-set-matrix-zeroes) |
 | [0085-maximal-rectangle](https://github.com/witmaos6/LeetCode/tree/master/0085-maximal-rectangle) |
@@ -965,6 +966,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0036-valid-sudoku](https://github.com/witmaos6/LeetCode/tree/master/0036-valid-sudoku) |
 | [0037-sudoku-solver](https://github.com/witmaos6/LeetCode/tree/master/0037-sudoku-solver) |
+| [0048-rotate-image](https://github.com/witmaos6/LeetCode/tree/master/0048-rotate-image) |
 | [0073-set-matrix-zeroes](https://github.com/witmaos6/LeetCode/tree/master/0073-set-matrix-zeroes) |
 | [0085-maximal-rectangle](https://github.com/witmaos6/LeetCode/tree/master/0085-maximal-rectangle) |
 | [0407-trapping-rain-water-ii](https://github.com/witmaos6/LeetCode/tree/master/0407-trapping-rain-water-ii) |
@@ -1235,6 +1237,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Math
 |  |
 | ------- |
+| [0048-rotate-image](https://github.com/witmaos6/LeetCode/tree/master/0048-rotate-image) |
 | [0066-plus-one](https://github.com/witmaos6/LeetCode/tree/master/0066-plus-one) |
 | [0067-add-binary](https://github.com/witmaos6/LeetCode/tree/master/0067-add-binary) |
 | [0166-fraction-to-recurring-decimal](https://github.com/witmaos6/LeetCode/tree/master/0166-fraction-to-recurring-decimal) |
