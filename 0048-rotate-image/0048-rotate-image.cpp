@@ -13,13 +13,7 @@ public:
 
         for (int Row = 0; Row < N; Row++)
         {
-            int Left = 0, Right = N - 1;
-            while (Left < Right)
-            {
-                swap(matrix[Row][Left], matrix[Row][Right]);
-                ++Left;
-                --Right;
-            }
+            reverse(matrix[Row].begin(), matrix[Row].end());
         }
     }
 };
