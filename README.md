@@ -1406,6 +1406,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0011-container-with-most-water](https://github.com/witmaos6/LeetCode/tree/master/0011-container-with-most-water) |
+| [0061-rotate-list](https://github.com/witmaos6/LeetCode/tree/master/0061-rotate-list) |
 | [0165-compare-version-numbers](https://github.com/witmaos6/LeetCode/tree/master/0165-compare-version-numbers) |
 | [0611-valid-triangle-number](https://github.com/witmaos6/LeetCode/tree/master/0611-valid-triangle-number) |
 | [0696-count-binary-substrings](https://github.com/witmaos6/LeetCode/tree/master/0696-count-binary-substrings) |
@@ -1618,6 +1619,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Linked List
 |  |
 | ------- |
+| [0061-rotate-list](https://github.com/witmaos6/LeetCode/tree/master/0061-rotate-list) |
 | [1411-convert-binary-number-in-a-linked-list-to-integer](https://github.com/witmaos6/LeetCode/tree/master/1411-convert-binary-number-in-a-linked-list-to-integer) |
 | [3501-delete-nodes-from-linked-list-present-in-array](https://github.com/witmaos6/LeetCode/tree/master/3501-delete-nodes-from-linked-list-present-in-array) |
 | [3510-minimum-pair-removal-to-sort-array-ii](https://github.com/witmaos6/LeetCode/tree/master/3510-minimum-pair-removal-to-sort-array-ii) |
