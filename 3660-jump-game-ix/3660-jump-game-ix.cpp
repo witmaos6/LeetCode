@@ -4,20 +4,18 @@ public:
     {
         const int N = nums.size();
 
-        vector<int> Pre(N), Suf(N), Result(N);
+        vector<int> Pre(N), Suf(N);
 
         Pre[0] = nums[0];
+        Suf[N - 1] = nums[N - 1];
         for(int i = 1; i < N; i++)
         {
             Pre[i] = max(Pre[i - 1], nums[i]);
+
+            Suf[N - 1 - i] = min(Suf[N - i], nums[N - 1 - i]);
         }
 
-        Suf[N - 1] = nums[N - 1];
-        for(int i = N - 2; i >= 0; i--)
-        {
-            Suf[i] = min(Suf[i + 1], nums[i]);
-        }
-
+        vector<int> Result(N);
         Result[N - 1] = Pre[N - 1];
         for(int i = N - 2; i >= 0; i--)
         {
