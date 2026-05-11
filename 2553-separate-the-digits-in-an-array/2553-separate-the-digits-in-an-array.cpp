@@ -5,16 +5,14 @@ public:
         const int N = nums.size();
         vector<int> Result;
 
-        for(int i = N - 1; i >= 0; i--)
+        for(int& Num : nums)
         {
-            int Num = nums[i];
-            while(Num > 0)
+            string NumStr = to_string(Num);
+            for(char& C : NumStr)
             {
-                Result.push_back(Num % 10);
-                Num /= 10;
+                Result.push_back(C - '0');
             }
         }
-        reverse(Result.begin(), Result.end());
         return Result;
     }
 };
