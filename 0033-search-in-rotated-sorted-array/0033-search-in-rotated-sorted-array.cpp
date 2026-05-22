@@ -1,5 +1,4 @@
 class Solution {
-    const int NotExist = -1;
 public:
     int search(vector<int>& nums, int target)
     {
@@ -38,6 +37,6 @@ public:
             }
         }
         
-        return NotExist;
+        return -1;
     }
 };
