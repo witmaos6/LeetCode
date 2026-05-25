@@ -1,31 +1,40 @@
-class Solution {
+class Solution
+{
+    const char Valid = '0';
+    int N = 0;
 public:
     bool canReach(string s, int minJump, int maxJump)
     {
-        int N = static_cast<int>(s.size());
+        N = static_cast<int>(s.size());
 
-        if(s.back() & 1)
+        if(s[0] == '1')
             return false;
-        
-        s[0] = 'v';
-        int Reach = 0;
-        int MaxR = maxJump;
 
-        for(int i = minJump; i < N; i++)
+        int Far = 0;
+        queue<int> Location;
+        Location.push(0);
+
+        while(!Location.empty())
         {
-            if(i > MaxR)
-                return false;
-            
-            Reach += (s[i - minJump] == 'v');
-            Reach -= ((i > maxJump) && s[i - maxJump - 1] == 'v');
+            int Index = Location.front();
+            Location.pop();
 
-            if(Reach && (~s[i] & 1))
+            int Begin = max(Far, Index + minJump);
+            int End = min(Index + maxJump, N - 1);
+
+            for(int i = Begin; i <= End; i++)
             {
-                s[i] = 'v';
-                MaxR = i + maxJump;
+                if(s[i] == Valid)
+                {
+                    if(i == N - 1)
+                        return true;
+
+                    Location.push(i);
+                }
             }
+            Far = End + 1;
         }
-        
-        return Reach;
+
+        return false;
     }
 };
