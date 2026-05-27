@@ -9,11 +9,11 @@ public:
         {
             char C = word[i];
 
-            if(C >= 'a' && C <= 'z')
+            if(C >= 'a')
             {
                 Table[C - 'a'].first = i;
             }
-            else if(C >= 'A' && C <= 'Z')
+            else if(C <= 'Z')
             {
                 if(Table[C - 'A'].second == -1)
                 {
