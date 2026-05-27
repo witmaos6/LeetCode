@@ -13,7 +13,7 @@ public:
             {
                 Table[C - 'a'].first = i;
             }
-            else if(C <= 'Z')
+            else
             {
                 if(Table[C - 'A'].second == -1)
                 {
