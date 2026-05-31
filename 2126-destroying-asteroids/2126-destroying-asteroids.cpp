@@ -2,14 +2,31 @@ class Solution {
 public:
     bool asteroidsDestroyed(int mass, vector<int>& asteroids)
     {
-        sort(asteroids.begin(), asteroids.end());
-
+        priority_queue<int, vector<int>, greater<int>> Hold;
         long long Mass = mass;
         for(int& Asteroid : asteroids)
         {
-            if(Asteroid <= Mass)
+            while(!Hold.empty() && Hold.top() <= Mass)
+            {
+                Mass += Hold.top();
+                Hold.pop();
+            }
+            if(Asteroid <= mass)
             {
                 Mass += Asteroid;
+            }
+            else
+            {
+                Hold.push(Asteroid);
+            }
+        }
+
+        while(!Hold.empty())
+        {
+            if(Hold.top() <= Mass)
+            {
+                Mass += Hold.top();
+                Hold.pop();
             }
             else
             {
