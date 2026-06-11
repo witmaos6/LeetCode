@@ -1130,6 +1130,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [2764-maximum-number-of-fish-in-a-grid](https://github.com/witmaos6/LeetCode/tree/master/2764-maximum-number-of-fish-in-a-grid) |
 | [2793-count-the-number-of-complete-components](https://github.com/witmaos6/LeetCode/tree/master/2793-count-the-number-of-complete-components) |
 | [2872-maximum-number-of-k-divisible-components](https://github.com/witmaos6/LeetCode/tree/master/2872-maximum-number-of-k-divisible-components) |
+| [3558-number-of-ways-to-assign-edge-weights-i](https://github.com/witmaos6/LeetCode/tree/master/3558-number-of-ways-to-assign-edge-weights-i) |
 | [3562-maximum-profit-from-trading-stocks-with-discounts](https://github.com/witmaos6/LeetCode/tree/master/3562-maximum-profit-from-trading-stocks-with-discounts) |
 | [3645-maximize-the-number-of-target-nodes-after-connecting-trees-ii](https://github.com/witmaos6/LeetCode/tree/master/3645-maximize-the-number-of-target-nodes-after-connecting-trees-ii) |
 | [3863-power-grid-maintenance](https://github.com/witmaos6/LeetCode/tree/master/3863-power-grid-maintenance) |
@@ -1391,6 +1392,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [3464-maximize-the-distance-between-points-on-a-square](https://github.com/witmaos6/LeetCode/tree/master/3464-maximize-the-distance-between-points-on-a-square) |
 | [3512-minimum-operations-to-make-array-sum-divisible-by-k](https://github.com/witmaos6/LeetCode/tree/master/3512-minimum-operations-to-make-array-sum-divisible-by-k) |
 | [3548-find-the-count-of-good-integers](https://github.com/witmaos6/LeetCode/tree/master/3548-find-the-count-of-good-integers) |
+| [3558-number-of-ways-to-assign-edge-weights-i](https://github.com/witmaos6/LeetCode/tree/master/3558-number-of-ways-to-assign-edge-weights-i) |
 | [3577-count-the-number-of-computer-unlocking-permutations](https://github.com/witmaos6/LeetCode/tree/master/3577-count-the-number-of-computer-unlocking-permutations) |
 | [3581-the-two-sneaky-numbers-of-digitville](https://github.com/witmaos6/LeetCode/tree/master/3581-the-two-sneaky-numbers-of-digitville) |
 | [3600-find-the-k-th-character-in-string-game-i](https://github.com/witmaos6/LeetCode/tree/master/3600-find-the-k-th-character-in-string-game-i) |
@@ -1453,6 +1455,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [2564-most-profitable-path-in-a-tree](https://github.com/witmaos6/LeetCode/tree/master/2564-most-profitable-path-in-a-tree) |
 | [2872-maximum-number-of-k-divisible-components](https://github.com/witmaos6/LeetCode/tree/master/2872-maximum-number-of-k-divisible-components) |
 | [3307-find-the-maximum-sum-of-node-values](https://github.com/witmaos6/LeetCode/tree/master/3307-find-the-maximum-sum-of-node-values) |
+| [3558-number-of-ways-to-assign-edge-weights-i](https://github.com/witmaos6/LeetCode/tree/master/3558-number-of-ways-to-assign-edge-weights-i) |
 | [3562-maximum-profit-from-trading-stocks-with-discounts](https://github.com/witmaos6/LeetCode/tree/master/3562-maximum-profit-from-trading-stocks-with-discounts) |
 | [3645-maximize-the-number-of-target-nodes-after-connecting-trees-ii](https://github.com/witmaos6/LeetCode/tree/master/3645-maximize-the-number-of-target-nodes-after-connecting-trees-ii) |
 ## Binary Tree
