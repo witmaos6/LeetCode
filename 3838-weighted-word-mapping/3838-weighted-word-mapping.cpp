@@ -11,8 +11,7 @@ public:
                 Sum += weights[C - 'a'];
             }
 
-            int Num = Sum % 26;
-            Result += 'z' - Num;
+            Result += 'z' - (Sum % 26);
         }
 
         return Result;
