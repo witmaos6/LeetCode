@@ -10,27 +10,49 @@
  */
 class Solution {
 public:
-    int pairSum(ListNode* head) 
+    int pairSum(ListNode* head)
     {
-        vector<int> Sum;
-        
-        while(head)
+        ListNode* Middle = MiddleNode(head);
+        ListNode* Second = Middle->next;
+        Middle->next = nullptr;
+        ListNode* First = Reverse(head);
+
+        int Result = 0;
+        while(First)
         {
-            Sum.push_back(head->val);
-            head = head->next;
+            Result = max(Result, First->val + Second->val);
+            First = First->next;
+            Second = Second->next;
         }
-        
-        int Low = 0, High = Sum.size() - 1;
-        int MaxSum = 0;
-        
-        while(Low < High)
+        return Result;
+    }
+
+private:
+    ListNode* MiddleNode(ListNode* Head)
+    {
+        ListNode* Slow = Head;
+        ListNode* Fast = Head;
+
+        while(Fast->next && Fast->next->next)
         {
-            int CurrSum = Sum[Low] + Sum[High];
-            MaxSum = max(MaxSum, CurrSum);
-            Low++;
-            High--;
+            Slow = Slow->next;
+            Fast = Fast->next->next;
         }
-        
-        return MaxSum;
+        return Slow;
+    }
+
+    ListNode* Reverse(ListNode* Head)
+    {
+        ListNode* Prev = nullptr;
+        ListNode* Curr = Head;
+
+        while(Curr)
+        {
+            ListNode* Temp = Curr->next;
+            Curr->next = Prev;
+            Prev = Curr;
+            Curr = Temp;
+        }
+        return Prev;
     }
 };
