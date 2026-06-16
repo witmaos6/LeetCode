@@ -950,6 +950,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Breadth-First Search
 |  |
 | ------- |
+| [0310-minimum-height-trees](https://github.com/witmaos6/LeetCode/tree/master/0310-minimum-height-trees) |
 | [0407-trapping-rain-water-ii](https://github.com/witmaos6/LeetCode/tree/master/0407-trapping-rain-water-ii) |
 | [0417-pacific-atlantic-water-flow](https://github.com/witmaos6/LeetCode/tree/master/0417-pacific-atlantic-water-flow) |
 | [0684-redundant-connection](https://github.com/witmaos6/LeetCode/tree/master/0684-redundant-connection) |
@@ -1111,6 +1112,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0110-balanced-binary-tree](https://github.com/witmaos6/LeetCode/tree/master/0110-balanced-binary-tree) |
+| [0310-minimum-height-trees](https://github.com/witmaos6/LeetCode/tree/master/0310-minimum-height-trees) |
 | [0417-pacific-atlantic-water-flow](https://github.com/witmaos6/LeetCode/tree/master/0417-pacific-atlantic-water-flow) |
 | [0684-redundant-connection](https://github.com/witmaos6/LeetCode/tree/master/0684-redundant-connection) |
 | [0794-swim-in-rising-water](https://github.com/witmaos6/LeetCode/tree/master/0794-swim-in-rising-water) |
@@ -1164,6 +1166,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Topological Sort
 |  |
 | ------- |
+| [0310-minimum-height-trees](https://github.com/witmaos6/LeetCode/tree/master/0310-minimum-height-trees) |
 | [0820-find-eventual-safe-states](https://github.com/witmaos6/LeetCode/tree/master/0820-find-eventual-safe-states) |
 | [1558-course-schedule-iv](https://github.com/witmaos6/LeetCode/tree/master/1558-course-schedule-iv) |
 | [1986-largest-color-value-in-a-directed-graph](https://github.com/witmaos6/LeetCode/tree/master/1986-largest-color-value-in-a-directed-graph) |
@@ -1793,6 +1796,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Graph Theory
 |  |
 | ------- |
+| [0310-minimum-height-trees](https://github.com/witmaos6/LeetCode/tree/master/0310-minimum-height-trees) |
 | [0997-find-the-town-judge](https://github.com/witmaos6/LeetCode/tree/master/0997-find-the-town-judge) |
 | [1791-find-center-of-star-graph](https://github.com/witmaos6/LeetCode/tree/master/1791-find-center-of-star-graph) |
 | [2976-minimum-cost-to-convert-string-i](https://github.com/witmaos6/LeetCode/tree/master/2976-minimum-cost-to-convert-string-i) |
