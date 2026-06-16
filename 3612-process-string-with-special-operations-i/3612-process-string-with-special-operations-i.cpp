@@ -15,7 +15,7 @@ public:
             }
             else if(C == '#')
             {
-                Result = Result + Result;
+                Result += Result;
             }
             else if(C == '%')
             {
