@@ -1,42 +1,61 @@
 class Solution {
-    using To = pair<int, int>;
+    using Direct = pair<int, int>;
+
+    unordered_map<int, vector<Direct>> Graph;
+
+    using Path = tuple<int, int, int>;
+
+    const int Impossible = -1;
+
 public:
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k)
     {
-        unordered_map<int, vector<To>> Graph;
-        for(vector<int>& Flight : flights)
+        BuildGraph(flights);
+
+        return Dijkstra(n, src, dst, k);
+    }
+
+private:
+    void BuildGraph(vector<vector<int>>& Flights)
+    {
+        for(vector<int>& Flight : Flights)
         {
             Graph[Flight[0]].push_back({Flight[1], Flight[2]});
         }
-        
-        vector<int> Distance(n + 1, INT_MAX);
-        queue<To> DFS;
-        DFS.push({src, 0});
-        Distance[src] = 0;
-        
-        while(!DFS.empty() && k >= 0)
+    }
+
+    int Dijkstra(const int& n, const int& Src, const int& Des, const int& Rest)
+    {
+        vector<int> Dist(n + 1, INT_MAX);
+
+        priority_queue<Path, vector<Path>, greater<Path>> MinHeap;
+        MinHeap.push({0, Src, 0});
+
+        while(!MinHeap.empty())
         {
-            size_t Range = DFS.size();
-            
-            for(size_t i = 0; i < Range; i++)
+            auto [CurrCost, CurrPath, CurrRest] = MinHeap.top();
+            MinHeap.pop();
+
+            if(CurrPath == Des)
             {
-                int From = DFS.front().first;
-                int CurrCost = DFS.front().second;
-                DFS.pop();
-                
-                for(auto& [To, Cost] : Graph[From])
+                return CurrCost;
+            }
+
+            if(Dist[CurrPath] < CurrRest)
+            {
+                continue;
+            }
+            Dist[CurrPath] = CurrRest;
+
+            if(CurrRest <= Rest)
+            {
+                for(Direct& Next : Graph[CurrPath])
                 {
-                    int NextCost = CurrCost + Cost;
-                    if(Distance[To] > NextCost)
-                    {
-                        Distance[To] = NextCost;
-                        DFS.push({To, Distance[To]});
-                    }
+                    MinHeap.push({CurrCost + Next.second, Next.first, CurrRest + 1});
                 }
             }
-            k--;
         }
         
-        return (Distance[dst] == INT_MAX) ? -1 : Distance[dst];
+        return Impossible;
     }
 };
