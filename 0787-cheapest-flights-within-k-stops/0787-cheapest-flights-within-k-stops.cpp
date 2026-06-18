@@ -26,7 +26,7 @@ private:
 
     int Dijkstra(const int& n, const int& Src, const int& Des, const int& Rest)
     {
-        vector<int> Dist(n + 1, INT_MAX);
+        vector<int> Dist(n, INT_MAX);
 
         priority_queue<Path, vector<Path>, greater<Path>> MinHeap;
         MinHeap.push({0, Src, 0});
