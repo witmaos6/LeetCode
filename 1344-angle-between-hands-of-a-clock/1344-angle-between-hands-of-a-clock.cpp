@@ -3,9 +3,6 @@ public:
     double angleClock(int hour, int minutes)
     {
         double MinuteAngle = minutes * 6;
-
-        if(hour == 12)
-            hour = 0;
         double HourAngle = (hour * 30) + (0.5f * minutes);
 
         double ClockwiseAngle = abs(MinuteAngle - HourAngle);
