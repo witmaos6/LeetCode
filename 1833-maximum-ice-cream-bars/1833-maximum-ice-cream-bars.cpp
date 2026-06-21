@@ -13,7 +13,7 @@ public:
 
         int CanBuyIcecream = 0;
 
-        for(int cost = 1; cost < MaxCost + 1; cost++)
+        for(int cost = 1; cost <= MaxCost; cost++)
         {
             if(CountCost[cost] > 0)
             {
