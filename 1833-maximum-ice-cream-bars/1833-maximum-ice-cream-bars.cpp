@@ -1,22 +1,37 @@
 class Solution {
 public:
-    int maxIceCream(vector<int>& costs, int coins)
+    int maxIceCream(vector<int>& costs, int coins) 
     {
-        sort(costs.begin(), costs.end());
-        int Count = 0;
+        int MaxCost = *max_element(costs.begin(), costs.end());
 
-        for(int& Cost : costs)
+        vector<int> CountCost(MaxCost + 1);
+
+        for(int& cost : costs)
         {
-            if(coins >= Cost)
-            {
-                coins -= Cost;
-                Count++;
-            }
-            else
-            {
-                break;
-            }
+            CountCost[cost]++;
         }
-        return Count;
+
+        int CanBuyIcecream = 0;
+
+        for(int cost = 1; cost < MaxCost + 1; cost++)
+        {
+            if(CountCost[cost] > 0)
+            {
+                if(cost <= coins)
+                {
+                    int Count = min(CountCost[cost], (coins / cost));
+
+                    coins -= (cost * Count);
+                    CanBuyIcecream += Count;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            
+        }
+
+        return CanBuyIcecream;
     }
 };
