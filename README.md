@@ -519,6 +519,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1700-minimum-time-to-make-rope-colorful](https://github.com/witmaos6/LeetCode/tree/master/1700-minimum-time-to-make-rope-colorful) |
 | [1732-minimum-one-bit-operations-to-make-integers-zero](https://github.com/witmaos6/LeetCode/tree/master/1732-minimum-one-bit-operations-to-make-integers-zero) |
 | [1744-number-of-ways-to-form-a-target-string-given-a-dictionary](https://github.com/witmaos6/LeetCode/tree/master/1744-number-of-ways-to-form-a-target-string-given-a-dictionary) |
+| [1786-number-of-restricted-paths-from-first-to-last-node](https://github.com/witmaos6/LeetCode/tree/master/1786-number-of-restricted-paths-from-first-to-last-node) |
 | [1849-maximum-absolute-sum-of-any-subarray](https://github.com/witmaos6/LeetCode/tree/master/1849-maximum-absolute-sum-of-any-subarray) |
 | [1851-maximum-number-of-events-that-can-be-attended-ii](https://github.com/witmaos6/LeetCode/tree/master/1851-maximum-number-of-events-that-can-be-attended-ii) |
 | [1871-jump-game-vii](https://github.com/witmaos6/LeetCode/tree/master/1871-jump-game-vii) |
@@ -1027,6 +1028,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1485-minimum-cost-to-make-at-least-one-valid-path-in-a-grid](https://github.com/witmaos6/LeetCode/tree/master/1485-minimum-cost-to-make-at-least-one-valid-path-in-a-grid) |
 | [1514-path-with-maximum-probability](https://github.com/witmaos6/LeetCode/tree/master/1514-path-with-maximum-probability) |
 | [1612-avoid-flood-in-the-city](https://github.com/witmaos6/LeetCode/tree/master/1612-avoid-flood-in-the-city) |
+| [1786-number-of-restricted-paths-from-first-to-last-node](https://github.com/witmaos6/LeetCode/tree/master/1786-number-of-restricted-paths-from-first-to-last-node) |
 | [1878-get-biggest-three-rhombus-sums-in-a-grid](https://github.com/witmaos6/LeetCode/tree/master/1878-get-biggest-three-rhombus-sums-in-a-grid) |
 | [1917-maximum-average-pass-ratio](https://github.com/witmaos6/LeetCode/tree/master/1917-maximum-average-pass-ratio) |
 | [2023-design-movie-rental-system](https://github.com/witmaos6/LeetCode/tree/master/2023-design-movie-rental-system) |
@@ -1122,6 +1124,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0787-cheapest-flights-within-k-stops](https://github.com/witmaos6/LeetCode/tree/master/0787-cheapest-flights-within-k-stops) |
 | [1485-minimum-cost-to-make-at-least-one-valid-path-in-a-grid](https://github.com/witmaos6/LeetCode/tree/master/1485-minimum-cost-to-make-at-least-one-valid-path-in-a-grid) |
 | [1514-path-with-maximum-probability](https://github.com/witmaos6/LeetCode/tree/master/1514-path-with-maximum-probability) |
+| [1786-number-of-restricted-paths-from-first-to-last-node](https://github.com/witmaos6/LeetCode/tree/master/1786-number-of-restricted-paths-from-first-to-last-node) |
 | [2976-minimum-cost-to-convert-string-i](https://github.com/witmaos6/LeetCode/tree/master/2976-minimum-cost-to-convert-string-i) |
 | [2977-minimum-cost-to-convert-string-ii](https://github.com/witmaos6/LeetCode/tree/master/2977-minimum-cost-to-convert-string-ii) |
 | [3627-find-minimum-time-to-reach-last-room-i](https://github.com/witmaos6/LeetCode/tree/master/3627-find-minimum-time-to-reach-last-room-i) |
@@ -1190,6 +1193,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0310-minimum-height-trees](https://github.com/witmaos6/LeetCode/tree/master/0310-minimum-height-trees) |
 | [0820-find-eventual-safe-states](https://github.com/witmaos6/LeetCode/tree/master/0820-find-eventual-safe-states) |
 | [1558-course-schedule-iv](https://github.com/witmaos6/LeetCode/tree/master/1558-course-schedule-iv) |
+| [1786-number-of-restricted-paths-from-first-to-last-node](https://github.com/witmaos6/LeetCode/tree/master/1786-number-of-restricted-paths-from-first-to-last-node) |
 | [1986-largest-color-value-in-a-directed-graph](https://github.com/witmaos6/LeetCode/tree/master/1986-largest-color-value-in-a-directed-graph) |
 | [2220-find-all-possible-recipes-from-given-supplies](https://github.com/witmaos6/LeetCode/tree/master/2220-find-all-possible-recipes-from-given-supplies) |
 | [2246-maximum-employees-to-be-invited-to-a-meeting](https://github.com/witmaos6/LeetCode/tree/master/2246-maximum-employees-to-be-invited-to-a-meeting) |
@@ -1829,6 +1833,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0787-cheapest-flights-within-k-stops](https://github.com/witmaos6/LeetCode/tree/master/0787-cheapest-flights-within-k-stops) |
 | [0997-find-the-town-judge](https://github.com/witmaos6/LeetCode/tree/master/0997-find-the-town-judge) |
 | [1514-path-with-maximum-probability](https://github.com/witmaos6/LeetCode/tree/master/1514-path-with-maximum-probability) |
+| [1786-number-of-restricted-paths-from-first-to-last-node](https://github.com/witmaos6/LeetCode/tree/master/1786-number-of-restricted-paths-from-first-to-last-node) |
 | [1791-find-center-of-star-graph](https://github.com/witmaos6/LeetCode/tree/master/1791-find-center-of-star-graph) |
 | [2976-minimum-cost-to-convert-string-i](https://github.com/witmaos6/LeetCode/tree/master/2976-minimum-cost-to-convert-string-i) |
 | [2977-minimum-cost-to-convert-string-ii](https://github.com/witmaos6/LeetCode/tree/master/2977-minimum-cost-to-convert-string-ii) |
