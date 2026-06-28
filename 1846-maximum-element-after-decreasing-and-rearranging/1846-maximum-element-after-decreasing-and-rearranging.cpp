@@ -2,20 +2,11 @@ class Solution {
 public:
     int maximumElementAfterDecrementingAndRearranging(vector<int>& arr)
     {
-        priority_queue<int, vector<int>, greater<>> MinHeap;
-        
-        for(int Num : arr)
-        {
-            MinHeap.push(Num);
-        }
+        sort(arr.begin(), arr.end());
         
         int Prev = 0;
-        
-        while(!MinHeap.empty())
+        for(int Num : arr)
         {
-            int Num = MinHeap.top();
-            MinHeap.pop();
-            
             if(Num - Prev >= 2)
             {
                 Prev = Prev + 1;
@@ -25,7 +16,6 @@ public:
                 Prev = Num;
             }
         }
-        
         return Prev;
     }
 };
