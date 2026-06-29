@@ -5,8 +5,7 @@ public:
         int Count = 0;
         for(const string& Pattern : patterns)
         {
-            size_t Index = word.find(Pattern);
-            if(Index != string::npos)
+            if(word.find(Pattern) != string::npos)
             {
                 Count++;
             }
