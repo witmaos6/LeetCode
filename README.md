@@ -24,6 +24,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0407-trapping-rain-water-ii](https://github.com/witmaos6/LeetCode/tree/master/0407-trapping-rain-water-ii) |
 | [0417-pacific-atlantic-water-flow](https://github.com/witmaos6/LeetCode/tree/master/0417-pacific-atlantic-water-flow) |
 | [0474-ones-and-zeroes](https://github.com/witmaos6/LeetCode/tree/master/0474-ones-and-zeroes) |
+| [0496-next-greater-element-i](https://github.com/witmaos6/LeetCode/tree/master/0496-next-greater-element-i) |
 | [0498-diagonal-traverse](https://github.com/witmaos6/LeetCode/tree/master/0498-diagonal-traverse) |
 | [0594-longest-harmonious-subsequence](https://github.com/witmaos6/LeetCode/tree/master/0594-longest-harmonious-subsequence) |
 | [0611-valid-triangle-number](https://github.com/witmaos6/LeetCode/tree/master/0611-valid-triangle-number) |
@@ -646,6 +647,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0037-sudoku-solver](https://github.com/witmaos6/LeetCode/tree/master/0037-sudoku-solver) |
 | [0073-set-matrix-zeroes](https://github.com/witmaos6/LeetCode/tree/master/0073-set-matrix-zeroes) |
 | [0166-fraction-to-recurring-decimal](https://github.com/witmaos6/LeetCode/tree/master/0166-fraction-to-recurring-decimal) |
+| [0496-next-greater-element-i](https://github.com/witmaos6/LeetCode/tree/master/0496-next-greater-element-i) |
 | [0594-longest-harmonious-subsequence](https://github.com/witmaos6/LeetCode/tree/master/0594-longest-harmonious-subsequence) |
 | [0756-pyramid-transition-matrix](https://github.com/witmaos6/LeetCode/tree/master/0756-pyramid-transition-matrix) |
 | [0768-partition-labels](https://github.com/witmaos6/LeetCode/tree/master/0768-partition-labels) |
@@ -959,6 +961,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0085-maximal-rectangle](https://github.com/witmaos6/LeetCode/tree/master/0085-maximal-rectangle) |
 | [0094-binary-tree-inorder-traversal](https://github.com/witmaos6/LeetCode/tree/master/0094-binary-tree-inorder-traversal) |
 | [0316-remove-duplicate-letters](https://github.com/witmaos6/LeetCode/tree/master/0316-remove-duplicate-letters) |
+| [0496-next-greater-element-i](https://github.com/witmaos6/LeetCode/tree/master/0496-next-greater-element-i) |
 | [1628-count-submatrices-with-all-ones](https://github.com/witmaos6/LeetCode/tree/master/1628-count-submatrices-with-all-ones) |
 | [1633-minimum-number-of-increments-on-subarrays-to-form-a-target-array](https://github.com/witmaos6/LeetCode/tree/master/1633-minimum-number-of-increments-on-subarrays-to-form-a-target-array) |
 | [1653-minimum-deletions-to-make-string-balanced](https://github.com/witmaos6/LeetCode/tree/master/1653-minimum-deletions-to-make-string-balanced) |
@@ -1709,6 +1712,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0085-maximal-rectangle](https://github.com/witmaos6/LeetCode/tree/master/0085-maximal-rectangle) |
 | [0316-remove-duplicate-letters](https://github.com/witmaos6/LeetCode/tree/master/0316-remove-duplicate-letters) |
+| [0496-next-greater-element-i](https://github.com/witmaos6/LeetCode/tree/master/0496-next-greater-element-i) |
 | [1628-count-submatrices-with-all-ones](https://github.com/witmaos6/LeetCode/tree/master/1628-count-submatrices-with-all-ones) |
 | [1633-minimum-number-of-increments-on-subarrays-to-form-a-target-array](https://github.com/witmaos6/LeetCode/tree/master/1633-minimum-number-of-increments-on-subarrays-to-form-a-target-array) |
 | [3001-apply-operations-to-maximize-score](https://github.com/witmaos6/LeetCode/tree/master/3001-apply-operations-to-maximize-score) |
