@@ -1,9 +1,9 @@
 class Solution {
-    typedef pair<int, int> NextCity;
+    using Node = pair<int, int>;
 public:
     int minScore(int n, vector<vector<int>>& roads)
     {
-        vector<vector<NextCity>> Graph(n + 1);
+        vector<vector<Node>> Graph(n + 1);
 
         for(vector<int>& City : roads)
         {
