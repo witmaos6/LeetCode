@@ -1,39 +1,28 @@
 class Solution {
-    using Pair = pair<int, int>;
 public:
     vector<int> arrayRankTransform(vector<int>& arr)
     {
-        if(arr.empty())
-        {
-            return {};
-        }
-        
         const int N = static_cast<int>(arr.size());
-        priority_queue<Pair, vector<Pair>, greater<Pair>> MaxHeap;
-        
+
+        vector<pair<int, int>> IndicesArr(N);
         for(int i = 0; i < N; i++)
         {
-            MaxHeap.emplace(arr[i], i);
+            IndicesArr[i] = {arr[i], i};
         }
-        
+        sort(IndicesArr.begin(), IndicesArr.end());
+
         vector<int> Result(N);
-        int PrevNum = MaxHeap.top().first;
-        int Rank = 1;
-        
-        while(!MaxHeap.empty())
+        int Rank = 0;
+        int Prev = INT_MIN;
+        for(int i = 0; i < N; i++)
         {
-            auto[Num, Index] = MaxHeap.top();
-            MaxHeap.pop();
-            
-            if(PrevNum != Num)
+            if(Prev != IndicesArr[i].first)
             {
                 Rank++;
             }
-            
-            PrevNum = Num;
-            Result[Index] = Rank;
+            Result[IndicesArr[i].second] = Rank;
+            Prev = IndicesArr[i].first;
         }
-        
         return Result;
     }
 };
