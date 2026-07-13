@@ -3,26 +3,24 @@ public:
     vector<int> sequentialDigits(int low, int high)
     {
         vector<int> Result;
-        
-        for(int i = 1; i <= 9; i++)
+
+        for(int Length = 2; Length <= 9; Length++)
         {
-            int Num = i;
-            int NextDigit = i + 1;
-            
-            while(Num <= high && NextDigit <= 9)
+            for(int First = 1; First + Length <= 10; First++)
             {
-                Num = Num * 10 + NextDigit;
-                
-                if(low <= Num && Num <= high)
+                int Value = 0;
+
+                for(int Digit = First; Digit < First + Length; Digit++)
                 {
-                    Result.push_back(Num);
+                    Value = Value * 10 + Digit;
                 }
-                
-                NextDigit++;
+
+                if(Value >= low && Value <= high)
+                {
+                    Result.push_back(Value);
+                }
             }
         }
-        sort(Result.begin(), Result.end());
-        
         return Result;
-    }    
+    }
 };
