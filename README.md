@@ -1766,6 +1766,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0900-reordered-power-of-2](https://github.com/witmaos6/LeetCode/tree/master/0900-reordered-power-of-2) |
+| [1291-sequential-digits](https://github.com/witmaos6/LeetCode/tree/master/1291-sequential-digits) |
 | [1656-count-good-triplets](https://github.com/witmaos6/LeetCode/tree/master/1656-count-good-triplets) |
 | [1747-lexicographically-smallest-string-after-applying-operations](https://github.com/witmaos6/LeetCode/tree/master/1747-lexicographically-smallest-string-after-applying-operations) |
 | [1925-count-square-sum-triples](https://github.com/witmaos6/LeetCode/tree/master/1925-count-square-sum-triples) |
