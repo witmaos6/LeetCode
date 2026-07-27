@@ -7,11 +7,7 @@ public:
 
         for(int& Num : nums)
         {
-            if(Max1 == INT_MIN)
-            {
-                Max1 = Num;
-            }
-            else if(Max1 < Num)
+            if(Max1 < Num)
             {
                 Max2 = Max1;
                 Max1 = Num;
