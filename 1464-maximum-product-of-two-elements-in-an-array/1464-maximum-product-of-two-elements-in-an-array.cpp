@@ -2,21 +2,25 @@ class Solution {
 public:
     int maxProduct(vector<int>& nums)
     {
-        pair<int, int> MaxPair = {0, 0};
-        
-        for(int Num : nums)
+        int Max1 = INT_MIN;
+        int Max2 = INT_MIN;
+
+        for(int& Num : nums)
         {
-            if(Num > MaxPair.first)
+            if(Max1 == INT_MIN)
             {
-                MaxPair.second = MaxPair.first;
-                MaxPair.first = Num;
+                Max1 = Num;
             }
-            else if(Num > MaxPair.second)
+            else if(Max1 < Num)
             {
-                MaxPair.second = Num;
+                Max2 = Max1;
+                Max1 = Num;
+            }
+            else if(Max2 < Num)
+            {
+                Max2 = Num;
             }
         }
-        
-        return (MaxPair.first - 1) * (MaxPair.second - 1);
+        return (Max1 - 1) * (Max2 - 1);
     }
 };
