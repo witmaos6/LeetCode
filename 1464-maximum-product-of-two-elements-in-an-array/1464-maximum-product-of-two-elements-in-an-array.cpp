@@ -2,21 +2,23 @@ class Solution {
 public:
     int maxProduct(vector<int>& nums)
     {
-        int Max1 = INT_MIN;
-        int Max2 = INT_MIN;
-
+        const size_t NrOfNums = 2;
+        priority_queue<int, vector<int>, greater<int>> MinHeap;
         for(int& Num : nums)
         {
-            if(Max1 < Num)
+            MinHeap.push(Num);
+            if(MinHeap.size() > NrOfNums)
             {
-                Max2 = Max1;
-                Max1 = Num;
-            }
-            else if(Max2 < Num)
-            {
-                Max2 = Num;
+                MinHeap.pop();
             }
         }
-        return (Max1 - 1) * (Max2 - 1);
+
+        int Result = 1;
+        while(!MinHeap.empty())
+        {
+            Result *= MinHeap.top() - 1;
+            MinHeap.pop();
+        }
+        return Result;
     }
 };
