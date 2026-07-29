@@ -5,30 +5,26 @@ public:
         const int N = s.size();
         array<int, 26> Table = {0};
 
-        for(char& C : s)
+        for(int i = 0; i < N / 2; i++)
         {
-            Table[C - 'a']++;
+            Table[s[i] - 'a']++;
         }
 
         string Result;
-        int Odd = -1;
         for(int i = 0; i < 26; i++)
         {
-            string Side(Table[i] / 2, 'a' + i);
-            if((Table[i] & 1) == 1)
-            {
-                Odd = i;
-            }
+            string Side(Table[i], 'a' + i);
 
             Result += Side;
         }
 
         string Reverse = Result;
-        if(Odd != -1)
-        {
-            Reverse += ('a' + Odd);
-        }
         ranges::reverse(Reverse);
+        if((N & 1) == 1)
+        {
+            Result += s[N / 2];
+        }
+
         return Result + Reverse;
     }
 };
