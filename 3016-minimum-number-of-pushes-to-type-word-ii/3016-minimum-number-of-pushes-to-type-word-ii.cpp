@@ -2,28 +2,24 @@ class Solution {
 public:
     int minimumPushes(string word)
     {
-        unordered_map<char, int> Table;
-        for (char C : word)
+        array<int, 26> Table;
+        for(char& C : word)
         {
-            Table[C]++;
+            Table[C - 'a']++;
         }
-        
-        priority_queue<int, vector<int>> MaxHeap;
-        for (auto&[C, Freq] : Table)
+
+        ranges::sort(Table, greater<int>());
+
+        int Sum = 0;
+        int Num = 1;
+        for(int i = 0; i < 26; i++)
         {
-            MaxHeap.push(Freq);
+            Sum += Table[i] * Num;
+            if(i == 7 || i == 15 || i == 23)
+            {
+                Num++;
+            }
         }
-        
-        int TotalPresses = 0;
-        int KeyPosition = 0;
-        
-        while (!MaxHeap.empty())
-        {
-            TotalPresses += (KeyPosition / 8 + 1) * MaxHeap.top();
-            MaxHeap.pop();
-            KeyPosition++;
-        }
-        
-        return TotalPresses;
+        return Sum;
     }
 };
