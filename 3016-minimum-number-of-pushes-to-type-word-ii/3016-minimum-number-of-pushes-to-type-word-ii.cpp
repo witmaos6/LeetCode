@@ -11,14 +11,9 @@ public:
         ranges::sort(Table, greater<int>());
 
         int Sum = 0;
-        int Num = 1;
         for(int i = 0; i < 26; i++)
         {
-            Sum += Table[i] * Num;
-            if(i == 7 || i == 15 || i == 23)
-            {
-                Num++;
-            }
+            Sum += Table[i] * (i / 8 + 1);
         }
         return Sum;
     }
