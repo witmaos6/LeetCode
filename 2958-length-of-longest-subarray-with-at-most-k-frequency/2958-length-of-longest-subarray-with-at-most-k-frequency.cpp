@@ -11,7 +11,7 @@ public:
         {
             Table[nums[i]]++;
 
-            while(Table[nums[Left]] > k)
+            while(Table[nums[i]] > k)
             {
                 Table[nums[Left]]--;
                 Left++;
