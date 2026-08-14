@@ -5,7 +5,6 @@ public:
         const int N = s.size();
 
         vector<int> Table(26);
-        bool TwoOccur = false;
         int L = 0;
         int Result = 0;
         for(int i = 0; i < N; i++)
