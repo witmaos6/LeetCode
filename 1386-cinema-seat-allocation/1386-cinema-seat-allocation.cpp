@@ -2,21 +2,17 @@ class Solution {
 public:
     int maxNumberOfFamilies(int n, vector<vector<int>>& reservedSeats)
     {
-        unordered_map<int, vector<int>> Table;
+        unordered_map<int, vector<bool>> Table;
         for(vector<int>& Reserve : reservedSeats)
         {
             if(Reserve[1] != 1 && Reserve[1] != 10)
             {
-                Table[Reserve[0]].push_back(Reserve[1]);
-            }
-        }
-
-        int Possible = n << 1;
-        for(auto&[Row, Seats] : Table)
-        {
-            array<bool, 4> Flags = {false};
-            for(int& Seat : Seats)
-            {
+                int Seat = Reserve[1];
+                vector<bool>& Flags = Table[Reserve[0]];
+                if(Flags.empty())
+                {
+                    Flags.resize(4);
+                }
                 if(Seat == 2 || Seat == 3)
                 {
                     Flags[0] = true;
@@ -34,15 +30,17 @@ public:
                     Flags[3] = true;
                 }
             }
+        }
 
+        int Possible = n << 1;
+        for(auto&[Row, Flags] : Table)
+        {
             int Count = 0;
             for(bool Flag : Flags)
             {
                 if(Flag)
                     Count++;
             }
-            if(Count == 0)
-                continue;
 
             if(Count >= 3 || (Flags[0] && Flags[2]) || (Flags[1] && Flags[2]) || (Flags[1] && Flags[3]))
             {
