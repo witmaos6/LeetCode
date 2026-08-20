@@ -21,6 +21,7 @@ public:
             }
         }
 
+        Arr1.reserve(N);
         for(int& Num : Arr2)
         {
             Arr1.push_back(Num);
