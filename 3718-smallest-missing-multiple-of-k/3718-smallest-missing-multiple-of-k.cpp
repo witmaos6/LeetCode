@@ -2,12 +2,16 @@ class Solution {
 public:
     int missingMultiple(vector<int>& nums, int k)
     {
-        unordered_set<int> Table(nums.begin(), nums.end());
+        vector<bool> Table(101);
+        for(int& Num : nums)
+        {
+            Table[Num] = true;
+        }
 
         int Last = 0;
         for(int i = 1; i * k <= 100; i++)
         {
-            if(!Table.count(i * k))
+            if(!Table[i * k])
             {
                 return i * k;
             }
