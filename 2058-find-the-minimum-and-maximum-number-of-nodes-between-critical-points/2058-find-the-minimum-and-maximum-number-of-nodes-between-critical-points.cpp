@@ -9,53 +9,47 @@
  * };
  */
 class Solution {
+    vector<int> Indices;
 public:
     vector<int> nodesBetweenCriticalPoints(ListNode* head)
     {
-        vector<int> CriticalPoint;
-        int PreValue = 0;
-        int Index = 0;
+        Traverse(nullptr, head, 0);
+
+        if(Indices.size() <= 1)
+            return {-1, -1};
+
+        int Max = Indices.back() - Indices.front();
+        vector<int> Result = {Max, Max};
         
-        while(head)
+        const int N = Indices.size();
+        for(int i = 1; i < N; i++)
         {
-            if(PreValue != 0)
+            Result[0] = min(Result[0], Indices[i] - Indices[i - 1]);
+        }
+
+        return Result;
+    }
+private:
+    void Traverse(ListNode* Prev, ListNode* Node, int Index)
+    {
+        if(Prev)
+        {
+            if(Node->next)
             {
-                if(PreValue < head->val)
+                if(Prev->val < Node->val && Node->next->val < Node->val)
                 {
-                    if(head->next && head->val > head->next->val)
-                    {
-                        CriticalPoint.push_back(Index);
-                    }
+                    Indices.push_back(Index);
                 }
-                else if(PreValue > head->val)
+                else if(Prev->val > Node->val && Node->next->val > Node->val)
                 {
-                    if(head->next && head->val < head->next->val)
-                    {
-                        CriticalPoint.push_back(Index);
-                    }
+                    Indices.push_back(Index);
                 }
             }
-            
-            PreValue = head->val;
-            Index++;
-            head = head->next;
+            else
+            {
+                return;
+            }
         }
-        
-        if(CriticalPoint.size() <= 1)
-        {
-            return {-1, -1};
-        }
-        
-        vector<int> Result(2, INT_MAX);
-        Result[1] = CriticalPoint.back() - CriticalPoint.front();
-        
-        const int Size = static_cast<int>(CriticalPoint.size());
-        for(int i = 0; i < Size - 1; i++)
-        {
-            int Temp = CriticalPoint[i + 1] - CriticalPoint[i];
-            Result[0] = min(Result[0], Temp);
-        }
-        
-        return Result;
+        Traverse(Node, Node->next, Index + 1);
     }
 };
