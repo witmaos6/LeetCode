@@ -1,5 +1,5 @@
 class Solution {
-    vector<int> Odds;
+    int MinOdd = INT_MAX;
 public:
     bool uniformArray(vector<int>& nums1)
     {
@@ -7,22 +7,18 @@ public:
         {
             if(Num & 1)
             {
-                Odds.push_back(Num);
+                MinOdd = min(MinOdd, Num);
             }
         }
-
-        ranges::sort(Odds);
 
         return AllOdd(nums1) || AllEven(nums1);
     }
 private:
-    bool AllOdd(vector<int>& Nums1)
+    bool AllOdd(vector<int>& Nums)
     {
-        const int N = Nums1.size();
-
-        for(int i = 0; i < N; i++)
+        for(int& Num : Nums)
         {
-            if((Nums1[i] & 1) == 0 && !IsExistOdd(Nums1[i]))
+            if((Num & 1) == 0 && Num <= MinOdd)
             {
                 return false;
             }
@@ -30,33 +26,15 @@ private:
         return true;
     }
 
-    bool AllEven(vector<int>& Nums1)
+    bool AllEven(vector<int>& Nums)
     {
-        const int N = Nums1.size();
-
-        for(int i = 0; i < N; i++)
+        for(int& Num : Nums)
         {
-            if((Nums1[i] & 1) == 1 && !IsExistOdd(Nums1[i]))
+            if((Num & 1) == 1 && Num <= MinOdd)
             {
                 return false;
             }
         }
         return true;
-    }
-
-    bool IsExistOdd(const int Num)
-    {
-        for(int& Odd : Odds)
-        {
-            if(Num > Odd)
-            {
-                return true;
-            }
-            else
-            {
-                break;
-            }
-        }
-        return false;
     }
 };
