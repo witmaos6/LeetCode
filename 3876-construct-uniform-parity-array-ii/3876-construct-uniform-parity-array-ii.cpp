@@ -11,26 +11,14 @@ public:
             }
         }
 
-        return AllOdd(nums1) || AllEven(nums1);
+        return AllTargetMod(nums1, 0) || AllTargetMod(nums1, 1);
     }
 private:
-    bool AllOdd(vector<int>& Nums)
+    bool AllTargetMod(vector<int>& Nums, const int Target)
     {
         for(int& Num : Nums)
         {
-            if((Num & 1) == 0 && Num <= MinOdd)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    bool AllEven(vector<int>& Nums)
-    {
-        for(int& Num : Nums)
-        {
-            if((Num & 1) == 1 && Num <= MinOdd)
+            if((Num & 1) == Target && Num <= MinOdd)
             {
                 return false;
             }
