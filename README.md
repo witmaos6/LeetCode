@@ -408,6 +408,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0038-count-and-say](https://github.com/witmaos6/LeetCode/tree/master/0038-count-and-say) |
 | [0067-add-binary](https://github.com/witmaos6/LeetCode/tree/master/0067-add-binary) |
+| [0115-distinct-subsequences](https://github.com/witmaos6/LeetCode/tree/master/0115-distinct-subsequences) |
 | [0165-compare-version-numbers](https://github.com/witmaos6/LeetCode/tree/master/0165-compare-version-numbers) |
 | [0166-fraction-to-recurring-decimal](https://github.com/witmaos6/LeetCode/tree/master/0166-fraction-to-recurring-decimal) |
 | [0316-remove-duplicate-letters](https://github.com/witmaos6/LeetCode/tree/master/0316-remove-duplicate-letters) |
@@ -550,6 +551,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0085-maximal-rectangle](https://github.com/witmaos6/LeetCode/tree/master/0085-maximal-rectangle) |
+| [0115-distinct-subsequences](https://github.com/witmaos6/LeetCode/tree/master/0115-distinct-subsequences) |
 | [0118-pascals-triangle](https://github.com/witmaos6/LeetCode/tree/master/0118-pascals-triangle) |
 | [0120-triangle](https://github.com/witmaos6/LeetCode/tree/master/0120-triangle) |
 | [0368-largest-divisible-subset](https://github.com/witmaos6/LeetCode/tree/master/0368-largest-divisible-subset) |
