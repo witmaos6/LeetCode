@@ -20,7 +20,7 @@ public:
                 char TC = t[j];
                 if(SC == TC)
                 {
-                    Memo[j] = Memo[j + 1] + Memo[j];
+                    Memo[j] += Memo[j + 1];
                 }
             }
         }
