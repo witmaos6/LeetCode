@@ -10,39 +10,33 @@
  * };
  */
 class Solution {
-    int NrOfAverageNode = 0;
-    typedef pair<int, int> Sub;
+    using Pair = pair<int, int>; // NumberOfNode, Sum
+    int Result = 0;
 public:
     int averageOfSubtree(TreeNode* root)
     {
-        PostOrder(root);
-        
-        return NrOfAverageNode;
+        DFS(root);
+
+        return Result;        
     }
-    
+
 private:
-    Sub PostOrder(TreeNode* Root)
+    Pair DFS(TreeNode* Node)
     {
-        if(Root == nullptr)
-        {
+        if(Node == nullptr)
             return {0, 0};
-        }
         
-        Sub RightSub = PostOrder(Root->right);
-        Sub LeftSub = PostOrder(Root->left);
-        
-        int TotalSum = Root->val + RightSub.first + LeftSub.first;
-        
-        int NrOfNode = 1;
-        NrOfNode += RightSub.second + LeftSub.second;
-        
-        int Average = TotalSum / NrOfNode;
-        
-        if(Root->val == Average)
+        Pair LeftTree = DFS(Node->left);
+        Pair RightTree = DFS(Node->right);
+
+        int Count = LeftTree.first + RightTree.first + 1;
+        int Sum = LeftTree.second + RightTree.second + Node->val;
+
+        if(Node->val == Sum / Count)
         {
-            NrOfAverageNode++;
+            Result++;
         }
-        
-        return {TotalSum, NrOfNode};
+
+        return {Count, Sum};
     }
 };
