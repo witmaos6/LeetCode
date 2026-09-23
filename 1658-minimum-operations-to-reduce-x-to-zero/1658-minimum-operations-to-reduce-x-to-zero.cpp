@@ -30,14 +30,11 @@ public:
             
             if(Sum == Target)
             {
-                if(i - j + 1 > MaxLength)
-                {
-                    MaxLength = i - j + 1;
-                }
+                MaxLength = max(MaxLength, i - j + 1);
             }
         }
         
-        if(!MaxLength)
+        if(MaxLength == 0)
         {
             return -1;
         }
