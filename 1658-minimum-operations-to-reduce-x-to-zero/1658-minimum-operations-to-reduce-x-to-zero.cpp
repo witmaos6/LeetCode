@@ -2,8 +2,8 @@ class Solution {
 public:
     int minOperations(vector<int>& nums, int x)
     {
-        int N = static_cast<int>(nums.size());
-        int Target = accumulate(nums.begin(), nums.end(), 0) - x;
+        const int N = static_cast<int>(nums.size());
+        const int Target = accumulate(nums.begin(), nums.end(), 0) - x;
         
         if(Target == 0)
         {
@@ -22,7 +22,7 @@ public:
         {
             Sum += nums[i];
             
-            while (i < N && Sum > Target)
+            while (Sum > Target)
             {
                 Sum -= nums[j];
                 j++;
