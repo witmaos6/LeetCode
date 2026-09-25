@@ -438,6 +438,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1058-lexicographically-smallest-equivalent-string](https://github.com/witmaos6/LeetCode/tree/master/1058-lexicographically-smallest-equivalent-string) |
 | [1081-smallest-subsequence-of-distinct-characters](https://github.com/witmaos6/LeetCode/tree/master/1081-smallest-subsequence-of-distinct-characters) |
 | [1093-recover-a-tree-from-preorder-traversal](https://github.com/witmaos6/LeetCode/tree/master/1093-recover-a-tree-from-preorder-traversal) |
+| [1096-brace-expansion-ii](https://github.com/witmaos6/LeetCode/tree/master/1096-brace-expansion-ii) |
 | [1160-letter-tile-possibilities](https://github.com/witmaos6/LeetCode/tree/master/1160-letter-tile-possibilities) |
 | [1170-shortest-common-supersequence](https://github.com/witmaos6/LeetCode/tree/master/1170-shortest-common-supersequence) |
 | [1189-maximum-number-of-balloons](https://github.com/witmaos6/LeetCode/tree/master/1189-maximum-number-of-balloons) |
@@ -757,6 +758,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0997-find-the-town-judge](https://github.com/witmaos6/LeetCode/tree/master/0997-find-the-town-judge) |
 | [1006-vowel-spellchecker](https://github.com/witmaos6/LeetCode/tree/master/1006-vowel-spellchecker) |
 | [1015-smallest-integer-divisible-by-k](https://github.com/witmaos6/LeetCode/tree/master/1015-smallest-integer-divisible-by-k) |
+| [1096-brace-expansion-ii](https://github.com/witmaos6/LeetCode/tree/master/1096-brace-expansion-ii) |
 | [1160-letter-tile-possibilities](https://github.com/witmaos6/LeetCode/tree/master/1160-letter-tile-possibilities) |
 | [1189-maximum-number-of-balloons](https://github.com/witmaos6/LeetCode/tree/master/1189-maximum-number-of-balloons) |
 | [1227-number-of-equivalent-domino-pairs](https://github.com/witmaos6/LeetCode/tree/master/1227-number-of-equivalent-domino-pairs) |
@@ -1099,6 +1101,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0316-remove-duplicate-letters](https://github.com/witmaos6/LeetCode/tree/master/0316-remove-duplicate-letters) |
 | [0496-next-greater-element-i](https://github.com/witmaos6/LeetCode/tree/master/0496-next-greater-element-i) |
 | [1081-smallest-subsequence-of-distinct-characters](https://github.com/witmaos6/LeetCode/tree/master/1081-smallest-subsequence-of-distinct-characters) |
+| [1096-brace-expansion-ii](https://github.com/witmaos6/LeetCode/tree/master/1096-brace-expansion-ii) |
 | [1628-count-submatrices-with-all-ones](https://github.com/witmaos6/LeetCode/tree/master/1628-count-submatrices-with-all-ones) |
 | [1633-minimum-number-of-increments-on-subarrays-to-form-a-target-array](https://github.com/witmaos6/LeetCode/tree/master/1633-minimum-number-of-increments-on-subarrays-to-form-a-target-array) |
 | [1653-minimum-deletions-to-make-string-balanced](https://github.com/witmaos6/LeetCode/tree/master/1653-minimum-deletions-to-make-string-balanced) |
@@ -1136,6 +1139,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0854-making-a-large-island](https://github.com/witmaos6/LeetCode/tree/master/0854-making-a-large-island) |
 | [0865-smallest-subtree-with-all-the-deepest-nodes](https://github.com/witmaos6/LeetCode/tree/master/0865-smallest-subtree-with-all-the-deepest-nodes) |
 | [0945-snakes-and-ladders](https://github.com/witmaos6/LeetCode/tree/master/0945-snakes-and-ladders) |
+| [1096-brace-expansion-ii](https://github.com/witmaos6/LeetCode/tree/master/1096-brace-expansion-ii) |
 | [1161-maximum-level-sum-of-a-binary-tree](https://github.com/witmaos6/LeetCode/tree/master/1161-maximum-level-sum-of-a-binary-tree) |
 | [1345-jump-game-iv](https://github.com/witmaos6/LeetCode/tree/master/1345-jump-game-iv) |
 | [1387-find-elements-in-a-contaminated-binary-tree](https://github.com/witmaos6/LeetCode/tree/master/1387-find-elements-in-a-contaminated-binary-tree) |
@@ -1393,6 +1397,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0900-reordered-power-of-2](https://github.com/witmaos6/LeetCode/tree/master/0900-reordered-power-of-2) |
 | [0912-sort-an-array](https://github.com/witmaos6/LeetCode/tree/master/0912-sort-an-array) |
 | [1018-largest-perimeter-triangle](https://github.com/witmaos6/LeetCode/tree/master/1018-largest-perimeter-triangle) |
+| [1096-brace-expansion-ii](https://github.com/witmaos6/LeetCode/tree/master/1096-brace-expansion-ii) |
 | [1200-minimum-absolute-difference](https://github.com/witmaos6/LeetCode/tree/master/1200-minimum-absolute-difference) |
 | [1262-greatest-sum-divisible-by-three](https://github.com/witmaos6/LeetCode/tree/master/1262-greatest-sum-divisible-by-three) |
 | [1288-remove-covered-intervals](https://github.com/witmaos6/LeetCode/tree/master/1288-remove-covered-intervals) |
@@ -1712,6 +1717,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0401-binary-watch](https://github.com/witmaos6/LeetCode/tree/master/0401-binary-watch) |
 | [0679-24-game](https://github.com/witmaos6/LeetCode/tree/master/0679-24-game) |
 | [0756-pyramid-transition-matrix](https://github.com/witmaos6/LeetCode/tree/master/0756-pyramid-transition-matrix) |
+| [1096-brace-expansion-ii](https://github.com/witmaos6/LeetCode/tree/master/1096-brace-expansion-ii) |
 | [1160-letter-tile-possibilities](https://github.com/witmaos6/LeetCode/tree/master/1160-letter-tile-possibilities) |
 | [1415-the-k-th-lexicographical-string-of-all-happy-strings-of-length-n](https://github.com/witmaos6/LeetCode/tree/master/1415-the-k-th-lexicographical-string-of-all-happy-strings-of-length-n) |
 | [1516-the-k-th-lexicographical-string-of-all-happy-strings-of-length-n](https://github.com/witmaos6/LeetCode/tree/master/1516-the-k-th-lexicographical-string-of-all-happy-strings-of-length-n) |
