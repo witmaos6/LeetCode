@@ -4,41 +4,46 @@ public:
     {
         unordered_map<string, string> Table;
 
-        for(vector<string>& pair : knowledge)
+        for(vector<string>& Word : knowledge)
         {
-            Table[pair[0]] = pair[1];
+            Table[Word[0]] = Word[1];
         }
-
+        
         string Result;
-        int N = static_cast<int>(s.size());
-
-        for(int i = 0; i < N; i++)
+        bool Flag = false;
+        string Key;
+        for(char& C : s)
         {
-            if(s[i] == '(')
+            if(C == '(')
             {
-                i++;
-                string Temp;
-                while(s[i] != ')')
+                Flag = true;
+            }
+            else if(C == ')')
+            {
+                Flag = false;
+                
+                if(Table.count(Key))
                 {
-                    Temp += s[i];
-                    i++;
-                }
-
-                if(Table.find(Temp) != Table.end())
-                {
-                    Result += Table[Temp];
+                    Result += Table[Key];
                 }
                 else
                 {
                     Result += '?';
                 }
+                Key.clear();
             }
             else
             {
-                Result += s[i];
+                if(Flag)
+                {
+                    Key += C;
+                }
+                else
+                {
+                    Result += C;
+                }
             }
         }
-        
         return Result;
     }
 };
