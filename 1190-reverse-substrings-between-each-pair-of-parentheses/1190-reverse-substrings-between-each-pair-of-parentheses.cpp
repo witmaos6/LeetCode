@@ -1,29 +1,26 @@
 class Solution {
-    using BracketTable = pair<int, int>;
 public:
     string reverseParentheses(string s)
     {
-        const int N = static_cast<int>(s.size());
-        stack<BracketTable> St;
-        int NrOfBrackets = 0;
+        stack<int> St;
+        const int N = s.size();
+
         for(int i = 0; i < N; i++)
         {
             if(s[i] == '(')
             {
-                ++NrOfBrackets;
-                St.push({i, NrOfBrackets});
+                St.push(i);
             }
             else if(s[i] == ')')
             {
-                int Begin = St.top().first;
-                reverse(s.begin() + Begin + 1, s.begin() + i);
-                NrOfBrackets--;
+                int Begin = St.top();
                 St.pop();
+                reverse(s.begin() + Begin + 1, s.begin() + i);
             }
         }
-        
+
         string Result;
-        for(char C : s)
+        for(char& C : s)
         {
             if(C != '(' && C != ')')
                 Result += C;
