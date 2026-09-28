@@ -2,24 +2,20 @@ class Solution {
 public:
     int maxDepth(string s)
     {
-        int Count = 0;
-        int MaxNum = 0;
-        for (char C : s)
+        int Open = 0;
+        int Result = 0;
+        for(char& C : s)
         {
-            if (C == '(')
+            if(C == '(')
             {
-                Count++;
-                if(MaxNum < Count)
-                {
-                    MaxNum = Count;
-                }
-                    
+                Open++;
+                Result = max(Result, Open);
             }
-            else if (C == ')')
+            else if(C == ')')
             {
-                Count--;
+                Open--;
             }
         }
-        return MaxNum;
+        return Result;
     }
 };
