@@ -1,26 +1,41 @@
 class Solution {
-    vector<char> OpenBrackets = {'(', '{', '['};
-    vector<char> CloseBrackets = {')', '}', ']'};
 public:
     bool isValid(string s)
     {
-        stack<char> Parentheses;
-        
-        for(char c : s)
+        stack<char> St;
+        for(char& C : s)
         {
-            if(bOpenBrackets(c))
+            if(C == '(' || C == '{' || C == '[')
             {
-                Parentheses.push(c);
+                St.push(C);
             }
-            else
+            else if(C == ')')
             {
-                if(Parentheses.empty())
+                if(!St.empty() && St.top() == '(')
+                {
+                    St.pop();
+                }
+                else
                 {
                     return false;
                 }
-                if(bPairBrackets(Parentheses.top(), c))
+            }
+            else if(C == '}')
+            {
+                if(!St.empty() && St.top() == '{')
                 {
-                    Parentheses.pop();
+                    St.pop();
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if(C == ']')
+            {
+                if(!St.empty() && St.top() == '[')
+                {
+                    St.pop();
                 }
                 else
                 {
@@ -28,36 +43,6 @@ public:
                 }
             }
         }
-        
-        return Parentheses.empty();
-    }
-    
-private:
-    bool bOpenBrackets(char c)
-    {
-        for(char Bracket : OpenBrackets)
-        {
-            if(c == Bracket)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    bool bPairBrackets(char Open, char Close)
-    {
-        for(int i = 0; i < 3; i++)
-        {
-            if(OpenBrackets[i] == Open)
-            {
-                if(CloseBrackets[i] == Close)
-                {
-                    return true;
-                }
-                break;
-            }
-        }
-        return false;
+        return St.empty();
     }
 };
