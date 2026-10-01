@@ -9,31 +9,20 @@ public:
             {
                 St.push(C);
             }
-            else if(C == ')')
+            else
             {
-                if(!St.empty() && St.top() == '(')
+                if(St.empty())
+                    return false;
+
+                if(C == ')' && St.top() == '(')
                 {
                     St.pop();
                 }
-                else
-                {
-                    return false;
-                }
-            }
-            else if(C == '}')
-            {
-                if(!St.empty() && St.top() == '{')
+                else if(C == '}' && St.top() == '{')
                 {
                     St.pop();
                 }
-                else
-                {
-                    return false;
-                }
-            }
-            else if(C == ']')
-            {
-                if(!St.empty() && St.top() == '[')
+                else if(C == ']' && St.top() == '[')
                 {
                     St.pop();
                 }
