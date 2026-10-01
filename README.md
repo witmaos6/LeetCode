@@ -416,6 +416,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## String
 |  |
 | ------- |
+| [0020-valid-parentheses](https://github.com/witmaos6/LeetCode/tree/master/0020-valid-parentheses) |
 | [0038-count-and-say](https://github.com/witmaos6/LeetCode/tree/master/0038-count-and-say) |
 | [0067-add-binary](https://github.com/witmaos6/LeetCode/tree/master/0067-add-binary) |
 | [0115-distinct-subsequences](https://github.com/witmaos6/LeetCode/tree/master/0115-distinct-subsequences) |
@@ -1104,6 +1105,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Stack
 |  |
 | ------- |
+| [0020-valid-parentheses](https://github.com/witmaos6/LeetCode/tree/master/0020-valid-parentheses) |
 | [0085-maximal-rectangle](https://github.com/witmaos6/LeetCode/tree/master/0085-maximal-rectangle) |
 | [0094-binary-tree-inorder-traversal](https://github.com/witmaos6/LeetCode/tree/master/0094-binary-tree-inorder-traversal) |
 | [0316-remove-duplicate-letters](https://github.com/witmaos6/LeetCode/tree/master/0316-remove-duplicate-letters) |
@@ -2219,6 +2221,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Bracket Sequences
 |  |
 | ------- |
+| [0020-valid-parentheses](https://github.com/witmaos6/LeetCode/tree/master/0020-valid-parentheses) |
 | [1111-maximum-nesting-depth-of-two-valid-parentheses-strings](https://github.com/witmaos6/LeetCode/tree/master/1111-maximum-nesting-depth-of-two-valid-parentheses-strings) |
 | [1190-reverse-substrings-between-each-pair-of-parentheses](https://github.com/witmaos6/LeetCode/tree/master/1190-reverse-substrings-between-each-pair-of-parentheses) |
 | [1614-maximum-nesting-depth-of-the-parentheses](https://github.com/witmaos6/LeetCode/tree/master/1614-maximum-nesting-depth-of-the-parentheses) |
