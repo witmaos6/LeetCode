@@ -4,7 +4,7 @@ public:
     {
         const int N = s.size();
         stack<int> Begins;
-        vector<bool> Memo(N);
+        vector<bool> Memo(N + 1);
 
         for(int i = 0; i < N; i++)
         {
@@ -24,13 +24,11 @@ public:
                         Memo[i] = true;
                         break;
                     }
-
                     Memo[j] = true;
                 }
             }
         }
 
-        Memo.push_back(false);
         int Result = 0;
         int Count = 0;
         for(bool B : Memo)
