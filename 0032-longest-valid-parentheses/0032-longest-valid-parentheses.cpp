@@ -19,6 +19,12 @@ public:
 
                 for(int j = Begin; j <= i; j++)
                 {
+                    if(Memo[j] == true)
+                    {
+                        Memo[i] = true;
+                        break;
+                    }
+
                     Memo[j] = true;
                 }
             }
