@@ -1,16 +1,11 @@
 class Solution {
-    /*
-        ( ( ( ( ) ( ( ) )
-                        i
-
-        1 2 3 4 3 4 5 4 3
-    */
+    using P = pair<int, int>;
 public:
     int longestValidParentheses(string s)
     {
         const int N = s.size();
         stack<int> Begins;
-        vector<bool> Memo(N);
+        vector<P> Memo;
 
         for(int i = 0; i < N; i++)
         {
@@ -23,29 +18,26 @@ public:
                 int Begin = Begins.top();
                 Begins.pop();
 
-                for(int j = Begin; j <= i; j++)
-                {
-                    Memo[j] = true;
-                }
+                Memo.push_back({Begin, i});
             }
         }
 
-        Memo.push_back(false);
         int Result = 0;
         int Count = 0;
-        for(bool B : Memo)
+        int PrevEnd = -1;
+        for(auto&[Begin, End] : Memo)
         {
-            if(B)
+            if(PrevEnd + 1 >= Begin)
             {
-                Count++;
+                Count += End - Begin + 1;
             }
             else
             {
-                Result = max(Result, Count);
-                Count = 0;
+                Count = End - Begin + 1;
             }
+            Result = max(Result, Count);
+            PrevEnd = End;
         }
-
         return Result;
     }
 };
