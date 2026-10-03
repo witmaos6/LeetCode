@@ -1,0 +1,51 @@
+class Solution {
+    /*
+        ( ( ( ( ) ( ( ) )
+                        i
+
+        1 2 3 4 3 4 5 4 3
+    */
+public:
+    int longestValidParentheses(string s)
+    {
+        const int N = s.size();
+        stack<int> Begins;
+        vector<bool> Memo(N);
+
+        for(int i = 0; i < N; i++)
+        {
+            if(s[i] == '(')
+            {
+                Begins.push(i);
+            }
+            else if(s[i] == ')' && !Begins.empty())
+            {
+                int Begin = Begins.top();
+                Begins.pop();
+
+                for(int j = Begin; j <= i; j++)
+                {
+                    Memo[j] = true;
+                }
+            }
+        }
+
+        Memo.push_back(false);
+        int Result = 0;
+        int Count = 0;
+        for(bool B : Memo)
+        {
+            if(B)
+            {
+                Count++;
+            }
+            else
+            {
+                Result = max(Result, Count);
+                Count = 0;
+            }
+        }
+
+        return Result;
+    }
+};
