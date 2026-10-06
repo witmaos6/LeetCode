@@ -5,7 +5,7 @@ public:
         int OpenCount = 0;
         int Mismatch = 0;
         
-        for(char C : s)
+        for(char& C : s)
         {
             if(C == '(')
             {
