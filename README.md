@@ -424,6 +424,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0115-distinct-subsequences](https://github.com/witmaos6/LeetCode/tree/master/0115-distinct-subsequences) |
 | [0165-compare-version-numbers](https://github.com/witmaos6/LeetCode/tree/master/0165-compare-version-numbers) |
 | [0166-fraction-to-recurring-decimal](https://github.com/witmaos6/LeetCode/tree/master/0166-fraction-to-recurring-decimal) |
+| [0301-remove-invalid-parentheses](https://github.com/witmaos6/LeetCode/tree/master/0301-remove-invalid-parentheses) |
 | [0316-remove-duplicate-letters](https://github.com/witmaos6/LeetCode/tree/master/0316-remove-duplicate-letters) |
 | [0474-ones-and-zeroes](https://github.com/witmaos6/LeetCode/tree/master/0474-ones-and-zeroes) |
 | [0657-robot-return-to-origin](https://github.com/witmaos6/LeetCode/tree/master/0657-robot-return-to-origin) |
@@ -1156,6 +1157,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Breadth-First Search
 |  |
 | ------- |
+| [0301-remove-invalid-parentheses](https://github.com/witmaos6/LeetCode/tree/master/0301-remove-invalid-parentheses) |
 | [0310-minimum-height-trees](https://github.com/witmaos6/LeetCode/tree/master/0310-minimum-height-trees) |
 | [0407-trapping-rain-water-ii](https://github.com/witmaos6/LeetCode/tree/master/0407-trapping-rain-water-ii) |
 | [0417-pacific-atlantic-water-flow](https://github.com/witmaos6/LeetCode/tree/master/0417-pacific-atlantic-water-flow) |
@@ -1743,6 +1745,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0022-generate-parentheses](https://github.com/witmaos6/LeetCode/tree/master/0022-generate-parentheses) |
 | [0037-sudoku-solver](https://github.com/witmaos6/LeetCode/tree/master/0037-sudoku-solver) |
+| [0301-remove-invalid-parentheses](https://github.com/witmaos6/LeetCode/tree/master/0301-remove-invalid-parentheses) |
 | [0401-binary-watch](https://github.com/witmaos6/LeetCode/tree/master/0401-binary-watch) |
 | [0679-24-game](https://github.com/witmaos6/LeetCode/tree/master/0679-24-game) |
 | [0756-pyramid-transition-matrix](https://github.com/witmaos6/LeetCode/tree/master/0756-pyramid-transition-matrix) |
