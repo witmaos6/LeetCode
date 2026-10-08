@@ -2,29 +2,26 @@ class Solution {
 public:
     string removeOuterParentheses(string s)
     {
-        const int N = s.size();
-        int Depth = 0;
         string Result;
-        stack<int> Indices;
+        int Open = 0;
 
-        for(int i = 0; i < N; i++)
+        for(char& C : s)
         {
-            if(s[i] == '(')
+            if(C == '(')
             {
-                Depth++;
-                Indices.push(i);
+                if(Open > 0)
+                    Result += '(';
+                
+                Open++;
             }
-            else if(s[i] == ')')
+            else
             {
-                Depth--;
-                if(Depth == 0)
-                {
-                    int Index = Indices.top();
-                    Result += s.substr(Index + 1, i - Index - 1);
-                }
-                Indices.pop();
+                Open--;
+                if(Open > 0)
+                    Result += ')';
             }
         }
+        
         return Result;
     }
 };
