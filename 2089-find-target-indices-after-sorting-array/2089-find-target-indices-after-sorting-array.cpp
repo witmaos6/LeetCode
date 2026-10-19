@@ -5,12 +5,12 @@ public:
         sort(nums.begin(), nums.end());
         const int N = nums.size();
         vector<int> Result;
-        for(int i = 0; i < N; i++)
+
+        int Begin = lower_bound(nums.begin(), nums.end(), target) - nums.begin();
+        int End = upper_bound(nums.begin(), nums.end(), target) - nums.begin();
+        for(int i = Begin; i < End; i++)
         {
-            if(nums[i] == target)
-            {
-                Result.push_back(i);
-            }
+            Result.push_back(i);
         }
         return Result;
     }
