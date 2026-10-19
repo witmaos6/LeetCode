@@ -156,6 +156,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [2048-build-array-from-permutation](https://github.com/witmaos6/LeetCode/tree/master/2048-build-array-from-permutation) |
 | [2078-two-furthest-houses-with-different-colors](https://github.com/witmaos6/LeetCode/tree/master/2078-two-furthest-houses-with-different-colors) |
 | [2079-delete-duplicate-folders-in-system](https://github.com/witmaos6/LeetCode/tree/master/2079-delete-duplicate-folders-in-system) |
+| [2089-find-target-indices-after-sorting-array](https://github.com/witmaos6/LeetCode/tree/master/2089-find-target-indices-after-sorting-array) |
 | [2091-removing-minimum-and-maximum-from-array](https://github.com/witmaos6/LeetCode/tree/master/2091-removing-minimum-and-maximum-from-array) |
 | [2107-find-unique-binary-string](https://github.com/witmaos6/LeetCode/tree/master/2107-find-unique-binary-string) |
 | [2110-number-of-smooth-descent-periods-of-a-stock](https://github.com/witmaos6/LeetCode/tree/master/2110-number-of-smooth-descent-periods-of-a-stock) |
@@ -1473,6 +1474,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1878-get-biggest-three-rhombus-sums-in-a-grid](https://github.com/witmaos6/LeetCode/tree/master/1878-get-biggest-three-rhombus-sums-in-a-grid) |
 | [1984-minimum-difference-between-highest-and-lowest-of-k-scores](https://github.com/witmaos6/LeetCode/tree/master/1984-minimum-difference-between-highest-and-lowest-of-k-scores) |
 | [2033-minimum-operations-to-make-a-uni-value-grid](https://github.com/witmaos6/LeetCode/tree/master/2033-minimum-operations-to-make-a-uni-value-grid) |
+| [2089-find-target-indices-after-sorting-array](https://github.com/witmaos6/LeetCode/tree/master/2089-find-target-indices-after-sorting-array) |
 | [2092-find-all-people-with-secret](https://github.com/witmaos6/LeetCode/tree/master/2092-find-all-people-with-secret) |
 | [2126-destroying-asteroids](https://github.com/witmaos6/LeetCode/tree/master/2126-destroying-asteroids) |
 | [2141-maximum-running-time-of-n-computers](https://github.com/witmaos6/LeetCode/tree/master/2141-maximum-running-time-of-n-computers) |
@@ -1962,6 +1964,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1851-maximum-number-of-events-that-can-be-attended-ii](https://github.com/witmaos6/LeetCode/tree/master/1851-maximum-number-of-events-that-can-be-attended-ii) |
 | [1855-maximum-distance-between-a-pair-of-values](https://github.com/witmaos6/LeetCode/tree/master/1855-maximum-distance-between-a-pair-of-values) |
 | [1970-last-day-where-you-can-still-cross](https://github.com/witmaos6/LeetCode/tree/master/1970-last-day-where-you-can-still-cross) |
+| [2089-find-target-indices-after-sorting-array](https://github.com/witmaos6/LeetCode/tree/master/2089-find-target-indices-after-sorting-array) |
 | [2141-maximum-running-time-of-n-computers](https://github.com/witmaos6/LeetCode/tree/master/2141-maximum-running-time-of-n-computers) |
 | [2150-kth-smallest-product-of-two-sorted-arrays](https://github.com/witmaos6/LeetCode/tree/master/2150-kth-smallest-product-of-two-sorted-arrays) |
 | [2180-maximum-number-of-tasks-you-can-assign](https://github.com/witmaos6/LeetCode/tree/master/2180-maximum-number-of-tasks-you-can-assign) |
