@@ -9,12 +9,10 @@ public:
         int ArriveBob = DayToInt(arriveBob);
         int LeaveBob = DayToInt(leaveBob);
 
-        if(ArriveAlice <= ArriveBob && ArriveBob <= LeaveAlice)
-            return min(LeaveAlice, LeaveBob) - max(ArriveBob, ArriveAlice) + 1;
-        if(ArriveBob <= ArriveAlice && ArriveAlice <= LeaveBob)
-            return min(LeaveAlice, LeaveBob) - max(ArriveBob, ArriveAlice) + 1;
+        int Begin = max(ArriveBob, ArriveAlice);
+        int End = min(LeaveAlice, LeaveBob);
 
-        return 0;
+        return max(0, End - Begin + 1);
     }
 private:
     int DayToInt(string& S)
@@ -22,11 +20,10 @@ private:
         int Mon = (S[0] - '0') * 10 + (S[1] - '0');
         int Day = (S[3] - '0') * 10 + (S[4] - '0');
 
-        int Total = 0;
         for(int i = 0; i < Mon - 1; i++)
         {
-            Total += Month[i];
+            Day += Month[i];
         }
-        return Total + Day;
+        return Day;
     }
 };
