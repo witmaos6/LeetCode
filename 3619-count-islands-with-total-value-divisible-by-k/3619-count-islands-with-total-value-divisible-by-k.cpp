@@ -2,6 +2,7 @@ class Solution {
     int Rows = 0;
     int Cols = 0;
     using Point = pair<int, int>;
+    array<int, 5> Dir = {1, 0, -1, 0, 1};
     int K = 0;
 public:
     int countIslands(vector<vector<int>>& grid, int k)
@@ -18,29 +19,41 @@ public:
                 if(grid[Row][Col] == 0)
                     continue;
 
-                int Sum = DFS(grid, Row, Col);
+                int Sum = BFS(grid, Row, Col);
                 if(Sum % k == 0)
                     Count++;
             }
         }
         return Count;
     }
+
 private:
-array<int, 5> Dir = {1, 0, -1, 0, 1};
-
-    int DFS(vector<vector<int>>& Grid, int Row, int Col)
+    int BFS(vector<vector<int>>& Grid, int BeginRow, int BeginCol)
     {
-        int Sum = Grid[Row][Col];
-        Grid[Row][Col] = 0;
+        queue<Point> Q;
+        Q.push({BeginRow, BeginCol});
+        int Sum = 0;
 
-        for(int i = 0; i < 4; i++)
+        while(!Q.empty())
         {
-            int DRow = Row + Dir[i];
-            int DCol = Col + Dir[i + 1];
+            auto[Row, Col] = Q.front();
+            Q.pop();
 
-            if(InBoundary(DRow, DCol) && Grid[DRow][DCol] > 0)
+            if(Grid[Row][Col] == 0)
+                continue;
+
+            Sum = (Sum + Grid[Row][Col]) % K;
+            Grid[Row][Col] = 0;
+
+            for(int i = 0; i < 4; i++)
             {
-                Sum = (Sum + DFS(Grid, DRow, DCol)) % K;
+                int DRow = Row + Dir[i];
+                int DCol = Col + Dir[i + 1];
+
+                if(InBoundary(DRow, DCol) && Grid[DRow][DCol] > 0)
+                {
+                    Q.push({DRow, DCol});
+                }
             }
         }
         return Sum;
