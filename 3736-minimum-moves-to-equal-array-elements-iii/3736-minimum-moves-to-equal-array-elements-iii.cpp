@@ -2,12 +2,15 @@ class Solution {
 public:
     int minMoves(vector<int>& nums)
     {
-        int Max = *ranges::max_element(nums);
-        int Result = 0;
+        int Max = 0;
+        int Sum = 0;
         for(int& Num : nums)
         {
-            Result += Max - Num;
+            Sum += Num;
+            Max = max(Max, Num);
         }
-        return Result;
+        const int N = nums.size();
+
+        return Max * N - Sum;
     }
 };
