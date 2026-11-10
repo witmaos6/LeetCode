@@ -7,9 +7,11 @@ public:
         for(int i = n; i >= 0; i--)
         {
             int Range = max(0, i - 3);
+            int D = 0;
             for(int j = i - 1; j >= Range; j--)
             {
-                int Value = costs[i - 1] + (i - j) * (i - j);
+                D++;
+                int Value = costs[i - 1] + D * D;
                 Memo[j] = min(Memo[j], Memo[i] + Value);
             }
         }
