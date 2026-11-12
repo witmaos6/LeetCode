@@ -10,21 +10,20 @@ public:
         {
             if(nums[i - 1] < nums[i])
             {
-                DecreasingCount = 1;
-
                 IncreasingCount++;
                 MaxCount = max(MaxCount, IncreasingCount);
             }
-            else if(nums[i - 1] > nums[i])
+            else
             {
                 IncreasingCount = 1;
-
+            }
+            if(nums[i - 1] > nums[i])
+            {
                 DecreasingCount++;
                 MaxCount = max(MaxCount, DecreasingCount);
             }
             else
             {
-                IncreasingCount = 1;
                 DecreasingCount = 1;
             }
         }
