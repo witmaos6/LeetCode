@@ -3,33 +3,32 @@ public:
     int longestMonotonicSubarray(vector<int>& nums)
     {
         const int N = nums.size();
-        int Count = 1;
+        int IncreasingCount = 1;
+        int DecreasingCount = 1;
         int MaxCount = 1;
         for(int i = 1; i < N; i++)
         {
             if(nums[i - 1] < nums[i])
             {
-                Count++;
-                MaxCount = max(MaxCount, Count);
+                DecreasingCount = 1;
+
+                IncreasingCount++;
+                MaxCount = max(MaxCount, IncreasingCount);
+            }
+            else if(nums[i - 1] > nums[i])
+            {
+                IncreasingCount = 1;
+
+                DecreasingCount++;
+                MaxCount = max(MaxCount, DecreasingCount);
             }
             else
             {
-                Count = 1;
+                IncreasingCount = 1;
+                DecreasingCount = 1;
             }
         }
-        Count = 1;
-        for(int i = 1; i < N; i++)
-        {
-            if(nums[i - 1] > nums[i])
-            {
-                Count++;
-                MaxCount = max(MaxCount, Count);
-            }
-            else
-            {
-                Count = 1;
-            }
-        }
+        
         return MaxCount;
     }
 };
