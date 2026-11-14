@@ -7,16 +7,11 @@ public:
         for(int i = 0; i <= N - l; i++)
         {
             int Sum = 0;
-            for(int j = i; j < i + l - 1; j++)
-            {
-                Sum += nums[j];
-            }
-
             int Range = min(i + r, N);
-            for(int j = i + l - 1; j < Range; j++)
+            for(int j = i; j < Range; j++)
             {
                 Sum += nums[j];
-                if(Sum > 0)
+                if(j - i + 1 >= l && Sum > 0)
                     Min = min(Min, Sum);
             }
         }
