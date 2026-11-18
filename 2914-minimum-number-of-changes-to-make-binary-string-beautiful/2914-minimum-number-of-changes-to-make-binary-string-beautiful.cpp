@@ -2,7 +2,7 @@ class Solution {
 public:
     int minChanges(string s)
     {
-        const int N = static_cast<int>(s.size());
+        const int N = s.size();
         int Count = 0;
         
         for(int i = 0; i < N; i += 2)
