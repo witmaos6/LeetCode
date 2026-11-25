@@ -447,6 +447,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [3886-sum-of-sortable-integers](https://github.com/witmaos6/LeetCode/tree/master/3886-sum-of-sortable-integers) |
 | [3903-smallest-stable-index-i](https://github.com/witmaos6/LeetCode/tree/master/3903-smallest-stable-index-i) |
 | [3904-smallest-stable-index-ii](https://github.com/witmaos6/LeetCode/tree/master/3904-smallest-stable-index-ii) |
+| [3934-smallest-unique-subarray](https://github.com/witmaos6/LeetCode/tree/master/3934-smallest-unique-subarray) |
 | [3942-minimum-operations-to-sort-a-permutation](https://github.com/witmaos6/LeetCode/tree/master/3942-minimum-operations-to-sort-a-permutation) |
 ## String
 |  |
@@ -964,6 +965,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [3834-minimum-operations-to-convert-all-elements-to-zero](https://github.com/witmaos6/LeetCode/tree/master/3834-minimum-operations-to-convert-all-elements-to-zero) |
 | [3863-power-grid-maintenance](https://github.com/witmaos6/LeetCode/tree/master/3863-power-grid-maintenance) |
 | [3872-find-most-frequent-vowel-and-consonant](https://github.com/witmaos6/LeetCode/tree/master/3872-find-most-frequent-vowel-and-consonant) |
+| [3934-smallest-unique-subarray](https://github.com/witmaos6/LeetCode/tree/master/3934-smallest-unique-subarray) |
 ## Bit Manipulation
 |  |
 | ------- |
@@ -1044,12 +1046,14 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [1461-check-if-a-string-contains-all-binary-codes-of-size-k](https://github.com/witmaos6/LeetCode/tree/master/1461-check-if-a-string-contains-all-binary-codes-of-size-k) |
 | [3309-count-prefix-and-suffix-pairs-i](https://github.com/witmaos6/LeetCode/tree/master/3309-count-prefix-and-suffix-pairs-i) |
+| [3934-smallest-unique-subarray](https://github.com/witmaos6/LeetCode/tree/master/3934-smallest-unique-subarray) |
 ## Hash Function
 |  |
 | ------- |
 | [1461-check-if-a-string-contains-all-binary-codes-of-size-k](https://github.com/witmaos6/LeetCode/tree/master/1461-check-if-a-string-contains-all-binary-codes-of-size-k) |
 | [2079-delete-duplicate-folders-in-system](https://github.com/witmaos6/LeetCode/tree/master/2079-delete-duplicate-folders-in-system) |
 | [3309-count-prefix-and-suffix-pairs-i](https://github.com/witmaos6/LeetCode/tree/master/3309-count-prefix-and-suffix-pairs-i) |
+| [3934-smallest-unique-subarray](https://github.com/witmaos6/LeetCode/tree/master/3934-smallest-unique-subarray) |
 ## Greedy
 |  |
 | ------- |
@@ -2108,6 +2112,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [3790-fruits-into-baskets-ii](https://github.com/witmaos6/LeetCode/tree/master/3790-fruits-into-baskets-ii) |
 | [3791-fruits-into-baskets-iii](https://github.com/witmaos6/LeetCode/tree/master/3791-fruits-into-baskets-iii) |
 | [3827-implement-router](https://github.com/witmaos6/LeetCode/tree/master/3827-implement-router) |
+| [3934-smallest-unique-subarray](https://github.com/witmaos6/LeetCode/tree/master/3934-smallest-unique-subarray) |
 ## Queue
 |  |
 | ------- |
@@ -2411,4 +2416,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [1569-number-of-ways-to-reorder-array-to-get-same-bst](https://github.com/witmaos6/LeetCode/tree/master/1569-number-of-ways-to-reorder-array-to-get-same-bst) |
+## Suffix Array
+|  |
+| ------- |
+| [3934-smallest-unique-subarray](https://github.com/witmaos6/LeetCode/tree/master/3934-smallest-unique-subarray) |
 <!---LeetCode Topics End-->
